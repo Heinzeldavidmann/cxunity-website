@@ -133,9 +133,9 @@ p {
 .hero {
     min-height: calc(100vh - 84px);
     display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+    grid-template-columns: minmax(0, 1.22fr) minmax(300px, 0.78fr);
     align-items: center;
-    gap: 76px;
+    gap: 56px;
     padding-top: 76px;
 }
 
@@ -149,20 +149,20 @@ p {
 }
 
 h1 {
-    max-width: 760px;
+    max-width: 780px;
     margin-bottom: 28px;
     color: var(--color-text);
-    font-size: clamp(2.55rem, 5.05vw, 4.85rem);
-    line-height: 0.98;
-    letter-spacing: -0.065em;
+    font-size: clamp(2.45rem, 3.95vw, 3.9rem);
+    line-height: 1.05;
+    letter-spacing: -0.045em;
 }
 
 h2 {
-    max-width: 760px;
+    max-width: 860px;
     margin-bottom: 24px;
     color: var(--color-text);
-    font-size: clamp(2.1rem, 4.3vw, 4.2rem);
-    line-height: 1.02;
+    font-size: clamp(2rem, 3.7vw, 3.65rem);
+    line-height: 1.04;
     letter-spacing: -0.05em;
 }
 
@@ -249,12 +249,12 @@ h3 {
 .hero-visual img {
     position: relative;
     z-index: 2;
-    width: min(100%, 360px);
+    width: min(100%, 330px);
     height: auto;
 }
 
 .section-heading {
-    max-width: 840px;
+    max-width: 900px;
 }
 
 .section-heading p {
@@ -291,23 +291,251 @@ h3 {
     border-radius: var(--radius-medium);
     background: #ffffff;
     box-shadow: 0 18px 54px rgba(47, 50, 55, 0.05);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .card p {
     margin-bottom: 0;
 }
 
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 62px rgba(47, 50, 55, 0.08);
+    border-color: rgba(183, 154, 214, 0.28);
+}
+
+.use-case-circles {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+    margin-top: 56px;
+    align-items: start;
+}
+
+.use-case-circle-item {
+    position: relative;
+    min-height: 260px;
+    text-align: center;
+    outline: none;
+}
+
+.use-case-circle {
+    width: 132px;
+    height: 132px;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    background:
+        radial-gradient(circle at 26% 22%, rgba(255, 255, 255, 0.92), transparent 34%),
+        linear-gradient(135deg, rgba(183, 154, 214, 0.2), rgba(169, 200, 175, 0.24));
+    border: 1px solid rgba(47, 50, 55, 0.08);
+    box-shadow: 0 22px 58px rgba(47, 50, 55, 0.08);
+    transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.use-case-circle span {
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.use-case-circle-item h3 {
+    max-width: 260px;
+    margin: 0 auto;
+    font-size: 1.04rem;
+    line-height: 1.25;
+}
+
+.use-case-circle-item p {
+    position: absolute;
+    left: 50%;
+    top: 206px;
+    width: min(260px, calc(100vw - 48px));
+    margin: 0;
+    padding: 18px 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 18px 48px rgba(47, 50, 55, 0.08);
+    backdrop-filter: blur(18px);
+    color: var(--color-muted);
+    font-size: 0.92rem;
+    line-height: 1.45;
+    text-align: left;
+    opacity: 0;
+    transform: translate(-50%, 10px);
+    pointer-events: none;
+    transition: opacity 180ms ease, transform 180ms ease;
+    z-index: 5;
+}
+
+.use-case-circle-item:hover .use-case-circle,
+.use-case-circle-item:focus-within .use-case-circle,
+.use-case-circle-item:focus .use-case-circle {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 70px rgba(47, 50, 55, 0.11);
+    border-color: rgba(183, 154, 214, 0.28);
+}
+
+.use-case-circle-item:hover p,
+.use-case-circle-item:focus-within p,
+.use-case-circle-item:focus p {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+/* Comparison Table Styles */
+.comparison-block {
+    margin-top: 82px;
+    padding: clamp(28px, 4vw, 48px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-large);
+    background:
+        radial-gradient(circle at 12% 12%, rgba(183, 154, 214, 0.16), transparent 32%),
+        radial-gradient(circle at 90% 82%, rgba(169, 200, 175, 0.18), transparent 34%),
+        #ffffff;
+    box-shadow: 0 22px 64px rgba(47, 50, 55, 0.06);
+}
+
+.comparison-heading {
+    max-width: 760px;
+    margin-bottom: 34px;
+}
+
+.comparison-heading .eyebrow {
+    margin-bottom: 16px;
+    color: var(--color-lavender);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.comparison-heading h3 {
+    max-width: 760px;
+    margin-bottom: 14px;
+    font-size: clamp(1.45rem, 2.2vw, 2.05rem);
+    line-height: 1.12;
+    letter-spacing: -0.035em;
+}
+
+.comparison-heading p {
+    max-width: 740px;
+    margin-bottom: 0;
+    font-size: 1.04rem;
+}
+
+.comparison-table-wrap {
+    overflow-x: auto;
+    border: 1px solid rgba(47, 50, 55, 0.1);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.82);
+    box-shadow: 0 18px 54px rgba(47, 50, 55, 0.05);
+}
+
+.comparison-table {
+    width: 100%;
+    min-width: 820px;
+    border-collapse: collapse;
+    color: var(--color-text);
+    font-size: 0.94rem;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 18px;
+    border-bottom: 1px solid rgba(47, 50, 55, 0.08);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.comparison-table thead th {
+    color: var(--color-text);
+    background: rgba(244, 238, 249, 0.72);
+    font-size: 0.82rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.comparison-table tbody th {
+    width: 28%;
+    font-weight: 800;
+}
+
+.comparison-table tbody tr:last-child th,
+.comparison-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.comparison-table th:last-child,
+.comparison-table td:last-child {
+    background: linear-gradient(135deg, rgba(183, 154, 214, 0.13), rgba(169, 200, 175, 0.15));
+}
+
+.comparison-table thead th:last-child {
+    background: linear-gradient(135deg, rgba(183, 154, 214, 0.28), rgba(169, 200, 175, 0.28));
+}
+
+.comparison-table td strong {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 58px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: var(--color-text);
+    background: rgba(255, 255, 255, 0.78);
+    box-shadow: 0 10px 24px rgba(47, 50, 55, 0.06);
+    font-weight: 900;
+}
+
+@media (max-width: 1100px), (hover: none) {
+    .use-case-circle-item {
+        min-height: auto;
+    }
+
+    .use-case-circle-item p {
+        position: static;
+        width: auto;
+        max-width: 280px;
+        margin: 14px auto 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        text-align: center;
+    }
+
+    .use-case-circle-item:hover p,
+    .use-case-circle-item:focus-within p,
+    .use-case-circle-item:focus p {
+        transform: none;
+    }
+}
+
 .approach-card {
     position: relative;
     overflow: hidden;
     min-height: 190px;
-    padding-right: 76px;
+    padding-right: 30px;
 }
 
 .approach-card h3,
 .approach-card p {
     position: relative;
     z-index: 1;
+}
+.approach-card h3 {
+    max-width: calc(100% - 58px);
 }
 
 .approach-card-icon {
@@ -496,8 +724,34 @@ h3 {
         grid-template-columns: 1fr;
     }
 
+    .use-case-circles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 42px;
+    }
+
+    .use-case-circle-item {
+        min-height: auto;
+    }
+
+    .use-case-circle-item p {
+        position: static;
+        width: auto;
+        max-width: 280px;
+        margin: 14px auto 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        text-align: center;
+    }
+
     .approach-card {
-        padding-right: 86px;
+        padding-right: 30px;
     }
 
     .contact-content {
@@ -516,6 +770,10 @@ h3 {
         width: 118px;
         height: 118px;
         border-radius: 28px;
+    }
+
+    .comparison-block {
+        margin-top: 64px;
     }
 }
 
@@ -552,7 +810,7 @@ h3 {
 
     .approach-card {
         min-height: auto;
-        padding-right: 86px;
+        padding-right: 24px;
     }
 
     .approach-card-icon,
@@ -581,11 +839,11 @@ h3 {
     }
 
     h1 {
-        font-size: clamp(2.45rem, 12vw, 3.75rem);
+        font-size: clamp(2.35rem, 11vw, 3.45rem);
     }
 
     h2 {
-        font-size: clamp(2rem, 10vw, 3.1rem);
+        font-size: clamp(1.9rem, 9vw, 2.9rem);
     }
 
     .hero-text {
@@ -631,5 +889,83 @@ h3 {
 
     .contact-person span {
         font-size: 0.7rem;
+    }
+
+    .use-case-circles {
+        grid-template-columns: 1fr;
+        gap: 26px;
+        margin-top: 42px;
+    }
+
+    .use-case-circle-item {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: 88px minmax(0, 1fr);
+        grid-template-areas:
+            "circle title"
+            "circle text";
+        column-gap: 18px;
+        text-align: left;
+    }
+
+    .use-case-circle {
+        grid-area: circle;
+        width: 88px;
+        height: 88px;
+        margin: 0;
+    }
+
+    .use-case-circle span {
+        font-size: 0.72rem;
+    }
+
+    .use-case-circle-item h3 {
+        grid-area: title;
+        max-width: none;
+        margin: 0 0 8px;
+    }
+
+    .use-case-circle-item p {
+        position: static;
+        grid-area: text;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+        backdrop-filter: none;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        text-align: left;
+    }
+
+    .use-case-circle-item:hover p,
+    .use-case-circle-item:focus-within p,
+    .use-case-circle-item:focus p {
+        transform: none;
+    }
+
+    .comparison-block {
+        margin-top: 56px;
+        padding: 24px;
+        border-radius: 24px;
+    }
+
+    .comparison-heading {
+        margin-bottom: 24px;
+    }
+
+    .comparison-table {
+        min-width: 760px;
+        font-size: 0.88rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 15px 14px;
     }
 }
