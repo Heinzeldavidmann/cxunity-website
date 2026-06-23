@@ -626,7 +626,7 @@ h3 {
     display: grid;
     grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
     gap: 64px;
-    align-items: start;
+    align-items: stretch;
     margin-top: 32px;
 }
 
@@ -664,7 +664,7 @@ h1.subpage-h1,
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 32px;
+    padding: 20px 24px;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-medium);
     background:
@@ -672,7 +672,8 @@ h1.subpage-h1,
         radial-gradient(circle at 86% 86%, rgba(169, 200, 175, 0.16), transparent 50%),
         #ffffff;
     box-shadow: var(--shadow-soft);
-    margin-top: 8px;
+    margin-top: 0;
+    align-self: end;
 }
 
 .intro-stat {
@@ -2442,7 +2443,6 @@ h1.subpage-h1,
 /* ── STRATEGY SUBPAGE ── */
 
 .strategy-topic-section {
-    border-top: 1px solid var(--color-border);
 }
 
 .strategy-topic-alt {
@@ -2551,7 +2551,37 @@ h1.subpage-h1,
     border-radius: var(--radius);
     border: 1px solid var(--color-border);
     background: white;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+    cursor: default;
+}
+
+.strategy-solution-card:hover {
+    box-shadow: var(--shadow-soft);
+}
+
+.strategy-solution-card .card-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    border: 1px solid rgba(47,50,55,0.12);
+    border-radius: var(--radius-small);
+    padding: 13px 15px;
+    box-shadow: 0 12px 40px rgba(47,50,55,0.10);
+    font-size: 0.75rem;
+    line-height: 1.55;
+    color: var(--color-muted);
+    width: 220px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 160ms ease;
+}
+
+.strategy-solution-card:hover .card-tooltip {
+    opacity: 1;
 }
 
 .strategy-solution-card strong {
