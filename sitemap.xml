@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://cxunity.de/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cxunity.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cxunity.de/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cxunity.de/"/>
+  </url>
+  <url>
+    <loc>https://cxunity.de/en/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cxunity.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cxunity.de/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cxunity.de/"/>
+  </url>
+
+  <url>
+    <loc>https://cxunity.de/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cxunity.de/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cxunity.de/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cxunity.de/about.html"/>
+  </url>
+  <url>
+    <loc>https://cxunity.de/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cxunity.de/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cxunity.de/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cxunity.de/about.html"/>
+  </url>
+
+  <url>
+    <loc>https://cxunity.de/review.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cxunity.de/review.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cxunity.de/en/review.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cxunity.de/review.html"/>
+  </url>
+  <url>
+    <loc>https://cxunity.de/en/review.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cxunity.de/review.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cxunity.de/en/review.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cxunity.de/review.html"/>
+  </url>
+
+  <url>
+    <loc>https://cxunity.de/strategy.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cxunity.de/strategy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cxunity.de/en/strategy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cxunity.de/strategy.html"/>
+  </url>
+  <url>
+    <loc>https://cxunity.de/en/strategy.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cxunity.de/strategy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cxunity.de/en/strategy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cxunity.de/strategy.html"/>
+  </url>
+
+  <url>
+    <loc>https://cxunity.de/website.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cxunity.de/website.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cxunity.de/en/website.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cxunity.de/website.html"/>
+  </url>
+  <url>
+    <loc>https://cxunity.de/en/website.html</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://cxunity.de/website.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://cxunity.de/en/website.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://cxunity.de/website.html"/>
+  </url>
+
+  <url>
+    <loc>https://cxunity.de/imprint.html</loc>
+  </url>
+  <url>
+    <loc>https://cxunity.de/privacy.html</loc>
+  </url>
+
+</urlset>
