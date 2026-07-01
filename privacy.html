@@ -7,20 +7,25 @@
 
     <title>CXUnity – Improving CX and UX for digital products and services</title>
 
+  <link rel="canonical" href="https://cxunity.de/privacy.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CXUnity">
+  <meta property="og:title" content="CXUnity – Improving CX and UX for digital products and services">
+  <meta property="og:description" content="CXUnity connects Customer Experience, User Experience and Digital Business to shape useful, understandable and effective digital touchpoints.">
+  <meta property="og:url" content="https://cxunity.de/privacy.html">
+  <meta property="og:image" content="https://cxunity.de/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CXUnity – Improving CX and UX for digital products and services">
+  <meta name="twitter:description" content="CXUnity connects Customer Experience, User Experience and Digital Business to shape useful, understandable and effective digital touchpoints.">
+  <meta name="twitter:image" content="https://cxunity.de/assets/og-image.png">
+
     <link rel="icon" type="image/png" href="assets/logo/CXUnity_logo_rgb.png">
     <link rel="apple-touch-icon" href="assets/logo/CXUnity_logo_rgb.png">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5QMD7E1S3B"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-5QMD7E1S3B');
-</script>
+<!-- Google Analytics is loaded only after cookie consent, see cookie-consent.js -->
 
 <body>
 <header class="site-header">
@@ -60,15 +65,15 @@
         <div class="legal-card">
             <p class="eyebrow">Privacy</p>
             <h1>Privacy Policy</h1>
-            <p class="legal-updated">Last updated: 19 May 2026</p>
+            <p class="legal-updated">Last updated: 1 July 2026</p>
 
             <div class="legal-content">
                 <section>
                     <h2>1. General information</h2>
                     <p>
                         This privacy policy explains how personal data is processed when using this website.
-                        CXUnity is currently designed as a simple static website without analytics tracking,
-                        marketing cookies or contact forms.
+                        This website uses Google Analytics for statistical analysis, but only after you have
+                        given your consent via the cookie banner. Without consent, no analytics data is collected.
                     </p>
                 </section>
 
@@ -105,9 +110,29 @@
                 <section>
                     <h2>5. Cookies, analytics and external tracking</h2>
                     <p>
-                        This website does not intentionally use analytics tools, tracking pixels or marketing cookies.
-                        No user profiles are created and no website performance tracking is currently used. If this changes
-                        in the future, this privacy policy will be updated accordingly.
+                        When you visit this website, a cookie banner asks for your consent before any non-essential
+                        cookies are set. If you click "Accept", this website uses Google Analytics, a web analytics
+                        service provided by Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland
+                        ("Google"). Google Analytics uses cookies stored on your device to help analyse how visitors
+                        use the website, such as pages visited, time spent on the site and referring pages.
+                    </p>
+                    <p>
+                        The information generated is transmitted to and stored by Google on servers that may be
+                        located outside the European Economic Area, including in the United States. Google may
+                        process this data under its own standard contractual clauses with the EU. On this website,
+                        IP anonymisation is active, meaning your IP address is shortened by Google beforehand within
+                        member states of the EU or the European Economic Area.
+                    </p>
+                    <p>
+                        This processing takes place solely on the basis of your consent (Art. 6(1)(a) GDPR in
+                        conjunction with § 25(1) TTDSG). You can withdraw your consent at any time with effect for
+                        the future via the "Cookie Settings" link in the footer of this website, which lets you
+                        change or revoke your choice. If you click "Decline" or do not interact with the banner,
+                        Google Analytics is not loaded and no such data is collected.
+                    </p>
+                    <p>
+                        Further information on Google's data processing can be found in Google's privacy policy at
+                        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com/privacy</a>.
                     </p>
                 </section>
 
@@ -115,8 +140,10 @@
                     <h2>6. Legal basis</h2>
                     <p>
                         The processing of technical access data is based on the legitimate interest in providing a secure
-                        and functional website. The processing of data sent by email is based on the legitimate interest
-                        in responding to incoming requests and, where applicable, taking steps prior to entering into a contract.
+                        and functional website (Art. 6(1)(f) GDPR). The processing of data sent by email is based on the
+                        legitimate interest in responding to incoming requests and, where applicable, taking steps prior
+                        to entering into a contract (Art. 6(1)(f) and (b) GDPR). The use of Google Analytics is based
+                        exclusively on your consent (Art. 6(1)(a) GDPR, § 25(1) TTDSG), which you may withdraw at any time.
                     </p>
                 </section>
 
@@ -147,8 +174,11 @@
         <a href="imprint.html">Imprint</a>
         <span aria-hidden="true">·</span>
         <a href="privacy.html">Privacy Policy</a>
+    <span aria-hidden="true">·</span>
+    <button type="button" class="footer-link-button" onclick="window.cxunityOpenCookieSettings()">Cookie Settings</button>
     </div>
 </footer>
     <script src="index.js"></script>
+<script src="cookie-consent.js"></script>
 </body>
 </html>
