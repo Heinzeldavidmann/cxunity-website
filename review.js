@@ -1,7 +1,10 @@
+// Roadmap SVG on review.html: hover/focus tooltips on each step circle,
+// with the circle highlighting in that step's accent color while its tooltip is shown.
 (function () {
     var roadmap = document.querySelector('.roadmap[id]');
-    if (!roadmap) return;
+    if (!roadmap) return; // page has no roadmap section, nothing to do
 
+    // Fallback gradient reference used to reset a circle's stroke when its tooltip closes
     var gradId = roadmap.querySelector('linearGradient[id]');
     var gradRef = gradId ? 'url(#' + gradId.id + ')' : 'url(#rm-grad)';
 
@@ -13,6 +16,7 @@
         ];
     }
 
+    // Lightens a hex color toward white by `amount` (0-1) — used for the circle's fill on hover
     function tint(hex, amount) {
         var rgb = hexToRgb(hex);
         return 'rgb(' +
@@ -21,6 +25,7 @@
             Math.round(rgb[2] + (255 - rgb[2]) * amount) + ')';
     }
 
+    // Each step circle (.rm-fo) with a data-tip attribute gets its own show/hide handlers
     roadmap.querySelectorAll('.rm-fo[data-tip]').forEach(function (g) {
         var tip = document.getElementById(g.getAttribute('data-tip'));
         if (!tip) return;
@@ -28,6 +33,7 @@
         var numEl = g.querySelector('.rm-svg-num');
         var color = g.getAttribute('data-color') || '#b79ad6';
 
+        // Positions the tooltip under the hovered/focused circle and applies the accent color
         function show() {
             var gRect = g.getBoundingClientRect();
             var rmRect = roadmap.getBoundingClientRect();
@@ -43,6 +49,7 @@
             if (numEl) numEl.setAttribute('fill', color);
         }
 
+        // Hides the tooltip and resets the circle back to its default gradient stroke/fill
         function hide() {
             tip.classList.remove('rm-tip--visible');
             if (circle) {
@@ -52,6 +59,7 @@
             if (numEl) numEl.removeAttribute('fill');
         }
 
+        // Mouse and keyboard users both get the same show/hide behavior
         g.addEventListener('mouseenter', show);
         g.addEventListener('mouseleave', hide);
         g.addEventListener('focus', show);

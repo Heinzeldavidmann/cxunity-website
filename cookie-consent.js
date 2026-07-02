@@ -1,8 +1,14 @@
+// Cookie consent banner + gate for Google Analytics.
+// Loaded on every page via <script src="cookie-consent.js">. Google Analytics (gtag.js) is
+// NEVER loaded until the visitor explicitly clicks "Accept" — required for GDPR/TTDSG compliance.
+// See privacy.html section 5 for the legal explanation shown to visitors.
 (function () {
     var GA_ID = 'G-5QMD7E1S3B';
-    var STORAGE_KEY = 'cxunity_cookie_consent';
+    var STORAGE_KEY = 'cxunity_cookie_consent'; // localStorage key: 'accepted' | 'declined' | not set
+
     var isEnglish = document.documentElement.lang === 'en';
 
+    // Banner copy in both languages, picked based on the page's <html lang="..">
     var text = isEnglish ? {
         title: 'Cookie settings',
         body: 'We use Google Analytics to understand how visitors use this website. This requires your consent. You can change your choice at any time via the link in the footer.',
@@ -17,11 +23,14 @@
         privacy: 'Datenschutzerklärung'
     };
 
+    // Privacy policy link in the banner needs a different relative path from en/ subpages
     function getPrivacyHref() {
         var path = window.location.pathname;
         return path.indexOf('/en/') !== -1 ? '../privacy.html' : 'privacy.html';
     }
 
+    // Injects the actual Google Analytics (gtag.js) script and fires the standard gtag calls.
+    // Only ever called after the visitor has accepted (either just now, or on a past visit).
     function loadGoogleAnalytics() {
         if (window.__gaLoaded) return;
         window.__gaLoaded = true;
@@ -38,6 +47,7 @@
         document.head.appendChild(script);
     }
 
+    // Reads the visitor's past choice from localStorage, if any ('accepted' / 'declined' / null)
     function getConsent() {
         try {
             return localStorage.getItem(STORAGE_KEY);
@@ -46,6 +56,7 @@
         }
     }
 
+    // Persists the visitor's choice so the banner doesn't show again on future visits
     function setConsent(value) {
         try {
             localStorage.setItem(STORAGE_KEY, value);
@@ -54,6 +65,7 @@
         }
     }
 
+    // Fades the banner out, then removes it from the DOM once the CSS transition finishes
     function removeBanner(banner) {
         banner.classList.remove('is-visible');
         window.setTimeout(function () {
@@ -61,6 +73,8 @@
         }, 260);
     }
 
+    // Builds and shows the banner (Accept/Decline buttons), wires up both button clicks.
+    // Called both on first visit and when the visitor reopens it via "Cookie Settings" in the footer.
     function buildBanner() {
         var banner = document.createElement('div');
         banner.className = 'cookie-banner';
@@ -98,6 +112,8 @@
         });
     }
 
+    // Entry point, runs immediately on page load: decides whether to load GA right away
+    // (past "accepted"), stay silent (past "declined"), or show the banner (no choice yet)
     function init() {
         var consent = getConsent();
 
@@ -117,6 +133,8 @@
         }
     }
 
+    // Exposed globally so the "Cookie Settings" footer button (inline onclick, see any page's
+    // <footer>) can reopen the banner even after a choice was already made
     window.cxunityOpenCookieSettings = function () {
         var existing = document.querySelector('.cookie-banner');
         if (existing) return;
