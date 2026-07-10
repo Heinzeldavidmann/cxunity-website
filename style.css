@@ -1009,9 +1009,32 @@ h1.subpage-h1,
         gap: 36px;
     }
 
+    .subpage-intro-content > *:nth-child(2):not(.subpage-intro-stats) {
+        display: none;
+    }
+
     .subpage-intro-stats {
-        flex-direction: row;
-        gap: 0;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 16px !important;
+        margin-top: 0 !important;
+        align-self: auto !important;
+        justify-content: flex-start !important;
+    }
+
+    .subpage-intro-stats-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        flex: 1;
+    }
+
+    .subpage-intro-stats .button {
+        flex-shrink: 0 !important;
+        align-self: center !important;
+        width: auto !important;
+        white-space: nowrap;
+        margin-top: 0 !important;
     }
 
     .intro-stat {
@@ -1281,11 +1304,29 @@ h1.subpage-h1,
 }
 
 .comparison-table-wrap {
+    position: relative;
     overflow-x: auto;
     border: 1px solid rgba(47, 50, 55, 0.1);
     border-radius: 22px;
     background: rgba(255, 255, 255, 0.82);
     box-shadow: 0 18px 54px rgba(47, 50, 55, 0.05);
+}
+
+.comparison-table-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 48px;
+    border-radius: 0 22px 22px 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
+    pointer-events: none;
+    transition: opacity 200ms ease;
+}
+
+.comparison-table-wrap.is-scrolled-end::after {
+    opacity: 0;
 }
 
 .comparison-table {
@@ -1794,9 +1835,12 @@ h1.subpage-h1,
         min-height: 360px;
     }
 
-    .three-columns,
-    .two-columns {
+    .three-columns {
         grid-template-columns: 1fr;
+    }
+
+    .two-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .use-case-circles {
@@ -1806,13 +1850,34 @@ h1.subpage-h1,
 
     .use-case-circle-item {
         min-height: auto;
+        display: grid;
+        grid-template-columns: 88px minmax(0, 1fr);
+        grid-template-areas:
+            "circle title"
+            "circle text";
+        column-gap: 18px;
+        text-align: left;
+    }
+
+    .use-case-circle {
+        grid-area: circle;
+        width: 88px;
+        height: 88px;
+        margin: 0;
+    }
+
+    .use-case-circle-item h3 {
+        grid-area: title;
+        max-width: none;
+        margin: 0 0 8px;
     }
 
     .use-case-circle-item p {
         position: static;
+        grid-area: text;
         width: auto;
-        max-width: 280px;
-        margin: 14px auto 0;
+        max-width: none;
+        margin: 0;
         padding: 0;
         border: none;
         border-radius: 0;
@@ -1822,7 +1887,7 @@ h1.subpage-h1,
         opacity: 1;
         transform: none;
         pointer-events: auto;
-        text-align: center;
+        text-align: left;
     }
 
     .approach-card {
@@ -1855,6 +1920,10 @@ h1.subpage-h1,
 @media (max-width: 700px) {
     :root {
         --section-spacing: 76px;
+    }
+
+    .two-columns {
+        grid-template-columns: 1fr;
     }
 
     .navbar {
@@ -2092,6 +2161,10 @@ h1.subpage-h1,
         font-size: 1.04rem;
     }
 
+    .hide-on-mobile {
+        display: none;
+    }
+
     .hero-actions {
         flex-direction: column;
     }
@@ -2101,13 +2174,13 @@ h1.subpage-h1,
     }
 
     .hero-visual {
-        min-height: 300px;
-        padding: 34px;
+        min-height: 180px;
+        padding: 24px;
         border-radius: 24px;
     }
 
     .hero-visual img {
-        width: min(100%, 280px);
+        width: min(100%, 160px);
     }
 
     .contact-content {
