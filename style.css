@@ -1312,22 +1312,6 @@ h1.subpage-h1,
     box-shadow: 0 18px 54px rgba(47, 50, 55, 0.05);
 }
 
-.comparison-table-wrap::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    width: 48px;
-    border-radius: 0 22px 22px 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0.9), transparent);
-    pointer-events: none;
-    transition: opacity 200ms ease;
-}
-
-.comparison-table-wrap.is-scrolled-end::after {
-    opacity: 0;
-}
 
 .comparison-table {
     width: 100%;
