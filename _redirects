@@ -1,0 +1,6 @@
+# Redirect old /de/ paths (legacy, when German was a subdirectory) to root
+/de/         /     301
+/de/*        /:splat  301
+
+# Redirect /en/ (trailing slash, no filename) to canonical URL with index.html
+/en/         /en/index.html  301
