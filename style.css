@@ -178,9 +178,14 @@ p {
 }
 
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.is-nav-active::after {
     transform: scaleX(1);
     transform-origin: left;
+}
+
+.nav-links a.is-nav-active {
+    color: var(--color-text);
 }
 
 .mobile-menu-toggle,
@@ -2297,6 +2302,61 @@ h1.subpage-h1,
     .comparison-table th,
     .comparison-table td {
         padding: 15px 14px;
+    }
+}
+
+/* =====================================================================
+   HERO ENTRANCE ANIMATIONS
+   ===================================================================== */
+
+.hero-content {
+    animation: hero-slide-left 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-visual {
+    animation: hero-slide-right 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes hero-slide-left {
+    from { opacity: 0; transform: translateX(-36px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes hero-slide-right {
+    from { opacity: 0; transform: translateX(36px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-content,
+    .hero-visual { animation: none; }
+}
+
+/* =====================================================================
+   SCROLL ANIMATIONS
+   ===================================================================== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 120ms; }
+.reveal-delay-2 { transition-delay: 240ms; }
+.reveal-delay-3 { transition-delay: 360ms; }
+.reveal-delay-4 { transition-delay: 480ms; }
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 }
 

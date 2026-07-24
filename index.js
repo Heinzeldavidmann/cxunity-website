@@ -1,3 +1,53 @@
+// Scroll-reveal: elements with .reveal animate in when they enter the viewport
+(function () {
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+})();
+
+// Active nav link: highlights the nav link matching the section currently in view
+(function () {
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    if (!navLinks.length) return;
+
+    const sectionIds = Array.from(navLinks).map((a) => a.getAttribute('href').slice(1));
+    const sections = sectionIds
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
+    const setActive = (id) => {
+        navLinks.forEach((a) => {
+            const matches = a.getAttribute('href') === '#' + id;
+            a.classList.toggle('is-nav-active', matches);
+        });
+    };
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActive(entry.target.id);
+                }
+            });
+        },
+        {
+            rootMargin: '-20% 0px -60% 0px',
+            threshold: 0,
+        }
+    );
+
+    sections.forEach((s) => observer.observe(s));
+})();
+
 // Mobile navigation menu (hamburger toggle) — loaded on every page via <script src="index.js">
 
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
