@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!-- Basic meta + page title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fünf Fragen, eine erste Einschätzung: Wie gut trägt deine Website die Erfahrung deiner Besucher? Ein kurzer Selbstcheck auf Basis bewährter UX-Prinzipien.">
+
+    <title>Website-Schnellcheck | CXUnity</title>
+
+  <!-- SEO: canonical URL + DE/EN language alternates -->
+  <link rel="canonical" href="https://cxunity.de/check.html">
+  <link rel="alternate" hreflang="de" href="https://cxunity.de/check.html">
+  <link rel="alternate" hreflang="en" href="https://cxunity.de/en/check.html">
+  <link rel="alternate" hreflang="x-default" href="https://cxunity.de/check.html">
+
+  <!-- Social share preview (LinkedIn/Slack/X link cards) -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CXUnity">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Website-Schnellcheck | CXUnity">
+  <meta property="og:description" content="Fünf Fragen, eine erste Einschätzung: Wie gut trägt deine Website die Erfahrung deiner Besucher? Ein kurzer Selbstcheck auf Basis bewährter UX-Prinzipien.">
+  <meta property="og:url" content="https://cxunity.de/check.html">
+  <meta property="og:image" content="https://cxunity.de/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Website-Schnellcheck | CXUnity">
+  <meta name="twitter:description" content="Fünf Fragen, eine erste Einschätzung: Wie gut trägt deine Website die Erfahrung deiner Besucher? Ein kurzer Selbstcheck auf Basis bewährter UX-Prinzipien.">
+  <meta name="twitter:image" content="https://cxunity.de/assets/og-image.png">
+
+    <link rel="icon" type="image/png" href="assets/logo/CXUnity_logo_rgb.png">
+    <link rel="apple-touch-icon" href="assets/logo/CXUnity_logo_rgb.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- Google Analytics is loaded only after cookie consent, see cookie-consent.js -->
+
+<body>
+<!-- Site header: logo, DE/EN language switch, desktop nav links, mobile hamburger menu -->
+<header class="site-header">
+    <nav class="navbar" aria-label="Hauptnavigation">
+        <a class="brand" href="index.html#top" aria-label="CXUnity Startseite">
+            <img src="assets/logo/CXUnity_Wortmarke.png" alt="CXUnity Logo">
+        </a>
+        <div class="language-switch" aria-label="Sprachauswahl">
+            <a class="language-option is-active" href="check.html" lang="de" aria-current="page">DE</a>
+            <span aria-hidden="true">|</span>
+            <a class="language-option" href="en/check.html" lang="en">EN</a>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html#approach">Ansatz</a>
+            <a href="index.html#focus">Leistungen</a>
+            <a href="index.html#use-cases">Anwendungsfälle</a>
+            <a href="index.html#why-cxunity">Warum CXUnity</a>
+            <a href="index.html#faq">FAQ</a>
+            <a href="index.html#contact">Kontakt</a>
+        </div>
+
+        <button class="mobile-menu-toggle" type="button" aria-label="Navigation öffnen" aria-expanded="false" aria-controls="mobile-navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div id="mobile-navigation" class="mobile-nav" aria-label="Mobile Navigation">
+        <a href="index.html#approach">Ansatz</a>
+        <a href="index.html#focus">Leistungen</a>
+        <a href="index.html#use-cases">Anwendungsfälle</a>
+        <a href="index.html#why-cxunity">Warum CXUnity</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="index.html#contact">Kontakt</a>
+        <div class="mobile-language-switch" aria-label="Sprachauswahl">
+            <a class="language-option is-active" href="check.html" lang="de" aria-current="page">DE</a>
+            <span aria-hidden="true">|</span>
+            <a class="language-option" href="en/check.html" lang="en">EN</a>
+        </div>
+    </div>
+</header>
+
+    <main>
+        <!-- Schnellcheck: fünf Fragen, Auswertung im Browser, keine Speicherung -->
+        <section class="section subpage-intro check-section">
+            <a class="review-back-link" href="index.html#top">Zurück zur Startseite</a>
+            <div class="check-card reveal">
+                <p class="eyebrow">Schnellcheck</p>
+                <h1>Wie gut trägt deine Website?</h1>
+                <p class="subpage-lead">Fünf Fragen, rund eine Minute. Du bekommst eine erste Einschätzung, wo deine Website stark ist und wo sich ein genauerer Blick lohnt.</p>
+                <p class="check-note">Das ist eine Selbsteinschätzung und kein Audit. Deine Antworten werden nicht gespeichert und nicht übertragen.</p>
+
+                <form id="check-form" class="check-form" novalidate>
+                    <div class="check-progress" aria-hidden="true"><div class="check-progress-bar" id="check-progress-bar"></div></div>
+                    <p class="check-progress-label" id="check-progress-label" aria-live="polite"></p>
+                    <fieldset class="check-question" data-index="0">
+                        <legend><span class="check-q-num">1</span><span class="check-q-text">Wer deine Startseite öffnet, versteht in wenigen Sekunden, worum es geht und was er hier tun kann.</span></legend>
+                        <div class="check-options" role="group" aria-label="Antwort wählen"><label class="check-option"><input type="radio" name="q0" value="2" required><span>Trifft zu</span></label><label class="check-option"><input type="radio" name="q0" value="1" required><span>Teilweise</span></label><label class="check-option"><input type="radio" name="q0" value="0" required><span>Trifft nicht zu</span></label><label class="check-option"><input type="radio" name="q0" value="x" required><span>Weiß ich nicht</span></label></div>
+                    </fieldset>
+                    <fieldset class="check-question" data-index="1">
+                        <legend><span class="check-q-num">2</span><span class="check-q-text">Die Navigation bietet nur wenige, klar benannte Wege, und der wichtigste Schritt fällt sofort auf.</span></legend>
+                        <div class="check-options" role="group" aria-label="Antwort wählen"><label class="check-option"><input type="radio" name="q1" value="2" required><span>Trifft zu</span></label><label class="check-option"><input type="radio" name="q1" value="1" required><span>Teilweise</span></label><label class="check-option"><input type="radio" name="q1" value="0" required><span>Trifft nicht zu</span></label><label class="check-option"><input type="radio" name="q1" value="x" required><span>Weiß ich nicht</span></label></div>
+                    </fieldset>
+                    <fieldset class="check-question" data-index="2">
+                        <legend><span class="check-q-num">3</span><span class="check-q-text">Nach einer Aktion, etwa dem Absenden eines Formulars, zeigt die Seite deutlich, dass es geklappt hat.</span></legend>
+                        <div class="check-options" role="group" aria-label="Antwort wählen"><label class="check-option"><input type="radio" name="q2" value="2" required><span>Trifft zu</span></label><label class="check-option"><input type="radio" name="q2" value="1" required><span>Teilweise</span></label><label class="check-option"><input type="radio" name="q2" value="0" required><span>Trifft nicht zu</span></label><label class="check-option"><input type="radio" name="q2" value="x" required><span>Weiß ich nicht</span></label></div>
+                    </fieldset>
+                    <fieldset class="check-question" data-index="3">
+                        <legend><span class="check-q-num">4</span><span class="check-q-text">Bei einem Tippfehler oder einer falschen Adresse wird man freundlich geführt und kommt leicht zurück.</span></legend>
+                        <div class="check-options" role="group" aria-label="Antwort wählen"><label class="check-option"><input type="radio" name="q3" value="2" required><span>Trifft zu</span></label><label class="check-option"><input type="radio" name="q3" value="1" required><span>Teilweise</span></label><label class="check-option"><input type="radio" name="q3" value="0" required><span>Trifft nicht zu</span></label><label class="check-option"><input type="radio" name="q3" value="x" required><span>Weiß ich nicht</span></label></div>
+                    </fieldset>
+                    <fieldset class="check-question" data-index="4">
+                        <legend><span class="check-q-num">5</span><span class="check-q-text">Auf dem Handy erreicht man den wichtigsten Button bequem mit dem Daumen, und nichts ist zu klein oder zu eng.</span></legend>
+                        <div class="check-options" role="group" aria-label="Antwort wählen"><label class="check-option"><input type="radio" name="q4" value="2" required><span>Trifft zu</span></label><label class="check-option"><input type="radio" name="q4" value="1" required><span>Teilweise</span></label><label class="check-option"><input type="radio" name="q4" value="0" required><span>Trifft nicht zu</span></label><label class="check-option"><input type="radio" name="q4" value="x" required><span>Weiß ich nicht</span></label></div>
+                    </fieldset>
+                    <p class="check-error" id="check-error" role="alert" hidden></p>
+                    <button type="submit" class="button button-primary">Ergebnis anzeigen</button>
+                </form>
+
+                <div id="check-result" class="check-result" hidden aria-live="polite">
+                    <p class="eyebrow">Dein Ergebnis</p>
+                    <h2 id="check-result-title"></h2>
+                    <p id="check-result-text"></p>
+                    <ul class="check-bars" id="check-bars"></ul>
+                    <div class="check-cta">
+                        <h3>Wenn du wissen willst, was dahintersteckt</h3>
+                        <p>Ich schaue mir die Website gemeinsam mit dir an und zeige, was sich mit wenig Aufwand verbessern lässt.</p>
+                        <div class="hero-actions">
+                            <a class="button button-primary" href="index.html#contact">Gespräch anfragen</a>
+                            <button type="button" class="button button-secondary" id="check-restart">Noch einmal starten</button>
+                        </div>
+                    </div>
+                </div>
+                <p class="check-source">Orientiert an den zehn Usability-Heuristiken von Jakob Nielsen (Nielsen Norman Group) und an den Laws of UX von Jon Yablonski. Die Formulierungen sind eigene.</p>
+            </div>
+        </section>
+    </main>
+    <script type="application/json" id="check-data">{"areas": [{"name": "Sofort verständlich", "good": "Die Seite wird ohne Fachwissen verstanden (Nielsen: Übereinstimmung mit der realen Welt).", "tip": "Ein klarer erster Eindruck entscheidet, ob Besucher bleiben. Schärfe Überschrift und erstes Angebot nach."}, {"name": "Wenige klare Wege", "good": "Die Auswahl ist überschaubar (Hick'sches Gesetz, Nielsen: Minimalismus).", "tip": "Je mehr gleichwertige Optionen, desto länger die Entscheidung. Hebe einen Hauptweg hervor und ordne den Rest unter."}, {"name": "Rückmeldung", "good": "Besucher wissen immer, was gerade passiert (Nielsen: Sichtbarkeit des Systemstatus).", "tip": "Fehlt die Rückmeldung, schicken Besucher doppelt ab oder brechen ab. Eine klare Bestätigung schafft Vertrauen."}, {"name": "Fehler abfangen", "good": "Fehler werden verhindert oder verständlich aufgefangen (Nielsen: Fehlervermeidung und Fehlerbehandlung).", "tip": "Eine hilfreiche Fehlerseite und klare Formularhinweise halten Besucher auf dem Weg, statt sie zu verlieren."}, {"name": "Mobil bedienbar", "good": "Die Seite ist mobil gut zu bedienen (Fitts' Gesetz: Größe und Erreichbarkeit von Zielen).", "tip": "Ein Großteil der Besucher kommt mobil. Größere Tippflächen und ein gut platzierter Hauptbutton zahlen direkt auf Anfragen ein."}], "levels": [{"min": 8, "title": "Stark aufgestellt", "text": "Die Grundlagen sitzen. Ein genauer Blick lohnt sich vor allem dort, wo du „teilweise“ gewählt hast."}, {"min": 5, "title": "Gute Basis mit Potenzial", "text": "Einiges funktioniert, bei anderen Punkten verschenkt die Website Wirkung. Das lässt sich meist gezielt verbessern."}, {"min": 0, "title": "Hier steckt viel Potenzial", "text": "Mehrere Grundlagen fehlen oder sind unklar. Das ist ein guter Zeitpunkt, die Erfahrung deiner Besucher bewusst zu gestalten."}], "good": "Das passt.", "mid": "Hier ist noch Luft nach oben.", "low": "Hier verschenkt die Website am meisten.", "unknown": "Das solltest du prüfen, denn was du nicht weißt, merken deine Besucher.", "unanswered": "Bitte beantworte alle Fragen.", "progress": "Frage {n} von {m}"}</script>
+
+
+    <!-- Footer: legal links + cookie settings button -->
+    <footer class="site-footer">
+        <p>© 2026 CXUnity. Entwickelt mit Klarheit, Sorgfalt und kontinuierlicher Verbesserung.</p>
+        <div class="footer-links" aria-label="Rechtliche Links">
+            <a href="check.html">Impressum</a>
+            <span aria-hidden="true">·</span>
+            <a href="privacy.html">Datenschutz</a>
+        <span aria-hidden="true">·</span>
+        <button type="button" class="footer-link-button" onclick="window.cxunityOpenCookieSettings()">Cookie-Einstellungen</button>
+        </div>
+    </footer>
+    <script src="index.js"></script>
+<script src="check.js"></script>
+<script src="cookie-consent.js"></script>
+</body>
+</html>
