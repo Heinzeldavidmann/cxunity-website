@@ -50,6 +50,9 @@
 
 // Mobile navigation menu (hamburger toggle) — loaded on every page via <script src="index.js">
 
+const isGerman = document.documentElement.lang === 'de';
+const navLabelOpen = isGerman ? 'Navigation öffnen' : 'Open navigation';
+const navLabelClose = isGerman ? 'Navigation schließen' : 'Close navigation';
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const mobileNavigation = document.querySelector('#mobile-navigation');
 const mobileNavigationLinks = document.querySelectorAll('#mobile-navigation a');
@@ -58,13 +61,13 @@ if (mobileMenuToggle && mobileNavigation) {
     // Open/close helpers keep the button's aria-expanded/aria-label and the menu's visibility in sync
     const closeMobileNavigation = () => {
         mobileMenuToggle.setAttribute('aria-expanded', 'false');
-        mobileMenuToggle.setAttribute('aria-label', 'Open navigation');
+        mobileMenuToggle.setAttribute('aria-label', navLabelOpen);
         mobileNavigation.classList.remove('is-open');
     };
 
     const openMobileNavigation = () => {
         mobileMenuToggle.setAttribute('aria-expanded', 'true');
-        mobileMenuToggle.setAttribute('aria-label', 'Close navigation');
+        mobileMenuToggle.setAttribute('aria-label', navLabelClose);
         mobileNavigation.classList.add('is-open');
     };
 
