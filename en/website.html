@@ -49,7 +49,17 @@
             </div>
             <div class="nav-links">
                 <a href="/en/#approach">Approach</a>
-                <a href="/en/#focus">Services</a>
+                <div class="nav-item has-menu">
+                  <a href="/en/#focus">Services</a>
+                  <div class="nav-menu">
+                    <ul class="nav-menu-panel">
+                      <li style="--i:0"><a href="/en/strategy"><span class="nav-menu-text"><span class="nav-menu-title">Digital Strategy &amp; Conception</span><span class="nav-menu-sub">Set a clear direction before building</span></span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 4l3.5 3L8 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                      <li style="--i:1"><a href="/en/review"><span class="nav-menu-text"><span class="nav-menu-title">Experience Audit</span><span class="nav-menu-sub">Find friction points and fix them</span></span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 4l3.5 3L8 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                      <li style="--i:2"><a href="/en/website" aria-current="page"><span class="nav-menu-text"><span class="nav-menu-title">Solution Design &amp; Development</span><span class="nav-menu-sub">Clearly structured and built for your audience</span></span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 4l3.5 3L8 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                      <li style="--i:3"><a href="/en/research"><span class="nav-menu-text"><span class="nav-menu-title">User Research, Insights &amp; Evaluation</span><span class="nav-menu-sub">Interviews, surveys and usability tests</span></span><svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2.5 7h9M8 4l3.5 3L8 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
+                    </ul>
+                  </div>
+                </div>
                 <a href="/en/#use-cases">Use Cases</a>
                 <a href="/en/#why-cxunity">Why CXUnity</a>
                 <a href="/en/#faq">FAQ</a>
@@ -62,6 +72,10 @@
         <div id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation">
             <a href="/en/#approach">Approach</a>
             <a href="/en/#focus">Services</a>
+            <a class="mobile-subnav-link" href="/en/strategy">Digital Strategy &amp; Conception</a>
+            <a class="mobile-subnav-link" href="/en/review">Experience Audit</a>
+            <a class="mobile-subnav-link" href="/en/website" aria-current="page">Solution Design &amp; Development</a>
+            <a class="mobile-subnav-link" href="/en/research">User Research, Insights &amp; Evaluation</a>
             <a href="/en/#use-cases">Use Cases</a>
             <a href="/en/#why-cxunity">Why CXUnity</a>
             <a href="/en/#faq">FAQ</a>
@@ -85,7 +99,6 @@
             </a>
             <div class="subpage-intro-content reveal">
                 <div>
-                    <p class="eyebrow">Service 03</p>
                     <h1>Solution Design &amp; Development</h1>
                     <p class="subpage-lead">A good website or app starts with the right questions: Who should use it? What should that person understand, feel, do? And what impression should they take away from your business?</p>
                     <p class="subpage-lead">At CXUnity, these questions inform the design from the very beginning. Every solution is built individually, grounded in a real understanding of what lies behind.</p>
@@ -113,7 +126,6 @@
         <section class="section strategy-topic-section">
             <div class="strategy-topic-inner reveal">
                 <div class="strategy-topic-text">
-                    <p class="eyebrow">Approach</p>
                     <h2>Good digital solutions start with understanding people.</h2>
                     <p>At CXUnity, a website or app starts with an understanding of how people think, decide and act. Questions about the target audience, user behaviour and the core message come first, and the technology follows.</p>
                     <p>The foundation is three disciplines that converge at CXUnity: consumer psychology, business informatics and digital marketing. The result is digital solutions that look good and work in everyday use.</p>
@@ -148,7 +160,6 @@
         <section class="section strategy-topic-section strategy-topic-alt">
             <div class="strategy-topic-inner strategy-topic-inner-reverse reveal">
                 <div class="strategy-topic-text">
-                    <p class="eyebrow">Technology</p>
                     <h2>The technology follows the project, not the other way around.</h2>
                     <p>Whether custom code in HTML, CSS and JavaScript, a CMS for self-managed content, or React for more complex frontends: the technology chosen depends on what you need and what makes the most sense for your users.</p>
                     <p>If you want to manage content yourself, you get a solution that makes that possible. If speed and a tailored implementation matter most, you get exactly that. We figure out the right fit together in a free initial conversation.</p>
@@ -188,7 +199,6 @@
         <!-- ── PROCESS / ROADMAP ── -->
         <section id="process" class="section">
             <div class="section-heading reveal">
-                <p class="eyebrow">Process</p>
                 <h2>From the first idea to the finished website or app.</h2>
                 <p>Six phases that build on each other and are worked through together.</p>
                 <p class="rm-hover-hint">Hover over a step to learn more.</p>
@@ -265,26 +275,22 @@
         <!-- ── SCOPE ── -->
         <section class="section">
             <div class="review-deliverables reveal">
-                <p class="eyebrow">Scope</p>
                 <h2>What to expect.</h2>
                 <div class="deliverables-grid">
                     <div class="deliverable-item">
                         <div class="deliverable-header">
-                            <div class="deliverable-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><defs><linearGradient id="wdg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#b79ad6"/><stop offset="100%" stop-color="#a9c8af"/></linearGradient></defs><rect x="2" y="2" width="8" height="6" rx="1" stroke="url(#wdg1)" stroke-width="1.5"/><rect x="12" y="2" width="8" height="6" rx="1" stroke="url(#wdg1)" stroke-width="1.5"/><rect x="7" y="14" width="8" height="6" rx="1" stroke="url(#wdg1)" stroke-width="1.5"/><path d="M6 8v3h10V8M11 11v3" stroke="url(#wdg1)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                             <h3>Concept & structure</h3>
                         </div>
                         <p>Page structure, content logic and user flow are developed together before a single line of code is written.</p>
                     </div>
                     <div class="deliverable-item">
                         <div class="deliverable-header">
-                            <div class="deliverable-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><defs><linearGradient id="wdg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#b79ad6"/><stop offset="100%" stop-color="#a9c8af"/></linearGradient></defs><rect x="1" y="5" width="13" height="10" rx="1.5" stroke="url(#wdg2)" stroke-width="1.5"/><path d="M7 15v2M4 17h6" stroke="url(#wdg2)" stroke-width="1.5" stroke-linecap="round"/><rect x="16" y="8" width="5" height="8" rx="1" stroke="url(#wdg2)" stroke-width="1.5"/><path d="M18 14.5h1" stroke="url(#wdg2)" stroke-width="1.5" stroke-linecap="round"/></svg></div>
                             <h3>Responsive implementation</h3>
                         </div>
                         <p>The website works on all devices: smartphone, tablet and desktop. Responsive behaviour is considered from the start, not added as an afterthought.</p>
                     </div>
                     <div class="deliverable-item">
                         <div class="deliverable-header">
-                            <div class="deliverable-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><defs><linearGradient id="wdg3" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#b79ad6"/><stop offset="100%" stop-color="#a9c8af"/></linearGradient></defs><circle cx="11" cy="11" r="9" stroke="url(#wdg3)" stroke-width="1.5"/><path d="M7.5 11l2.5 2.5 4.5-4.5" stroke="url(#wdg3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
                             <h3>Support after launch</h3>
                         </div>
                         <p>CXUnity remains available after the website goes live. For CMS projects there is a walkthrough on content management. A direct line is available for questions and smaller adjustments.</p>
@@ -300,7 +306,6 @@
         <!-- Ausgewählte Projekte -->
         <section class="section projects-section">
           <div class="section-heading reveal">
-            <p class="eyebrow">Selected projects</p>
             <h2>Two websites that show what this looks like.</h2>
           </div>
           <div class="projects-grid reveal reveal-delay-1">
@@ -351,7 +356,6 @@
         <!-- ── FAQ ── -->
         <section class="section faq-section">
             <div class="faq-heading reveal">
-                <p class="eyebrow">FAQ</p>
                 <h2>Common questions about website and app development.</h2>
             </div>
             <div class="faq-list">
@@ -427,7 +431,6 @@
             <div class="contact-card reveal">
                 <div class="contact-content">
                     <div class="contact-copy">
-                        <p class="eyebrow">Contact</p>
                         <h2>Happy to talk it through together.</h2>
                         <p>The initial conversation is always free and non-binding. Whether the idea is already concrete or still taking shape: get in touch and we will look together at what your project needs.</p>
                         <a class="button button-primary" href="mailto:hello@cxunity.de">hello@cxunity.de</a>
