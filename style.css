@@ -95,6 +95,30 @@ a {
     text-decoration: none;
 }
 
+/* Keyboard focus: one visible ring for every interactive element */
+:where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-lavender-ink);
+    outline-offset: 3px;
+}
+
+/* Skip link: hidden until reached with the keyboard */
+.skip-link {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 1100;
+    padding: 10px 16px;
+    border-radius: var(--radius-control);
+    background: var(--color-text);
+    color: #ffffff;
+    font-weight: 600;
+    transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+    transform: none;
+}
+
 p,
 h1,
 h2,
@@ -188,7 +212,6 @@ p {
 .language-option:focus-visible {
     color: var(--color-text);
     background: rgba(255, 255, 255, 0.72);
-    outline: none;
 }
 
 .language-option.is-active {
@@ -510,6 +533,9 @@ h3 {
     position: relative;
     min-height: 260px;
     text-align: center;
+}
+
+.use-case-circle-item:focus:not(:focus-visible) {
     outline: none;
 }
 
@@ -2453,7 +2479,6 @@ h1.subpage-h1,
 /* SVG circle hover — use transform on the whole <g>, not just circle */
 .rm-fo {
     cursor: default;
-    outline: none;
     transition: transform 200ms ease, filter 200ms ease;
     transform-origin: center;
     transform-box: fill-box;
@@ -2463,6 +2488,15 @@ h1.subpage-h1,
 .rm-fo:focus {
     transform: none;
     filter: drop-shadow(0 6px 16px rgba(160,179,185,0.30));
+}
+
+.rm-fo:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.rm-fo:focus-visible {
+    outline-offset: 6px;
+    border-radius: 8px;
 }
 
 .rm-fo .rm-circle {
@@ -2479,7 +2513,7 @@ h1.subpage-h1,
     font-family: var(--font-body);
     font-size: 11px;
     font-weight: 750;
-    fill: #74777d;
+    fill: var(--color-muted);
     letter-spacing: 0.07em;
     pointer-events: none;
     transition: fill 200ms ease;
@@ -2487,7 +2521,7 @@ h1.subpage-h1,
 
 .rm-fo:hover .rm-svg-num,
 .rm-fo:focus .rm-svg-num {
-    fill: #8fa9a3;
+    fill: var(--color-mint-ink);
 }
 
 /* Label below circle */
@@ -2495,7 +2529,7 @@ h1.subpage-h1,
     font-family: var(--font-body);
     font-size: 10.5px;
     font-weight: 600;
-    fill: #74777d;
+    fill: var(--color-muted);
     pointer-events: none;
     transition: fill 200ms ease;
 }
