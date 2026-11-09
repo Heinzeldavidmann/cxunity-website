@@ -42,11 +42,14 @@
     --color-lavender: #b79ad6;
     --color-lavender-deep: #7f5fa6;
     --color-lavender-soft: #f4eef9;
+    --color-lavender-ink: #72588f;      /* lavender for text: >= 5:1 on white and lavender tints */
+    --color-lavender-on-dark: #cdb8e6;  /* lavender for text on dark #2c2c2c surfaces */
     --color-mint: #a9c8af;
     --color-mint-soft: #eef6f1;
+    --color-mint-ink: #5b8563;          /* mint for large text: >= 3:1 on white */
     --color-text: #3a3d43;
-    --color-muted: #74777d;
-    --color-light-text: #999999;
+    --color-muted: #676a70;
+    --color-light-text: #6e7177;
     --color-border: rgba(47, 50, 55, 0.12);
     --color-background: #ffffff;
     --color-surface: #fbfafc;
@@ -688,7 +691,7 @@ h3 {
     align-items: center;
     gap: 6px;
     margin-top: 18px;
-    color: var(--color-lavender);
+    color: var(--color-lavender-ink);
     font-size: 0.88rem;
     font-weight: 750;
     letter-spacing: 0.02em;
@@ -779,7 +782,7 @@ h1.subpage-h1,
     font-weight: 600;
     line-height: 1;
     letter-spacing: -0.01em;
-    background: linear-gradient(135deg, var(--color-lavender), var(--color-mint));
+    background: linear-gradient(135deg, var(--color-lavender-ink), var(--color-mint-ink));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -896,7 +899,7 @@ h1.subpage-h1,
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.28);
+    color: rgba(255,255,255,0.55);
     padding: 0 10px 6px;
 }
 
@@ -907,13 +910,13 @@ h1.subpage-h1,
     padding: 6px 10px;
     border-radius: 7px;
     font-size: 0.76rem;
-    color: rgba(255,255,255,0.48);
+    color: rgba(255,255,255,0.6);
     font-weight: 500;
 }
 
 .rdp-nav-item.rdp-active {
     background: rgba(183, 154, 214, 0.18);
-    color: var(--color-lavender);
+    color: var(--color-lavender-on-dark);
 }
 
 .rdp-dot {
@@ -948,7 +951,7 @@ h1.subpage-h1,
     height: 32px;
     border-radius: 8px;
     background: rgba(183, 154, 214, 0.18);
-    color: var(--color-lavender);
+    color: var(--color-lavender-ink);
     font-size: 0.82rem;
     font-weight: 900;
     display: flex;
@@ -1593,7 +1596,7 @@ h1.subpage-h1,
     height: 30px;
     padding: 0 10px;
     border-radius: var(--radius-control);
-    color: var(--color-lavender);
+    color: var(--color-lavender-ink);
     background: rgba(183, 154, 214, 0.14);
     font-size: 0.78rem;
     font-weight: 900;
@@ -2544,8 +2547,7 @@ h1.subpage-h1,
     gap: 6px;
     margin: 10px 0 0;
     font-size: 0.78rem;
-    color: var(--color-muted);
-    opacity: 0.75;
+    color: var(--color-light-text);
 }
 
 .rm-hover-hint::before {
@@ -2621,7 +2623,7 @@ h1.subpage-h1,
         font-family: var(--font-body);
         font-size: 11px;
         font-weight: 750;
-        color: #74777d;
+        color: var(--color-muted);
         letter-spacing: 0.07em;
     }
 
@@ -2844,7 +2846,7 @@ h1.subpage-h1,
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--color-lavender);
+    color: var(--color-lavender-ink);
 }
 
 .strategy-prfaq-doc-tag {
@@ -2853,7 +2855,7 @@ h1.subpage-h1,
     padding: 3px 10px;
     border-radius: var(--radius-control);
     background: rgba(183,154,214,0.15);
-    color: var(--color-lavender);
+    color: var(--color-lavender-ink);
     letter-spacing: 0.06em;
     text-transform: uppercase;
 }
@@ -2877,7 +2879,7 @@ h1.subpage-h1,
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-lavender);
+    color: var(--color-lavender-ink);
     margin-bottom: 10px;
     margin-top: 16px;
 }
@@ -2914,7 +2916,7 @@ h1.subpage-h1,
 .strategy-prfaq-doc-blur a {
     font-size: 0.82rem;
     font-weight: 600;
-    color: var(--color-lavender);
+    color: var(--color-lavender-ink);
     text-decoration: none;
 }
 
