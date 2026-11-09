@@ -1,0 +1,35 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-09T12:04:37.340Z",
+        "reason": "Claude triage 09.11.2026: rendered check shows inset lives on children (icon-only circles, padded table cells, padded FAQ summaries, contact card clamp(34px,6vw,72px)); critique of same day also classed these as false positives"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "about.html"
+        ],
+        "createdAt": "2026-11-09T12:49:44.524Z",
+        "reason": "Claude triage 09.11.2026: same FAQ items and contact card as index.html; inset lives on padded summary and card clamp(34px,6vw,72px)"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "en/about.html"
+        ],
+        "createdAt": "2026-11-09T12:49:44.546Z",
+        "reason": "Claude triage 09.11.2026: same FAQ items and contact card as index.html; inset lives on padded summary and card padding"
+      }
+    ]
+  }
+}
