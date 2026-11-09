@@ -23,10 +23,10 @@
         privacy: 'Datenschutzerklärung'
     };
 
-    // Privacy policy link in the banner needs a different relative path from en/ subpages
+    // Privacy policy link in the banner: English pages link to the English policy
     function getPrivacyHref() {
         var path = window.location.pathname;
-        return path.indexOf('/en/') !== -1 ? '../privacy.html' : 'privacy.html';
+        return (path === '/en' || path.indexOf('/en/') === 0) ? '/en/privacy' : '/privacy';
     }
 
     // Injects the actual Google Analytics (gtag.js) script and fires the standard gtag calls.

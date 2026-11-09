@@ -2,5 +2,25 @@
 /de/         /     301
 /de/*        /:splat  301
 
-# Redirect /en/ (trailing slash, no filename) to canonical URL with index.html
-/en/         /en/index.html  301
+# Clean URLs: redirect index.html and *.html to the canonical URL without extension.
+# Forced (!) because the .html files exist and would otherwise shadow these rules.
+# Targets never end in .html, so these rules cannot loop.
+/index.html            /               301!
+/strategy.html         /strategy       301!
+/website.html          /website        301!
+/review.html           /review         301!
+/research.html         /research       301!
+/check.html            /check          301!
+/about.html            /about          301!
+/imprint.html          /imprint        301!
+/privacy.html          /privacy        301!
+
+/en/index.html         /en/            301!
+/en/strategy.html      /en/strategy    301!
+/en/website.html       /en/website     301!
+/en/review.html        /en/review      301!
+/en/research.html      /en/research    301!
+/en/check.html         /en/check       301!
+/en/about.html         /en/about       301!
+/en/imprint.html       /en/imprint     301!
+/en/privacy.html       /en/privacy     301!
