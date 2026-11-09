@@ -79,7 +79,7 @@
     </div>
 
     <div class="nav-links">
-      <a href="#approach">Ansatz</a>
+      <a href="#clients">Kunden</a>
       <div class="nav-item has-menu">
         <a href="#focus">Leistungen</a>
         <div class="nav-menu">
@@ -91,8 +91,9 @@
           </ul>
         </div>
       </div>
+      <a class="nav-link-optional" href="#approach">Ansatz</a>
       <a href="#use-cases">Anwendungsfälle</a>
-      <a href="#why-cxunity">Warum CXUnity</a>
+      <a class="nav-link-optional" href="#why-cxunity">Warum CXUnity</a>
       <a href="#faq">FAQ</a>
       <a href="#contact">Kontakt</a>
     </div>
@@ -105,12 +106,13 @@
   </nav>
 
   <div id="mobile-navigation" class="mobile-nav" aria-label="Mobile Navigation">
-    <a href="#approach">Ansatz</a>
+    <a href="#clients">Kunden</a>
     <a href="#focus">Leistungen</a>
     <a class="mobile-subnav-link" href="/strategy">Digitalstrategie &amp; Konzeption</a>
     <a class="mobile-subnav-link" href="/review">Experience-Audit</a>
     <a class="mobile-subnav-link" href="/website">Website- und App-Design &amp; Entwicklung</a>
     <a class="mobile-subnav-link" href="/research">Nutzerforschung &amp; Evaluation</a>
+    <a href="#approach">Ansatz</a>
     <a href="#use-cases">Anwendungsfälle</a>
     <a href="#why-cxunity">Warum CXUnity</a>
     <a href="#faq">FAQ</a>
@@ -124,7 +126,7 @@
 </header>
 
 <main id="top">
-  <!-- Hero: headline, intro text, CTA buttons, logo visual on the right -->
+  <!-- Hero: headline, intro text, two CTA buttons, logo visual on the right -->
   <section class="hero section">
     <div class="hero-content">
       <h1>Bessere digitale Erfahrungen für Ihre Kunden und Ihr Unternehmen.</h1>
@@ -139,7 +141,6 @@
 
       <div class="hero-actions">
         <a class="button button-primary" href="#contact">Kontakt aufnehmen</a>
-        <a class="button button-secondary hide-on-mobile" href="#approach">Ansatz ansehen</a>
         <a class="button button-secondary" href="#focus">Leistungen ansehen</a>
       </div>
     </div>
@@ -152,42 +153,89 @@
     </div>
   </section>
 
-  <!-- "Ansatz" (Approach): 3 cards explaining the Experience/Business/Implementation perspectives -->
-  <section id="approach" class="section">
+  <!-- "Kunden" (Clients): directly after the hero as proof. Client cards, then quote + numbers of Autovermietung Heinzelmann -->
+  <section id="clients" class="section clients-section">
     <div class="section-heading reveal">
-      <h2>Gute digitale Lösungen entstehen selten aus einer einzigen Perspektive.</h2>
+      <h2>Organisationen und Unternehmen, mit denen CXUnity zusammenarbeitet.</h2>
       <p>
-        Drei Fragen stehen am Anfang: Was erleben die Menschen? Was braucht das Unternehmen? Was soll in zwei Jahren noch gelten?
+        Von lokalen Dienstleistern bis hin zu digitalen Produkten: CXUnity unterstützt Organisationen, deren Online-Auftritt die Qualität ihres Angebots widerspiegeln soll.
       </p>
     </div>
+    <div class="clients-grid reveal reveal-delay-1">
+      <a class="client-card" href="https://scrolljail.com" target="_blank" rel="noopener noreferrer" aria-label="ScrollJail: Experience-Audit, Website besuchen">
+        <div class="client-card-logo"><img loading="lazy" decoding="async" src="assets/images/scrolljail-logo.svg" alt="ScrollJail"></div>
+        <strong class="client-card-name">ScrollJail</strong>
+        <ul class="client-steps" aria-label="Enthaltene Leistungen">
+          <li aria-hidden="true">Digitalstrategie</li>
+          <li class="is-done">Experience-Audit</li>
+          <li aria-hidden="true">Design &amp; Entwicklung</li>
+          <li aria-hidden="true">Evaluation</li>
+        </ul>
+        <span class="client-card-link">Website besuchen <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10l6-6M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="client-card" href="https://autovermietung-heinzelmann.de" target="_blank" rel="noopener" aria-label="Autovermietung Heinzelmann: Digitalstrategie und Website, Website besuchen">
+        <div class="client-card-logo"><img loading="lazy" decoding="async" src="assets/images/Logo_Autovermietung Heinzelmann.png" alt="Autovermietung Heinzelmann"></div>
+        <strong class="client-card-name">Autovermietung Heinzelmann</strong>
+        <ul class="client-steps" aria-label="Enthaltene Leistungen">
+          <li class="is-done">Digitalstrategie</li>
+          <li aria-hidden="true">Experience-Audit</li>
+          <li class="is-done">Design &amp; Entwicklung</li>
+          <li class="is-done">Evaluation</li>
+        </ul>
+        <span class="client-card-link">Website besuchen <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10l6-6M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a class="client-card" href="https://it-heina.de" target="_blank" rel="noopener noreferrer" aria-label="Narrenzunft Herbertingen: Experience-Audit und komplette Neuentwicklung der Vereinswebsite, Website besuchen">
+        <div class="client-card-logo"><img loading="lazy" decoding="async" src="assets/images/narrenzunft-herbertingen-logo.webp" alt="Narrenzunft Herbertingen"></div>
+        <strong class="client-card-name">Narrenzunft Herbertingen</strong>
+        <ul class="client-steps" aria-label="Enthaltene Leistungen">
+          <li class="is-done">Digitalstrategie</li>
+          <li class="is-done">Experience-Audit</li>
+          <li class="is-done">Design &amp; Entwicklung</li>
+          <li aria-hidden="true">Evaluation</li>
+        </ul>
+        <span class="client-card-link">Website besuchen <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10l6-6M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+    <!-- Beleg Autovermietung: Zitat links, Kennzahlen rechts, Details (erster Monat, Quellen) aufklappbar -->
+    <div class="client-proof">
+      <figure class="client-proof-quote reveal">
+        <blockquote>
+          <p>„David hat sich von Anfang an wirklich vollständig auf unser Unternehmen eingelassen. Er hat sich die Zeit genommen, den Betrieb von allen Facetten kennenzulernen, bevor er auch nur einen Vorschlag gemacht hat. Gemeinsam haben wir herausgearbeitet, was wir brauchen und was wir eben nicht brauchen. Unsere Wünsche hat er dabei von Anfang an mitgedacht und das Ergebnis spricht für sich. Termine hat er auch dann gefunden, wenn es außerhalb der üblichen Geschäftszeiten war. Die Zusammenarbeit war sehr intensiv und sehr vertrauensvoll. Was am Ende herausgekommen ist, passt genau zu uns.“</p>
+        </blockquote>
+        <figcaption>
+          <strong>Gerold Heinzelmann</strong>
+          <span>Geschäftsführer, Autovermietung Heinzelmann</span>
+        </figcaption>
+      </figure>
 
-    <div class="card-grid three-columns">
-      <article class="card approach-card approach-card-experience reveal reveal-delay-1">
-        <img loading="lazy" decoding="async" class="approach-card-icon" src="assets/icons/Experience.png" alt="" aria-hidden="true">
-        <h3>Experience-Perspektive</h3>
-        <p>
-          Die Erfahrung, die jemand mit einem digitalen Produkt macht, entscheidet darüber, ob er wiederkommt,
-          weiterempfiehlt oder abspringt. CXUnity stellt sicher, dass diese Erfahrung von Anfang an stimmt.
-        </p>
-      </article>
-
-      <article class="card approach-card approach-card-business reveal reveal-delay-2">
-        <img loading="lazy" decoding="async" class="approach-card-icon" src="assets/icons/Zielscheibe.png" alt="" aria-hidden="true">
-        <h3>Unternehmensperspektive</h3>
-        <p>
-          Eine gute Nutzererfahrung und starke Unternehmensziele schließen sich nicht aus. Mehr Klarheit für
-          den Nutzer bedeutet oft mehr Vertrauen, bessere Anfragen und effizientere Prozesse für das Unternehmen.
-        </p>
-      </article>
-
-      <article class="card approach-card approach-card-implementation reveal reveal-delay-3">
-        <img loading="lazy" decoding="async" class="approach-card-icon" src="assets/icons/Touch.png" alt="" aria-hidden="true">
-        <h3>Zukunftsperspektive</h3>
-        <p>
-          Digitale Lösungen sollten nicht nur für heute gebaut sein. Was heute passt, muss morgen noch
-          funktionieren, wenn das Unternehmen wächst, sich verändert oder neue Anforderungen entstehen.
-        </p>
-      </article>
+      <div class="client-proof-numbers reveal reveal-delay-1">
+        <h3>Autovermietung Heinzelmann: die erste Website in Zahlen</h3>
+        <p class="results-when"><strong>Seit dem Start</strong> · Stand 30. Oktober 2026</p>
+        <ul class="results-stats">
+          <li><strong>149</strong><span>Anfragen über das Kontaktformular</span></li>
+          <li><strong>62</strong><span>davon außerhalb der Geschäftszeiten</span></li>
+          <li><strong>1.475</strong><span>Klicks aus der Google-Suche</span></li>
+          <li><strong>8.239</strong><span>Mal in der Google-Suche angezeigt</span></li>
+        </ul>
+        <details class="results-details">
+          <summary class="results-toggle"><span class="when-closed">Erster Monat und Quellen</span><span class="when-open">Zuklappen</span></summary>
+          <p class="results-lead">Vor dem Start gab es keinen Internetauftritt.</p>
+          <p class="results-when"><strong>Erster Monat</strong> · 5. August bis 6. September 2026</p>
+          <ul class="results-stats results-stats-small">
+            <li><strong>54</strong><span>Anfragen über das Kontaktformular</span></li>
+            <li><strong>23</strong><span>davon außerhalb der Geschäftszeiten</span></li>
+            <li><strong>591</strong><span>Klicks aus der Google-Suche</span></li>
+          </ul>
+          <div class="results-weeks" role="img" aria-label="Anfragen pro Woche in den ersten vier Wochen: 8, 7, 15 und 16">
+            <div class="results-week"><span class="results-week-val">8</span><div class="results-week-bar" style="height:50%"></div><span class="results-week-label">Woche 1</span></div>
+            <div class="results-week"><span class="results-week-val">7</span><div class="results-week-bar" style="height:44%"></div><span class="results-week-label">Woche 2</span></div>
+            <div class="results-week"><span class="results-week-val">15</span><div class="results-week-bar" style="height:94%"></div><span class="results-week-label">Woche 3</span></div>
+            <div class="results-week"><span class="results-week-val">16</span><div class="results-week-bar" style="height:100%"></div><span class="results-week-label">Woche 4</span></div>
+          </div>
+          <p class="results-weeks-title">Anfragen pro Woche</p>
+          <p class="results-note">Quellen: Kontaktformular der Website (Stand 30. Oktober 2026) und Google Search Console (bis 27. Oktober 2026). Außerhalb der Geschäftszeiten heißt: werktags vor 8 und ab 18 Uhr sowie am Wochenende. Tests sind nicht mitgezählt. Die häufigsten Suchanfragen enthalten den Firmennamen. Angezeigt heißt: in den Suchergebnissen sichtbar, nicht angeklickt.</p>
+        </details>
+      </div>
     </div>
   </section>
 
@@ -243,7 +291,46 @@
     </div>
   </section>
 
-  <!-- "Anwendungsfälle" (Use cases): target audience circles, tooltip text shows on hover/focus -->
+  <!-- "Ansatz" (Approach): 3 cards explaining the Experience/Business/Implementation perspectives -->
+  <section id="approach" class="section">
+    <div class="section-heading reveal">
+      <h2>Gute digitale Lösungen entstehen selten aus einer einzigen Perspektive.</h2>
+      <p>
+        Drei Fragen stehen am Anfang: Was erleben die Menschen? Was braucht das Unternehmen? Was soll in zwei Jahren noch gelten?
+      </p>
+    </div>
+
+    <div class="card-grid three-columns">
+      <article class="card approach-card approach-card-experience reveal reveal-delay-1">
+        <img loading="lazy" decoding="async" class="approach-card-icon" src="assets/icons/Experience.png" alt="" aria-hidden="true">
+        <h3>Experience-Perspektive</h3>
+        <p>
+          Die Erfahrung, die jemand mit einem digitalen Produkt macht, entscheidet darüber, ob er wiederkommt,
+          weiterempfiehlt oder abspringt. CXUnity stellt sicher, dass diese Erfahrung von Anfang an stimmt.
+        </p>
+      </article>
+
+      <article class="card approach-card approach-card-business reveal reveal-delay-2">
+        <img loading="lazy" decoding="async" class="approach-card-icon" src="assets/icons/Zielscheibe.png" alt="" aria-hidden="true">
+        <h3>Unternehmensperspektive</h3>
+        <p>
+          Eine gute Nutzererfahrung und starke Unternehmensziele schließen sich nicht aus. Mehr Klarheit für
+          den Nutzer bedeutet oft mehr Vertrauen, bessere Anfragen und effizientere Prozesse für das Unternehmen.
+        </p>
+      </article>
+
+      <article class="card approach-card approach-card-implementation reveal reveal-delay-3">
+        <img loading="lazy" decoding="async" class="approach-card-icon" src="assets/icons/Touch.png" alt="" aria-hidden="true">
+        <h3>Zukunftsperspektive</h3>
+        <p>
+          Digitale Lösungen sollten nicht nur für heute gebaut sein. Was heute passt, muss morgen noch
+          funktionieren, wenn das Unternehmen wächst, sich verändert oder neue Anforderungen entstehen.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- "Anwendungsfälle" (Use cases): target audiences, icon left and text always visible -->
   <section id="use-cases" class="section">
     <div class="section-heading reveal">
       <h2>Für Unternehmen, die online mehr Struktur, Vertrauen und Orientierung brauchen.</h2>
@@ -254,7 +341,7 @@
     </div>
 
     <div class="use-case-circles" aria-label="CXUnity Anwendungsfälle">
-      <article class="use-case-circle-item reveal reveal-delay-1" tabindex="0">
+      <article class="use-case-circle-item reveal reveal-delay-1">
         <div class="use-case-circle">
           <img loading="lazy" decoding="async" class="use-case-icon" src="assets/icons/Work.png" alt="" aria-hidden="true">
           <span class="sr-only">Kleine und mittelständische Unternehmen</span>
@@ -265,7 +352,7 @@
         </p>
       </article>
 
-      <article class="use-case-circle-item reveal reveal-delay-2" tabindex="0">
+      <article class="use-case-circle-item reveal reveal-delay-2">
         <div class="use-case-circle">
           <img loading="lazy" decoding="async" class="use-case-icon" src="assets/icons/Standort.png" alt="" aria-hidden="true">
           <span class="sr-only">Regionale Unternehmen</span>
@@ -276,7 +363,7 @@
         </p>
       </article>
 
-      <article class="use-case-circle-item reveal reveal-delay-3" tabindex="0">
+      <article class="use-case-circle-item reveal reveal-delay-3">
         <div class="use-case-circle">
           <img loading="lazy" decoding="async" class="use-case-icon" src="assets/icons/Handschlag.png" alt="" aria-hidden="true">
           <span class="sr-only">Dienstleister</span>
@@ -287,7 +374,7 @@
         </p>
       </article>
 
-      <article class="use-case-circle-item reveal reveal-delay-4" tabindex="0">
+      <article class="use-case-circle-item reveal reveal-delay-4">
         <div class="use-case-circle">
           <img loading="lazy" decoding="async" class="use-case-icon" src="assets/icons/Gluehbirne.png" alt="" aria-hidden="true">
           <span class="sr-only">Wachsende Ideen</span>
@@ -300,101 +387,18 @@
     </div>
   </section>
 
-  <!-- "Kunden" (Clients): logo bar of clients/references (ScrollJail, Autovermietung Heinzelmann) -->
-  <section id="clients" class="section clients-section">
+  <!-- "Warum CXUnity" (Why CXUnity): comparison table vs. website builders/agencies/freelancers -->
+  <section id="why-cxunity" class="section comparison-section">
     <div class="section-heading reveal">
-      <h2>Organisationen und Unternehmen, mit denen CXUnity zusammenarbeitet.</h2>
+      <h2>Von der ersten Idee bis zur fertigen digitalen Lösung.</h2>
       <p>
-        Von lokalen Dienstleistern bis hin zu digitalen Produkten: CXUnity unterstützt Organisationen, deren Online-Auftritt die Qualität ihres Angebots widerspiegeln soll.
+        CXUnity ist für Unternehmen gedacht, die kein überdimensioniertes digitales Setup brauchen,
+        aber trotzdem mehr benötigen als eine Standard-Website.
       </p>
     </div>
-    <div class="clients-grid reveal reveal-delay-1">
-      <a class="client-card" href="https://scrolljail.com" target="_blank" rel="noopener noreferrer" aria-label="ScrollJail: Experience-Audit, Website besuchen">
-        <div class="client-card-logo"><img loading="lazy" decoding="async" src="assets/images/scrolljail-logo.svg" alt="ScrollJail"></div>
-        <strong class="client-card-name">ScrollJail</strong>
-        <ul class="client-steps" aria-label="Enthaltene Leistungen">
-          <li aria-hidden="true">Digitalstrategie</li>
-          <li class="is-done">Experience-Audit</li>
-          <li aria-hidden="true">Design &amp; Entwicklung</li>
-          <li aria-hidden="true">Evaluation</li>
-        </ul>
-        <span class="client-card-link">Website besuchen <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10l6-6M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-      <a class="client-card" href="https://autovermietung-heinzelmann.de" target="_blank" rel="noopener" aria-label="Autovermietung Heinzelmann: Digitalstrategie und Website, Website besuchen">
-        <div class="client-card-logo"><img loading="lazy" decoding="async" src="assets/images/Logo_Autovermietung Heinzelmann.png" alt="Autovermietung Heinzelmann"></div>
-        <strong class="client-card-name">Autovermietung Heinzelmann</strong>
-        <ul class="client-steps" aria-label="Enthaltene Leistungen">
-          <li class="is-done">Digitalstrategie</li>
-          <li aria-hidden="true">Experience-Audit</li>
-          <li class="is-done">Design &amp; Entwicklung</li>
-          <li class="is-done">Evaluation</li>
-        </ul>
-        <span class="client-card-link">Website besuchen <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10l6-6M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-      <a class="client-card" href="https://it-heina.de" target="_blank" rel="noopener noreferrer" aria-label="Narrenzunft Herbertingen: Experience-Audit und komplette Neuentwicklung der Vereinswebsite, Website besuchen">
-        <div class="client-card-logo"><img loading="lazy" decoding="async" src="assets/images/narrenzunft-herbertingen-logo.webp" alt="Narrenzunft Herbertingen"></div>
-        <strong class="client-card-name">Narrenzunft Herbertingen</strong>
-        <ul class="client-steps" aria-label="Enthaltene Leistungen">
-          <li class="is-done">Digitalstrategie</li>
-          <li class="is-done">Experience-Audit</li>
-          <li class="is-done">Design &amp; Entwicklung</li>
-          <li aria-hidden="true">Evaluation</li>
-        </ul>
-        <span class="client-card-link">Website besuchen <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10l6-6M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </a>
-    </div>
-    <!-- Ergebnisblock Autovermietung vorübergehend offline (auskommentiert), bei Bedarf Kommentarzeichen entfernen
-    <details class="results-block reveal reveal-delay-2">
-      <summary class="results-head">
-        <h3>Autovermietung Heinzelmann: die erste Website in Zahlen</h3>
-        <span class="results-toggle" aria-hidden="true"><span class="when-closed">Zahlen ansehen</span><span class="when-open">Zuklappen</span></span>
-      </summary>
-      <p class="results-lead">Vor dem Start gab es keinen Internetauftritt. So hat sich die Seite seitdem entwickelt.</p>
-      <div class="results-stages">
-        <article class="results-stage">
-          <p class="results-when"><strong>Erster Monat</strong> · 5. August bis 6. September 2026</p>
-          <ul class="results-stats">
-          <li><strong>54</strong><span>Anfragen über das Kontaktformular</span></li>
-          <li><strong>23</strong><span>davon außerhalb der Geschäftszeiten</span></li>
-          <li><strong>591</strong><span>Klicks aus der Google-Suche</span></li>
-          </ul>
-          <div class="results-weeks" role="img" aria-label="Anfragen pro Woche in den ersten vier Wochen: 8, 7, 15 und 16">
-            <div class="results-week"><span class="results-week-val">8</span><div class="results-week-bar" style="height:50%"></div><span class="results-week-label">Woche 1</span></div>
-            <div class="results-week"><span class="results-week-val">7</span><div class="results-week-bar" style="height:44%"></div><span class="results-week-label">Woche 2</span></div>
-            <div class="results-week"><span class="results-week-val">15</span><div class="results-week-bar" style="height:94%"></div><span class="results-week-label">Woche 3</span></div>
-            <div class="results-week"><span class="results-week-val">16</span><div class="results-week-bar" style="height:100%"></div><span class="results-week-label">Woche 4</span></div>
-          </div>
-          <p class="results-weeks-title">Anfragen pro Woche</p>
-        </article>
-        <article class="results-stage">
-          <p class="results-when"><strong>Seit dem Start</strong> · Stand 30. Oktober 2026</p>
-          <ul class="results-stats">
-          <li><strong>149</strong><span>Anfragen über das Kontaktformular</span></li>
-          <li><strong>62</strong><span>davon außerhalb der Geschäftszeiten</span></li>
-          <li><strong>1.475</strong><span>Klicks aus der Google-Suche</span></li>
-          <li><strong>8.239</strong><span>Mal in der Google-Suche angezeigt</span></li>
-          </ul>
-        </article>
-      </div>
-      <p class="results-note">Quellen: Kontaktformular der Website (Stand 30. Oktober 2026) und Google Search Console (bis 27. Oktober 2026). Außerhalb der Geschäftszeiten heißt: werktags vor 8 und ab 18 Uhr sowie am Wochenende. Tests sind nicht mitgezählt. Die häufigsten Suchanfragen enthalten den Firmennamen. Angezeigt heißt: in den Suchergebnissen sichtbar, nicht angeklickt.</p>
-    </details>
-    -->
-  </section>
+    <p class="comparison-scroll-hint">Zum Vergleich wischen →</p>
 
-  <!-- "Warum CXUnity" (Why CXUnity): comparison table vs. website builders/agencies/freelancers -->
-  <section id="why-cxunity" class="section" style="padding-top:0">
-    <div class="comparison-block reveal">
-      <div class="comparison-heading">
-        <h3>Von der ersten Idee bis zur fertigen digitalen Lösung.</h3>
-        <p>
-          CXUnity ist für Unternehmen gedacht, die kein überdimensioniertes digitales Setup brauchen,
-          aber trotzdem mehr benötigen als eine Standard-Website.
-        </p>
-        <a class="feature-card-link" href="/check">Website-Schnellcheck in fünf Fragen <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2.5 7h9M8 4l3.5 3L8 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        <p class="comparison-scroll-hint">Zum Vergleich wischen →</p>
-      </div>
-
-      <div class="comparison-table-wrap" aria-label="Vergleich verschiedener Wege zum Aufbau einer digitalen Präsenz">
+    <div class="comparison-table-wrap reveal" aria-label="Vergleich verschiedener Wege zum Aufbau einer digitalen Präsenz">
         <table class="comparison-table">
           <thead>
           <tr>
@@ -457,7 +461,6 @@
           </tr>
           </tbody>
         </table>
-      </div>
     </div>
   </section>
 
@@ -555,7 +558,10 @@
             Wenn Sie eine Website, einen Service oder eine digitale Idee klarer, nutzerfreundlicher und
             wirksamer machen möchten, melden Sie sich gerne.
           </p>
-          <a class="button button-primary" href="mailto:hello@cxunity.de">hello@cxunity.de</a>
+          <div class="contact-actions">
+            <a class="button button-primary" href="mailto:hello@cxunity.de">hello@cxunity.de</a>
+            <a class="feature-card-link" href="/check">Website-Schnellcheck in fünf Fragen <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M2.5 7h9M8 4l3.5 3L8 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          </div>
         </div>
 
         <div class="contact-person" aria-label="Digital Experience Architect">
