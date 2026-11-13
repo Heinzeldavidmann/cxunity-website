@@ -47,6 +47,7 @@
     --color-mint: #a9c8af;
     --color-mint-soft: #eef6f1;
     --color-mint-ink: #5b8563;          /* mint for large text: >= 3:1 on white */
+    --color-green-deep: #4a7052;        /* deep green for small text and button fills: >= 5:1 on white */
     --color-text: #3a3d43;
     --color-muted: #676a70;
     --color-light-text: #6e7177;
@@ -455,7 +456,7 @@ p {
 
 .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.22fr) minmax(300px, 0.78fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     align-items: center;
     gap: 56px;
     padding-top: 56px;
@@ -528,7 +529,21 @@ h3 {
     margin-top: 36px;
 }
 
+/* Buttons: on hover the two halves of the logo X slide in.
+   CX lavender comes from the left, UX mint from the right, each pulling a surface
+   behind it. They meet in the middle with the logo's narrow gap, then the chevrons
+   settle into their surfaces. The layers (.bx) are added by index.js. */
 .button {
+    --bx-dur: 900ms;
+    --bx-ease: cubic-bezier(0.65, 0, 0.35, 1);
+    --bx-chev-l: var(--color-lavender);
+    --bx-chev-r: var(--color-mint);
+    --bx-fill-l: var(--color-text);
+    --bx-fill-r: var(--color-text);
+    --bx-text: #ffffff;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -540,95 +555,267 @@ h3 {
     font-size: 0.96rem;
     font-weight: 800;
     cursor: pointer;
-    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease, border-color 180ms ease;
+    transition: color 200ms ease;
 }
 
-.button:hover {
-    transform: none;
+.bx {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
 }
 
+.bx-side {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: calc(50% - 1px);
+    transition: transform calc(var(--bx-dur) * 0.75) var(--bx-ease);
+}
+
+.bx-l {
+    left: 0;
+    transform: translateX(calc(-100% - 1px));
+}
+
+.bx-r {
+    right: 0;
+    transform: translateX(calc(100% + 1px));
+}
+
+.bx-fill,
+.bx-chev {
+    position: absolute;
+    inset: 0;
+}
+
+/* Chevron proportions taken from the logo: 32px deep, flat tip, notch 24px deep */
+.bx-l .bx-fill {
+    background: var(--bx-fill-l);
+    clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 29%, 100% 71%, calc(100% - 13px) 100%, 0 100%);
+}
+
+.bx-l .bx-chev {
+    background: var(--bx-chev-l);
+    clip-path: polygon(calc(100% - 32px) 0, calc(100% - 13px) 0, 100% 29%, 100% 71%, calc(100% - 13px) 100%, calc(100% - 32px) 100%, calc(100% - 8px) 50%);
+}
+
+.bx-r .bx-fill {
+    background: var(--bx-fill-r);
+    clip-path: polygon(13px 0, 100% 0, 100% 100%, 13px 100%, 0 71%, 0 29%);
+}
+
+.bx-r .bx-chev {
+    background: var(--bx-chev-r);
+    clip-path: polygon(32px 0, 13px 0, 0 29%, 0 71%, 13px 100%, 32px 100%, 8px 50%);
+}
+
+.bx-chev {
+    transition: opacity 160ms ease;
+}
+
+.button:focus-visible .bx-side {
+    transform: translateX(0);
+    transition-duration: var(--bx-dur);
+}
+
+.button:focus-visible .bx-chev {
+    opacity: 0;
+    transition: opacity 500ms ease calc(var(--bx-dur) * 0.95);
+}
+
+.button:focus-visible {
+    color: var(--bx-text);
+    transition: color 300ms ease calc(var(--bx-dur) * 0.4);
+}
+
+@media (hover: hover) {
+    .button:hover .bx-side {
+        transform: translateX(0);
+        transition-duration: var(--bx-dur);
+    }
+
+    /* The X stays visible for a moment, then dissolves into the two surfaces */
+    .button:hover .bx-chev {
+        opacity: 0;
+        transition: opacity 500ms ease calc(var(--bx-dur) * 0.95);
+    }
+
+    .button:hover {
+        color: var(--bx-text);
+        transition: color 300ms ease calc(var(--bx-dur) * 0.4);
+    }
+}
+
+/* Primary: graphite at rest. The halves pull deep CX lavender and deep UX green,
+   both dark enough for white text (6.0:1 and 5.6:1). */
 .button-primary {
+    --bx-fill-l: var(--color-lavender-ink);
+    --bx-fill-r: #4a7052;
+    --bx-text: #ffffff;
     color: #ffffff;
     background: var(--color-text);
     box-shadow: 0 1px 2px rgba(47, 50, 55, 0.05);
 }
 
+/* Secondary: outlined at rest. The halves pull light lavender and light mint,
+   the text stays graphite. */
 .button-secondary {
+    --bx-fill-l: #ece3f5;
+    --bx-fill-r: #e1eee4;
+    --bx-text: var(--color-text);
     color: var(--color-text);
     background: #ffffff;
-    border: 1px solid var(--color-border);
+    border: 1.5px solid var(--color-text);
 }
 
-.button-primary:hover {
-    background: #24262a;
+/* Touch devices have no hover: a press shows the finished state at once */
+@media (hover: none) {
+    .button:active {
+        color: var(--bx-text);
+        background: linear-gradient(90deg, var(--bx-fill-l) 50%, var(--bx-fill-r) 50%);
+    }
 }
 
-.button-secondary:hover {
-    border-color: var(--color-text);
-    box-shadow: 0 1px 2px rgba(47, 50, 55, 0.05);
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
 
+.button:disabled .bx {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .button,
+    .bx-side,
+    .bx-chev {
+        transition: none !important;
+    }
+
+    .bx-chev {
+        display: none;
+    }
+}
+
+
+/* Hero-Logo: Die beiden Logo-Hälften erscheinen auseinander, darunter „Kundenerlebnis“
+   und „Nutzererlebnis“. Dann schieben sie sich zusammen. Danach öffnet sich das X einmal
+   für jedes Schlagwort (index.js), anschließend bleibt es ruhig. Hover öffnet es erneut. */
 .hero-visual {
-    position: relative;
-    min-height: 460px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 56px;
-    overflow: hidden;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-large);
-    background:
-        radial-gradient(circle at 18% 18%, rgba(183, 154, 214, 0.28), transparent 34%),
-        radial-gradient(circle at 82% 72%, rgba(169, 200, 175, 0.34), transparent 36%),
-        var(--color-surface);
-    box-shadow: var(--shadow-soft);
+    min-height: 420px;
+    --xm-w: min(300px, 60%);
 }
 
-.hero-visual::before {
-    content: "";
-    position: absolute;
-    inset: 28px;
-    border: 1px solid rgba(47, 50, 55, 0.08);
-    border-radius: var(--radius-large);
-}
-
-/* Logo in zwei Hälften: C und lila Chevron kommen von links, grüner Chevron und U von rechts */
-.hero-logo {
+.xm {
+    --xm-move: 1700ms;
     position: relative;
-    z-index: 2;
-    width: min(100%, 330px);
-    aspect-ratio: 1;
+    width: var(--xm-w);
+    aspect-ratio: 1657 / 1080;
 }
 
-.hero-logo-half {
+.xm-half {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    animation: 1100ms cubic-bezier(0.16, 1, 0.3, 1) 350ms both;
+    transition: transform var(--xm-move) cubic-bezier(0.45, 0, 0.25, 1);
+    animation: 3200ms cubic-bezier(0.45, 0, 0.25, 1) 250ms backwards;
 }
 
-/* Die Lücke zwischen den Chevrons liegt bei 49,7 % der Bildbreite */
-.hero-logo-left {
-    clip-path: inset(0 50.3% 0 0);
-    animation-name: chevron-in-left;
+/* Bild so platziert, dass nur das Zeichen sichtbar ist (Rand des PNG abgeschnitten) */
+.xm-half img {
+    position: absolute;
+    left: -8.39%;
+    top: -39.35%;
+    width: 116.6%;
+    max-width: none;
+    height: auto;
 }
 
-.hero-logo-right {
-    clip-path: inset(0 0 0 49.7%);
-    animation-name: chevron-in-right;
+/* Die Lücke zwischen den Chevrons liegt bei 49,66 % der Bildbreite */
+.xm-l img { clip-path: inset(0 50.34% 0 0); }
+.xm-r img { clip-path: inset(0 0 0 49.66%); }
+
+.xm-l { animation-name: xm-intro-l; }
+.xm-r { animation-name: xm-intro-r; }
+
+@keyframes xm-intro-l {
+    0%   { opacity: 0; transform: translateX(-22%); }
+    18%  { opacity: 1; transform: translateX(-22%); }
+    58%  { opacity: 1; transform: translateX(-22%); }
+    100% { opacity: 1; transform: none; }
 }
 
-@keyframes chevron-in-left {
-    from { opacity: 0; transform: translateX(-75%); }
-    to   { opacity: 1; transform: translateX(0); }
+@keyframes xm-intro-r {
+    0%   { opacity: 0; transform: translateX(22%); }
+    18%  { opacity: 1; transform: translateX(22%); }
+    58%  { opacity: 1; transform: translateX(22%); }
+    100% { opacity: 1; transform: none; }
 }
 
-@keyframes chevron-in-right {
-    from { opacity: 0; transform: translateX(75%); }
-    to   { opacity: 1; transform: translateX(0); }
+.xm-tag {
+    position: absolute;
+    top: calc(100% + 18px);
+    translate: -50% 0;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    animation: xm-tag 3200ms ease 250ms backwards;
 }
+
+.xm-l .xm-tag { left: 22%; color: var(--color-lavender-ink); }
+.xm-r .xm-tag { left: 78%; color: var(--color-green-deep); }
+
+@keyframes xm-tag {
+    0%, 12% { opacity: 0; }
+    24%, 55% { opacity: 1; }
+    72%, 100% { opacity: 0; }
+}
+
+.xm-word {
+    position: absolute;
+    left: 50%;
+    top: 47.6%;
+    translate: -50% -50%;
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.12;
+    text-align: center;
+    text-wrap: balance;
+    color: var(--color-text);
+    opacity: 0;
+    transition: opacity 500ms ease;
+    pointer-events: none;
+}
+
+.xm-word.is-on {
+    opacity: 1;
+    transition-duration: 700ms;
+}
+
+.xm-pause {
+    margin-top: 64px;
+    padding: 4px 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-light-text);
+    cursor: pointer;
+}
+
+.xm-pause:hover { color: var(--color-text); }
+
+/* Platz bleibt reserviert, damit das Logo nicht springt, wenn der Knopf erscheint */
+.xm-pause.is-off { visibility: hidden; }
 
 .section-heading {
     max-width: 1100px;
@@ -833,9 +1020,11 @@ h3 {
 }
 
 /* Feature card link */
+/* Text links: the left half of the logo X stands in for the arrow and nudges forward on hover */
 .feature-card-link {
     display: inline-flex;
     align-items: center;
+    align-self: flex-start;
     gap: 6px;
     margin-top: 18px;
     color: var(--color-lavender-ink);
@@ -843,21 +1032,28 @@ h3 {
     font-weight: 750;
     letter-spacing: 0.02em;
     text-decoration: none;
-    transition: gap 180ms ease, color 180ms ease;
+    transition: color 200ms ease;
 }
 
-.feature-card-link:hover {
-    gap: 10px;
+.feature-card-link .fcl-chev {
+    flex-shrink: 0;
+    width: 0.68em;
+    height: 1.1em;
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.feature-card-link:is(:hover, :focus-visible) {
     color: var(--color-text);
 }
 
-.feature-card-link svg {
-    flex-shrink: 0;
-    transition: transform 180ms ease;
+.feature-card-link:is(:hover, :focus-visible) .fcl-chev {
+    transform: translateX(3px);
 }
 
-.feature-card-link:hover svg {
-    transform: translateX(2px);
+@media (prefers-reduced-motion: reduce) {
+    .feature-card-link .fcl-chev {
+        transition: none;
+    }
 }
 
 /* Subpage shared */
@@ -1602,13 +1798,28 @@ h1.subpage-h1,
     z-index: 1;
 }
 
+/* Service cards: the whole card is the link. On hover the chevron watermark
+   takes its column's colour (CX lavender left, UX mint right), slides in a little
+   and the card picks up a hint of that colour. */
 #focus .feature-card {
+    --chev: var(--color-lavender);
+    --card-tint: #faf7fd;
     position: relative;
-    min-height: 205px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    cursor: pointer;
+    transition:
+        opacity 800ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 800ms cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 260ms ease,
+        background-color 400ms ease;
+}
+
+#focus .feature-card:nth-child(2n) {
+    --chev: var(--color-mint);
+    --card-tint: #f6faf7;
 }
 
 #focus .feature-card::after {
@@ -1618,18 +1829,61 @@ h1.subpage-h1,
     bottom: -30px;
     width: 110px;
     height: 150px;
-    background: var(--color-lavender);
+    background: var(--chev);
     opacity: 0.1;
     clip-path: polygon(0 0, 48% 0, 100% 50%, 48% 100%, 0 100%, 52% 50%);
+    transform: translateX(14px);
     pointer-events: none;
+    transition: opacity 450ms ease, transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-#focus .feature-card > * {
+#focus .feature-card:is(:hover, :has(.feature-card-title-link:focus-visible)) {
+    border-color: color-mix(in srgb, var(--chev) 55%, transparent);
+    background-color: var(--card-tint);
+}
+
+#focus .feature-card:is(:hover, :has(.feature-card-title-link:focus-visible))::after {
+    opacity: 0.7;
+    transform: none;
+}
+
+/* The title link stretches over the whole card */
+.feature-card-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.feature-card-title-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+.feature-card-title-link:focus-visible {
+    outline: none;
+}
+
+#focus .feature-card:has(.feature-card-title-link:focus-visible) {
+    outline: 2px solid var(--color-lavender-ink);
+    outline-offset: 3px;
+}
+
+#focus .feature-card > p {
     position: relative;
     z-index: 1;
+    max-width: 88%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #focus .feature-card,
+    #focus .feature-card::after {
+        transition: none;
+    }
 }
 
 #focus .feature-card-header {
+    position: static;
     display: flex;
     align-items: baseline;
     gap: 16px;
@@ -1998,8 +2252,7 @@ a.contact-person:hover .contact-person-arrow {
     }
 
     .hero-visual {
-        max-width: 540px;
-        min-height: 360px;
+        min-height: 340px;
     }
 
     .three-columns {
@@ -2157,10 +2410,6 @@ a.contact-person:hover .contact-person-arrow {
         padding: 24px;
     }
 
-    #focus .feature-card {
-        min-height: auto;
-    }
-
     #focus .feature-card-header {
         align-items: flex-start;
         gap: 12px;
@@ -2268,13 +2517,17 @@ a.contact-person:hover .contact-person-arrow {
     }
 
     .hero-visual {
-        min-height: 180px;
-        padding: 24px;
-        border-radius: var(--radius-medium);
+        min-height: 0;
+        padding-bottom: 8px;
+        --xm-w: 200px;
     }
 
-    .hero-logo {
-        width: min(100%, 160px);
+    .xm-word {
+        font-size: 1.08rem;
+    }
+
+    .xm-pause {
+        margin-top: 56px;
     }
 
     .contact-content {
@@ -2375,24 +2628,16 @@ a.contact-person:hover .contact-person-arrow {
     animation: hero-slide-left 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.hero-visual {
-    animation: hero-slide-right 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
 @keyframes hero-slide-left {
     from { opacity: 0; transform: translateX(-36px); }
     to   { opacity: 1; transform: translateX(0); }
 }
 
-@keyframes hero-slide-right {
-    from { opacity: 0; transform: translateX(36px); }
-    to   { opacity: 1; transform: translateX(0); }
-}
-
 @media (prefers-reduced-motion: reduce) {
     .hero-content,
-    .hero-visual,
-    .hero-logo-half { animation: none; }
+    .xm-half,
+    .xm-tag { animation: none; }
+    .xm-half { transition: none; }
 }
 
 /* =====================================================================

@@ -1,0 +1,353 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-13T12:30:00Z",
+  "title": "Design System: CXUnity",
+  "extensions": {
+    "colorMeta": {
+      "cx-lavender": {
+        "role": "primary",
+        "displayName": "CX-Lavendel",
+        "tonalRamp": [
+          "oklch(22% 0.04 305)",
+          "oklch(32% 0.07 305)",
+          "oklch(45% 0.09 305)",
+          "oklch(53% 0.1 305)",
+          "oklch(70% 0.09 305)",
+          "oklch(82% 0.06 305)",
+          "oklch(91% 0.03 305)",
+          "oklch(96% 0.015 305)"
+        ]
+      },
+      "cx-lavender-deep": {
+        "role": "primary",
+        "displayName": "Tiefer CX-Lavendel"
+      },
+      "cx-lavender-ink": {
+        "role": "primary",
+        "displayName": "CX-Lavendel für Text"
+      },
+      "cx-lavender-soft": {
+        "role": "primary",
+        "displayName": "Lavendel-Hauch"
+      },
+      "cx-lavender-on-dark": {
+        "role": "primary",
+        "displayName": "Lavendel auf Dunkel"
+      },
+      "ux-mint": {
+        "role": "secondary",
+        "displayName": "UX-Mint",
+        "tonalRamp": [
+          "oklch(22% 0.03 150)",
+          "oklch(32% 0.045 150)",
+          "oklch(45% 0.06 150)",
+          "oklch(56% 0.07 150)",
+          "oklch(70% 0.06 150)",
+          "oklch(80% 0.045 150)",
+          "oklch(90% 0.025 150)",
+          "oklch(96% 0.012 150)"
+        ]
+      },
+      "ux-mint-ink": {
+        "role": "secondary",
+        "displayName": "UX-Mint für Text"
+      },
+      "ux-mint-soft": {
+        "role": "secondary",
+        "displayName": "Mint-Hauch"
+      },
+      "graphite": {
+        "role": "neutral",
+        "displayName": "Graphit",
+        "tonalRamp": [
+          "oklch(18% 0.008 265)",
+          "oklch(25% 0.01 265)",
+          "oklch(36% 0.012 265)",
+          "oklch(52% 0.01 265)",
+          "oklch(66% 0.008 265)",
+          "oklch(80% 0.006 265)",
+          "oklch(91% 0.004 265)",
+          "oklch(97% 0.003 300)"
+        ]
+      },
+      "graphite-pressed": {
+        "role": "neutral",
+        "displayName": "Gedrücktes Graphit"
+      },
+      "slate-muted": {
+        "role": "neutral",
+        "displayName": "Schiefergrau"
+      },
+      "slate-light": {
+        "role": "neutral",
+        "displayName": "Helles Schiefergrau"
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Haarlinie"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papier"
+      },
+      "atelier-surface": {
+        "role": "neutral",
+        "displayName": "Atelierfläche"
+      },
+      "mockup-dark": {
+        "role": "neutral",
+        "displayName": "Mockup-Dunkel"
+      },
+      "ux-green-deep": {
+        "role": "secondary",
+        "displayName": "Tiefes UX-Grün"
+      },
+      "cx-lavender-tint": {
+        "role": "primary",
+        "displayName": "Lavendel-Tönung"
+      },
+      "ux-mint-tint": {
+        "role": "secondary",
+        "displayName": "Mint-Tönung"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Nur die H1 pro Seite."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Abschnittsüberschriften (H2)."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Karten- und Unterüberschriften (H3)."
+      },
+      "stat": {
+        "displayName": "Stat",
+        "purpose": "Kennzahlen wie Anfragen und Klicks."
+      },
+      "eyebrow": {
+        "displayName": "Eyebrow",
+        "purpose": "Abschnitts-Kennung mit Lavendel-Chevron, keine Versalien."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Grundtext; Absätze in Schiefergrau."
+      },
+      "body-lead": {
+        "displayName": "Lead",
+        "purpose": "Einleitungstext im Hero und unter H2."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Button-Beschriftung."
+      }
+    },
+    "shadows": [
+      {
+        "name": "kante",
+        "value": "0 1px 2px rgba(47, 50, 55, 0.05)",
+        "purpose": "Ruheschatten für Karten, Buttons, FAQ und Tabellen. Bleibt im Hover gleich."
+      },
+      {
+        "name": "schwebend",
+        "value": "0 18px 40px -18px rgba(47, 50, 55, 0.28)",
+        "purpose": "Nur für Ebenen über dem Inhalt, etwa das Untermenü."
+      },
+      {
+        "name": "tooltip",
+        "value": "0 12px 40px rgba(47, 50, 55, 0.10)",
+        "purpose": "Erklärungen in den Ablaufgrafiken."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-atelier",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Standardkurve für Einblenden, Menü und Hero."
+      },
+      {
+        "name": "state",
+        "value": "180ms ease",
+        "purpose": "Farb- und Rahmenwechsel bei Hover."
+      },
+      {
+        "name": "reveal",
+        "value": "800ms, translateY(32px), Staffelung 120 ms",
+        "purpose": "Einblenden beim Scrollen; bei reduzierter Bewegung sofort sichtbar."
+      },
+      {
+        "name": "ease-x",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1), 900ms",
+        "purpose": "X-Hover der Buttons: die Logo-Hälften kommen von beiden Seiten und treffen sich in der Mitte."
+      },
+      {
+        "name": "ease-logo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Hero-Logo: Hälften erscheinen auseinander mit „Kundenerlebnis“/„Nutzererlebnis“ und schieben sich zusammen (3200 ms); danach öffnet sich das X einmal pro Schlagwort (1700 ms, 4,5 s Pause), ein Durchlauf, dann Ruhe."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav-compact",
+        "value": "1000px"
+      },
+      {
+        "name": "tablet",
+        "value": "920px"
+      },
+      {
+        "name": "grid-stack",
+        "value": "860px"
+      },
+      {
+        "name": "mobile",
+        "value": "700px"
+      },
+      {
+        "name": "small",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Haupt-Aktion. Graphit; beim Hover setzen sich die Logo-Hälften zusammen und ziehen tiefes Lavendel und tiefes Grün mit.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\"><span class=\"bx\"><span class=\"bx-side bx-l\"><span class=\"bx-fill\"></span><span class=\"bx-chev\"></span></span><span class=\"bx-side bx-r\"><span class=\"bx-fill\"></span><span class=\"bx-chev\"></span></span></span>Kostenloses Erstgespräch</a>",
+      "css": ".ds-btn-primary { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 6px; background: #3a3d43; color: #fff; font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 0.96rem; font-weight: 800; text-decoration: none; transition: color 200ms ease; } .ds-btn-primary .bx { position: absolute; inset: 0; z-index: -1; pointer-events: none; } .ds-btn-primary .bx-side { position: absolute; top: 0; bottom: 0; width: calc(50% - 1px); transition: transform 675ms cubic-bezier(0.65,0,0.35,1); } .ds-btn-primary .bx-l { left: 0; transform: translateX(calc(-100% - 1px)); } .ds-btn-primary .bx-r { right: 0; transform: translateX(calc(100% + 1px)); } .ds-btn-primary .bx-fill, .ds-btn-primary .bx-chev { position: absolute; inset: 0; } .ds-btn-primary .bx-l .bx-fill { background: #72588f; clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 29%, 100% 71%, calc(100% - 13px) 100%, 0 100%); } .ds-btn-primary .bx-l .bx-chev { background: #b79ad6; clip-path: polygon(calc(100% - 32px) 0, calc(100% - 13px) 0, 100% 29%, 100% 71%, calc(100% - 13px) 100%, calc(100% - 32px) 100%, calc(100% - 8px) 50%); } .ds-btn-primary .bx-r .bx-fill { background: #4a7052; clip-path: polygon(13px 0, 100% 0, 100% 100%, 13px 100%, 0 71%, 0 29%); } .ds-btn-primary .bx-r .bx-chev { background: #a9c8af; clip-path: polygon(32px 0, 13px 0, 0 29%, 0 71%, 13px 100%, 32px 100%, 8px 50%); } .ds-btn-primary .bx-chev { transition: opacity 160ms ease; } .ds-btn-primary:hover .bx-side, .ds-btn-primary:focus-visible .bx-side { transform: translateX(0); transition-duration: 900ms; } .ds-btn-primary:hover .bx-chev, .ds-btn-primary:focus-visible .bx-chev { opacity: 0; transition: opacity 500ms ease 855ms; } .ds-btn-primary:focus-visible { outline: 2px solid #72588f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Nebenaktion. Rahmen im Ruhezustand; beim Hover ziehen die Logo-Hälften helle Lavendel- und Mint-Tönung mit.",
+      "html": "<a class=\"ds-btn-secondary\" href=\"#\"><span class=\"bx\"><span class=\"bx-side bx-l\"><span class=\"bx-fill\"></span><span class=\"bx-chev\"></span></span><span class=\"bx-side bx-r\"><span class=\"bx-fill\"></span><span class=\"bx-chev\"></span></span></span>Leistungen ansehen</a>",
+      "css": ".ds-btn-secondary { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 24px; border-radius: 6px; border: 1.5px solid #3a3d43; background: #fff; color: #3a3d43; font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 0.96rem; font-weight: 800; text-decoration: none; transition: color 200ms ease; } .ds-btn-secondary .bx { position: absolute; inset: 0; z-index: -1; pointer-events: none; } .ds-btn-secondary .bx-side { position: absolute; top: 0; bottom: 0; width: calc(50% - 1px); transition: transform 675ms cubic-bezier(0.65,0,0.35,1); } .ds-btn-secondary .bx-l { left: 0; transform: translateX(calc(-100% - 1px)); } .ds-btn-secondary .bx-r { right: 0; transform: translateX(calc(100% + 1px)); } .ds-btn-secondary .bx-fill, .ds-btn-secondary .bx-chev { position: absolute; inset: 0; } .ds-btn-secondary .bx-l .bx-fill { background: #ece3f5; clip-path: polygon(0 0, calc(100% - 13px) 0, 100% 29%, 100% 71%, calc(100% - 13px) 100%, 0 100%); } .ds-btn-secondary .bx-l .bx-chev { background: #b79ad6; clip-path: polygon(calc(100% - 32px) 0, calc(100% - 13px) 0, 100% 29%, 100% 71%, calc(100% - 13px) 100%, calc(100% - 32px) 100%, calc(100% - 8px) 50%); } .ds-btn-secondary .bx-r .bx-fill { background: #e1eee4; clip-path: polygon(13px 0, 100% 0, 100% 100%, 13px 100%, 0 71%, 0 29%); } .ds-btn-secondary .bx-r .bx-chev { background: #a9c8af; clip-path: polygon(32px 0, 13px 0, 0 29%, 0 71%, 13px 100%, 32px 100%, 8px 50%); } .ds-btn-secondary .bx-chev { transition: opacity 160ms ease; } .ds-btn-secondary:hover .bx-side, .ds-btn-secondary:focus-visible .bx-side { transform: translateX(0); transition-duration: 900ms; } .ds-btn-secondary:hover .bx-chev, .ds-btn-secondary:focus-visible .bx-chev { opacity: 0; transition: opacity 500ms ease 855ms; } .ds-btn-secondary:focus-visible { outline: 2px solid #72588f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Eyebrow",
+      "kind": "custom",
+      "refersTo": "eyebrow",
+      "description": "Abschnitts-Kennung in Barlow mit Lavendel-Chevron.",
+      "html": "<p class=\"ds-eyebrow\">Leistungen</p>",
+      "css": ".ds-eyebrow { margin: 0; color: #7f5fa6; font-family: 'Barlow Semi Condensed', 'Arial Narrow', sans-serif; font-size: 1.05rem; font-weight: 600; letter-spacing: 0.01em; } .ds-eyebrow::before { content: ''; display: inline-block; width: 0.5em; height: 0.75em; margin-right: 0.5em; background: #b79ad6; clip-path: polygon(0 0, 48% 0, 100% 50%, 48% 100%, 0 100%, 52% 50%); }"
+    },
+    {
+      "name": "Leistungskarte mit Chevron-Wasserzeichen",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Ganze Karte ist der Link. Chevron-Wasserzeichen nach Spalte (Lavendel links, Mint rechts); beim Hover wird es sichtbar und rückt herein.",
+      "html": "<article class=\"ds-feature-card\"><h3><a href=\"#\">Experience-Audit</a></h3><p>Ein fachkundiger zweiter Blick auf Ihre Website oder App.</p></article>",
+      "css": ".ds-feature-card { position: relative; overflow: hidden; max-width: 340px; padding: 30px; border: 1px solid rgba(47,50,55,0.12); border-radius: 12px; background: #fff; box-shadow: 0 1px 2px rgba(47,50,55,0.05); cursor: pointer; transition: border-color 260ms ease, background-color 400ms ease; } .ds-feature-card::after { content: ''; position: absolute; right: -20px; bottom: -30px; width: 110px; height: 150px; background: #b79ad6; opacity: 0.1; transform: translateX(14px); clip-path: polygon(0 0, 48% 0, 100% 50%, 48% 100%, 0 100%, 52% 50%); pointer-events: none; transition: opacity 450ms ease, transform 600ms cubic-bezier(0.22,1,0.36,1); } .ds-feature-card:hover { border-color: rgba(183,154,214,0.55); background-color: #faf7fd; } .ds-feature-card:hover::after { opacity: 0.7; transform: none; } .ds-feature-card h3 { margin: 0 0 12px; font-family: 'Barlow Semi Condensed', sans-serif; font-size: 1.4rem; font-weight: 600; line-height: 1.2; } .ds-feature-card h3 a { color: #3a3d43; text-decoration: none; } .ds-feature-card h3 a::before { content: ''; position: absolute; inset: 0; z-index: 2; } .ds-feature-card p { position: relative; z-index: 1; max-width: 88%; margin: 0; color: #676a70; font-family: 'Source Sans 3', sans-serif; font-size: 1rem; line-height: 1.6; }"
+    },
+    {
+      "name": "Kundenkarte",
+      "kind": "card",
+      "refersTo": "client-card",
+      "description": "Kunde mit Logo auf Lavendel-Mint-Feld; Hover über Rahmen und Fläche.",
+      "html": "<a class=\"ds-client-card\" href=\"#\"><span class=\"ds-client-logo\">LOGO</span><span class=\"ds-client-name\">Autovermietung Heinzelmann</span><span class=\"ds-client-link\">Zum Projekt →</span></a>",
+      "css": ".ds-client-card { display: flex; flex-direction: column; max-width: 320px; padding: 24px; border: 1px solid rgba(47,50,55,0.12); border-radius: 12px; background: #fff; color: inherit; text-decoration: none; transition: border-color 180ms ease, background 180ms ease; } .ds-client-card:hover, .ds-client-card:focus-visible { border-color: #b79ad6; background: #fbfafc; } .ds-client-logo { display: flex; align-items: center; justify-content: center; height: 112px; margin-bottom: 22px; border-radius: 8px; background: linear-gradient(135deg, rgba(183,154,214,0.26), rgba(169,200,175,0.32)); color: #3a3d43; font-weight: 800; letter-spacing: 0.1em; } .ds-client-name { color: #3a3d43; font-family: 'Barlow Semi Condensed', sans-serif; font-size: 1.3rem; font-weight: 600; line-height: 1.2; } .ds-client-link { margin-top: 14px; color: #7f5fa6; font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem; font-weight: 700; }"
+    },
+    {
+      "name": "FAQ-Eintrag",
+      "kind": "custom",
+      "refersTo": "faq-item",
+      "description": "Aufklappbare Frage mit rundem Plus, das geöffnet zum Minus auf Verlauf wird.",
+      "html": "<details class=\"ds-faq\" open><summary>Was kostet das Erstgespräch?<span class=\"ds-faq-icon\" aria-hidden=\"true\"></span></summary><p>Das Erstgespräch ist kostenlos und unverbindlich.</p></details>",
+      "css": ".ds-faq { max-width: 640px; overflow: hidden; border: 1px solid rgba(47,50,55,0.1); border-radius: 12px; background: #fff; box-shadow: 0 1px 2px rgba(47,50,55,0.05); transition: border-color 180ms ease; } .ds-faq:hover, .ds-faq[open] { border-color: rgba(183,154,214,0.28); } .ds-faq summary { display: grid; grid-template-columns: minmax(0,1fr) 38px; align-items: center; gap: 22px; min-height: 76px; padding: 0 24px 0 28px; color: #3a3d43; font-family: 'Source Sans 3', sans-serif; font-size: 1.04rem; font-weight: 850; cursor: pointer; list-style: none; } .ds-faq summary::-webkit-details-marker { display: none; } .ds-faq-icon { position: relative; width: 38px; height: 38px; border-radius: 999px; background: rgba(183,154,214,0.12); transition: transform 180ms ease, background 180ms ease; } .ds-faq-icon::before, .ds-faq-icon::after { content: ''; position: absolute; top: 50%; left: 50%; width: 14px; height: 2px; border-radius: 999px; background: #3a3d43; transform: translate(-50%,-50%); transition: opacity 180ms ease; } .ds-faq-icon::after { transform: translate(-50%,-50%) rotate(90deg); } .ds-faq[open] .ds-faq-icon { background: linear-gradient(135deg, rgba(183,154,214,0.2), rgba(169,200,175,0.2)); transform: rotate(180deg); } .ds-faq[open] .ds-faq-icon::after { opacity: 0; } .ds-faq p { margin: 0; padding: 0 28px 26px; color: #676a70; font-family: 'Source Sans 3', sans-serif; font-size: 0.98rem; line-height: 1.68; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-menu-item-hover",
+      "description": "Kopfzeilen-Links mit wachsender Lavendel-Unterstreichung.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" class=\"is-active\">Leistungen</a><a href=\"#\">Über mich</a><a href=\"#\">Kontakt</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 30px; padding: 24px 0; font-family: 'Source Sans 3', sans-serif; font-size: 0.95rem; font-weight: 500; } .ds-nav a { position: relative; color: #676a70; text-decoration: none; transition: color 180ms ease; } .ds-nav a::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 100%; height: 2px; border-radius: 999px; background: #b79ad6; transform: scaleX(0); transform-origin: right; transition: transform 180ms ease; } .ds-nav a:hover, .ds-nav a.is-active { color: #3a3d43; } .ds-nav a:hover::after, .ds-nav a.is-active::after { transform: scaleX(1); transform-origin: left; } .ds-nav a:focus-visible { outline: 2px solid #72588f; outline-offset: 3px; }"
+    },
+    {
+      "name": "Kontaktkarte",
+      "kind": "card",
+      "refersTo": "contact-card",
+      "description": "Große Bühne am Seitenende auf Lavendel-Mint-Verlauf.",
+      "html": "<div class=\"ds-contact\"><h2>Sprechen wir über Ihr Projekt</h2><p>Ein kostenloses Erstgespräch, unverbindlich und direkt mit mir.</p></div>",
+      "css": ".ds-contact { max-width: 720px; padding: clamp(34px, 6vw, 72px); border: 1px solid rgba(47,50,55,0.12); border-radius: 16px; background: linear-gradient(135deg, rgba(183,154,214,0.26), rgba(169,200,175,0.32)), #fff; box-shadow: 0 1px 2px rgba(47,50,55,0.05); } .ds-contact h2 { margin: 0 0 16px; color: #3a3d43; font-family: 'Barlow Semi Condensed', sans-serif; font-size: clamp(1.95rem, 2.9vw, 2.65rem); font-weight: 600; line-height: 1.1; } .ds-contact p { margin: 0; color: #3a3d43; font-family: 'Source Sans 3', sans-serif; font-size: 1.08rem; line-height: 1.6; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Das helle Atelier",
+    "overview": "CXUnity sieht aus wie ein aufgeräumter, heller Arbeitsraum, in dem die echten Arbeitsergebnisse an der Wand hängen: Ablaufskizzen, ein angeschnittener Audit-Bericht, ein PR/FAQ-Dokument, Persona- und Eisberg-Grafiken. Die Oberfläche selbst bleibt Papier, Graphit und feine Linien. Farbe kommt nur dort ins Spiel, wo sie eine Bedeutung trägt. In der Mitte des Ateliers steht das X aus dem Logo. Es ist die Schnittstelle, an der die Kundensicht (CX-Lavendel) und die Nutzersicht (UX-Mint) aufeinandertreffen, und es kehrt als Chevron-Form auf der ganzen Seite wieder.\n\nDer Grundton ist klar und selbstbewusst. Die Sicherheit entsteht nicht durch laute Farbe, sondern durch Kontrast und Präzision: Graphit-Überschriften in einer schmalen, aufrechten Grotesk, großzügiger Weißraum, knappe Texte und echte Artefakte statt Stockfotos oder Illustrationsfiguren. Die Dichte ist niedrig, die Abschnitte atmen (112 px Abstand), und jedes Element hat eine Aufgabe.\n\nBedienelemente sind leise und exakt. Sie sind flach, haben haarfeine Rahmen und reagieren mit Farbe oder Rahmen statt mit Sprüngen, Schatten oder Leuchten. Die eine Ausnahme mit Charakter sind die Buttons: Beim Hover setzen sich in ihnen die beiden Hälften des Logo-X zusammen. Bewegung gibt es dort, wo sie etwas erklärt: wenn sich das Logo aus zwei Hälften zusammensetzt, wenn das Untermenü aufklappt oder wenn Inhalte beim Scrollen ruhig einblenden. Wer reduzierte Bewegung eingestellt hat, sieht sofort den Endzustand.",
+    "keyCharacteristics": [
+      "Papierweiße Flächen, Graphit-Text, haarfeine Rahmen (12 % Deckkraft)",
+      "Lavendel und Mint immer als Paar und immer mit Bedeutung, nie als Dekoration",
+      "Chevron und X als einziges grafisches Motiv",
+      "Echte Artefakte (Berichte, Abläufe, Dokumente) als Bildsprache",
+      "Flach im Ruhezustand, Hover verändert Farbe oder Rahmen, nicht die Position",
+      "Schmale Display-Schrift für Haltung, offene Grotesk für Lesbarkeit"
+    ],
+    "rules": [
+      {
+        "name": "The Pair Rule",
+        "body": "Lavendel und Mint treten gemeinsam auf oder in klar zugeordneten Rollen (CX gegen UX). Ein Verlauf zwischen beiden läuft immer diagonal (135°) von Lavendel zu Mint, mit 13 bis 32 % Deckkraft auf Weiß. Er ist die einzige erlaubte Verlaufsform.",
+        "section": "colors"
+      },
+      {
+        "name": "The Meaning Rule",
+        "body": "Jede Lavendel- oder Mint-Fläche muss sich auf CX, UX oder deren Verbindung beziehen lassen. Wer die Bedeutung nicht benennen kann, nimmt Graphit oder Haarlinie.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ink Rule",
+        "body": "Die hellen Grundstufen (`cx-lavender`, `ux-mint`) tragen nie kleinen Text. Für Text gibt es die Ink-Stufen.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Barlow für Haltung (Überschriften, Eyebrows, Kennzahlen, Menütitel), Source Sans für alles Gelesene und Bediente. Eine dritte Schrift gibt es nicht.",
+        "section": "typography"
+      },
+      {
+        "name": "The Upright Rule",
+        "body": "Überschriften stehen in Satzschreibweise, nicht in Versalien, und sind nie kursiv. Kursiv ist den Kundenzitaten vorbehalten.",
+        "section": "typography"
+      },
+      {
+        "name": "The No-Lift Rule",
+        "body": "Karten und Buttons springen beim Hover nicht nach oben, und ihr Schatten wächst nicht. Der Hover ändert Rahmenfarbe (zu Lavendel), Fläche (zu Atelierfläche) oder Textfarbe. Das ist im Code bewusst mit `transform: none` festgeschrieben.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Real Layer Rule",
+        "body": "Ein großer Schatten bedeutet, dass etwas über dem Inhalt schwebt (Menü, Tooltip, Cookie-Hinweis). Fest stehende Inhalte bekommen nie einen großen Schatten.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Chevron Rule",
+        "body": "Das einzige Ornament ist der Chevron aus dem Logo (`clip-path: polygon(0 0, 48% 0, 100% 50%, 48% 100%, 0 100%, 52% 50%)`). Er erscheint als kleines Zeichen vor jeder Eyebrow und als Wasserzeichen mit 10 % Deckkraft in der rechten unteren Ecke der Leistungskarten. Das Wasserzeichen ist eine feste Markenregel. Andere dekorative Formen wie Blobs, Kreise oder Sterne gibt es nicht.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do Lavendel und Mint für Bedeutung reservieren und neutrale Aufgaben mit Graphit, Schiefergrau und Haarlinie lösen.",
+      "Do den Lavendel-Mint-Verlauf nur diagonal (135°), mit niedriger Deckkraft (13–32 %) und auf großen ruhigen Flächen einsetzen.",
+      "Do für Lavendel-Text immer `cx-lavender-ink` oder `cx-lavender-deep` verwenden und für Mint-Text `ux-mint-ink` (nur große Schrift).",
+      "Do neue Bildinhalte als echte Artefakte bauen (Dokument, Bericht, Ablauf) und nicht als Illustration oder Stockfoto.",
+      "Do jede Bewegung mit `prefers-reduced-motion` absichern und die Kurve `cubic-bezier(0.22, 1, 0.36, 1)` verwenden.",
+      "Do die Radius-Treppe einhalten: 6 px Bedienelement, 8 px kleine Fläche, 12 px Karte, 16 px Bühne."
+    ],
+    "donts": [
+      "Don't Karten oder Buttons beim Hover anheben oder ihren Schatten vergrößern.",
+      "Don't Verläufe auf Text, Buttons oder Icons legen und keine Glow- oder Neon-Effekte einsetzen.",
+      "Don't den X-Hover auf Karten, Links oder andere Elemente übertragen. Er gehört nur den Buttons.",
+      "Don't weitere Akzentfarben einführen. Ausnahme sind die Status-Töne in den Audit-Befunden (Grün #2a7a40, Orange #B05A00), und die gelten nur innerhalb dieser Artefakte.",
+      "Don't dekorative Formen außer dem Chevron verwenden, etwa Blobs, Wellen, Sterne oder Emoji-Icons.",
+      "Don't Überschriften in Versalien oder kursiv setzen und keine dritte Schrift einführen.",
+      "Don't Mockup-Dunkel (#2c2c2c) als Seiten- oder Abschnittshintergrund verwenden.",
+      "Don't im Hero ein Portrait statt des Logos zeigen."
+    ]
+  }
+}
