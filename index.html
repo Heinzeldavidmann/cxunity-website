@@ -236,7 +236,7 @@
     </div>
   </section>
 
-  <!-- "Kunden" (Clients): after the services as proof. Client cards, then quote + numbers of Autovermietung Heinzelmann -->
+  <!-- "Kunden" (Clients): after the services as proof. Client cards, then a swipeable row of client voices -->
   <section id="clients" class="section clients-section">
     <div class="section-heading reveal">
       <h2>Mit diesen Organisationen arbeitet CXUnity zusammen.</h2>
@@ -277,27 +277,33 @@
         <span class="client-card-link">Website besuchen <svg width="12" height="12" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M4 10l6-6M5 4h5v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
     </div>
-    <!-- Beleg Autovermietung: Zitat links, Kennzahlen rechts -->
-    <div class="client-proof">
-      <figure class="client-proof-quote reveal">
-        <blockquote>
-          <p>„David hat sich von Anfang an wirklich vollständig auf unser Unternehmen eingelassen. Er hat sich die Zeit genommen, den Betrieb von allen Facetten kennenzulernen, bevor er auch nur einen Vorschlag gemacht hat. Gemeinsam haben wir herausgearbeitet, was wir brauchen und was wir eben nicht brauchen. Unsere Wünsche hat er dabei von Anfang an mitgedacht und das Ergebnis spricht für sich. Termine hat er auch dann gefunden, wenn es außerhalb der üblichen Geschäftszeiten war. Die Zusammenarbeit war sehr intensiv und sehr vertrauensvoll. Was am Ende herausgekommen ist, passt genau zu uns.“</p>
-        </blockquote>
-        <figcaption>
-          <strong>Gerold Heinzelmann</strong>
-          <span>Geschäftsführer, Autovermietung Heinzelmann</span>
-        </figcaption>
-      </figure>
-
-      <div class="client-proof-numbers reveal reveal-delay-1">
-        <h3>Autovermietung Heinzelmann: die erste Website in Zahlen</h3>
-        <p class="results-when"><strong>Seit dem Start</strong> · Stand 30. Oktober 2026</p>
-        <ul class="results-stats">
-          <li><strong>149</strong><span>Anfragen über das Kontaktformular</span></li>
-          <li><strong>62</strong><span>davon außerhalb der Geschäftszeiten</span></li>
-          <li><strong>1.475</strong><span>Klicks aus der Google-Suche</span></li>
-          <li><strong>8.239</strong><span>Mal in der Google-Suche angezeigt</span></li>
-        </ul>
+    <!-- Kundenstimmen: horizontal wischbar, weitere Stimmen einfach als <figure class="testimonial-card voice"> ergänzen -->
+    <div class="voices reveal" role="region" aria-roledescription="carousel" aria-label="Kundenstimmen">
+      <div class="voices-head">
+        <h3>Was Kunden sagen</h3>
+        <div class="voices-nav">
+          <button class="voices-btn voices-prev" type="button" aria-label="Vorherige Kundenstimme"><svg viewBox="0 0 32 52" aria-hidden="true"><polygon points="32,0 13,0 0,15 0,37 13,52 32,52 8,26"/></svg></button>
+          <span class="voices-count" aria-hidden="true">1 / 2</span>
+          <button class="voices-btn voices-next" type="button" aria-label="Nächste Kundenstimme"><svg viewBox="0 0 32 52" aria-hidden="true"><polygon points="0,0 19,0 32,15 32,37 19,52 0,52 24,26"/></svg></button>
+        </div>
+      </div>
+      <div class="voices-track" tabindex="0">
+        <figure class="testimonial-card voice" role="group" aria-roledescription="Kundenstimme" aria-label="1 von 2">
+          <svg class="testimonial-quote-mark" width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true"><path d="M0 28V17.6C0 12.267 1.333 8 4 4.8 6.667 1.6 10.533 0 15.6 0l1.6 3.2C13.6 3.733 11.2 5.2 9.6 7.6 8 9.867 7.2 12.533 7.2 15.6H14.4V28H0zm20 0V17.6C20 12.267 21.333 8 24 4.8 26.667 1.6 30.533 0 35.6 0l1.6 3.2c-3.6.533-6 2-7.6 4.4C28 9.867 27.2 12.533 27.2 15.6H34.4V28H20z" fill="url(#vq-1)"/><defs><linearGradient id="vq-1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#b79ad6"/><stop offset="100%" stop-color="#a9c8af"/></linearGradient></defs></svg>
+          <blockquote><p>„Ich würde sagen, dass ich im Bereich UI und UX nicht gerade unerfahren bin, aber Davids Input war nicht nur sehr gut vorbereitet, sondern auch sehr wertvoll. Egal was man baut: Man hat immer einen sogenannten Builder's Bias (die Betriebsblindheit des Machers). Man ist voreingenommen, weil man das eigene Angebot und die eigene Website am besten kennt. Genau deshalb ist es wertvoll, ein zweites Paar Expertenaugen darüber schauen zu lassen. Ich war selbst überrascht, was David alles an wirklich guten Verbesserungsvorschlägen finden konnte, die mir davor so nicht aufgefallen waren.“</p></blockquote>
+          <figcaption class="testimonial-author">
+            <div class="testimonial-author-info"><strong>Moritz Julius Schultz</strong><span>Gründer, ScrollJail</span></div>
+            <a href="https://scrolljail.com" target="_blank" rel="noopener noreferrer" class="testimonial-logo" aria-label="ScrollJail: Website besuchen"><img loading="lazy" decoding="async" src="assets/images/scrolljail-logo.svg" alt="ScrollJail"></a>
+          </figcaption>
+        </figure>
+        <figure class="testimonial-card voice" role="group" aria-roledescription="Kundenstimme" aria-label="2 von 2">
+          <svg class="testimonial-quote-mark" width="36" height="28" viewBox="0 0 36 28" fill="none" aria-hidden="true"><path d="M0 28V17.6C0 12.267 1.333 8 4 4.8 6.667 1.6 10.533 0 15.6 0l1.6 3.2C13.6 3.733 11.2 5.2 9.6 7.6 8 9.867 7.2 12.533 7.2 15.6H14.4V28H0zm20 0V17.6C20 12.267 21.333 8 24 4.8 26.667 1.6 30.533 0 35.6 0l1.6 3.2c-3.6.533-6 2-7.6 4.4C28 9.867 27.2 12.533 27.2 15.6H34.4V28H20z" fill="url(#vq-2)"/><defs><linearGradient id="vq-2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#b79ad6"/><stop offset="100%" stop-color="#a9c8af"/></linearGradient></defs></svg>
+          <blockquote><p>„Unser Betrieb besteht seit 1963 und kam lange ohne Homepage aus. Die Adresse prangte zwar seit Jahren auf unseren Formularen und Visitenkarten, dahinter verbarg sich jedoch eine Sackgasse. David hat daraus eine Einfahrt gemacht. Und es blieb nicht bei der Website: Ohne dass wir ihn lange bitten mussten und ohne endlose Besprechungen hat er sich angesehen, wie wir mit unserer Kundschaft in Kontakt treten, und dies in einer Weise verbessert, die uns schlicht überrascht hat. Mittlerweile sind unsere Mietverträge und Rechnungen an der Reihe. Ein Digitalberater, der nicht redet, sondern macht. Das ist seltener, als man meinen möchte.“</p></blockquote>
+          <figcaption class="testimonial-author">
+            <div class="testimonial-author-info"><strong>Gerold Heinzelmann</strong><span>Geschäftsführer, Autovermietung Heinzelmann</span></div>
+            <div class="testimonial-logo"><img loading="lazy" decoding="async" src="assets/images/Logo_Autovermietung Heinzelmann.png" alt="Autovermietung Heinzelmann"></div>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -314,7 +320,7 @@
         <h3><span class="q-nw"><svg class="q-l" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="38,0 410,0 671,315 671,720 372,1080 0,1080 496,514"/></svg>Was</span> erleben die <span class="q-nw">Menschen?<svg class="q-r" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="261,0 633,0 175,514 671,1080 299,1080 0,720 0,315"/></svg></span></h3>
         <p>Ob jemand wiederkommt, weiterempfiehlt oder abspringt, entscheidet die Erfahrung mit Ihrem digitalen Produkt. Sie muss von Anfang an stimmen.</p>
         <button class="perspective-toggle" type="button" aria-expanded="false" aria-controls="benefit-1">Ihr Nutzen <svg viewBox="0 0 32 52" aria-hidden="true"><polygon points="0,0 19,0 32,15 32,37 19,52 0,52 24,26"/></svg></button>
-        <div class="perspective-benefit" id="benefit-1"><div><p>CXUnity macht sichtbar, was Ihre Kunden wirklich erleben: mit Audits, Interviews und Tests. Sie bekommen klare Prioritäten statt Bauchgefühl.</p></div></div>
+        <div class="perspective-benefit" id="benefit-1"><div><p class="perspective-benefit-label">Ihr Nutzen</p><p>CXUnity macht sichtbar, was Ihre Kunden wirklich erleben: mit Audits, Interviews und Tests. Sie bekommen klare Prioritäten statt Bauchgefühl.</p></div></div>
       </article>
 
       <article class="perspective reveal reveal-delay-2">
@@ -322,7 +328,7 @@
         <h3><span class="q-nw"><svg class="q-l" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="38,0 410,0 671,315 671,720 372,1080 0,1080 496,514"/></svg>Was</span> braucht das <span class="q-nw">Unternehmen?<svg class="q-r" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="261,0 633,0 175,514 671,1080 299,1080 0,720 0,315"/></svg></span></h3>
         <p>Gute Nutzererfahrung und Unternehmensziele schließen sich nicht aus. Mehr Klarheit bringt mehr Vertrauen, bessere Anfragen und schlankere Prozesse.</p>
         <button class="perspective-toggle" type="button" aria-expanded="false" aria-controls="benefit-2">Ihr Nutzen <svg viewBox="0 0 32 52" aria-hidden="true"><polygon points="0,0 19,0 32,15 32,37 19,52 0,52 24,26"/></svg></button>
-        <div class="perspective-benefit" id="benefit-2"><div><p>Jede Entscheidung wird an Ihren Zielen gemessen. Sie investieren dort, wo es Anfragen, Umsatz oder Zeit bringt.</p></div></div>
+        <div class="perspective-benefit" id="benefit-2"><div><p class="perspective-benefit-label">Ihr Nutzen</p><p>Jede Entscheidung wird an Ihren Zielen gemessen. Sie investieren dort, wo es Anfragen, Umsatz oder Zeit bringt.</p></div></div>
       </article>
 
       <article class="perspective reveal reveal-delay-3">
@@ -330,7 +336,7 @@
         <h3><span class="q-nw"><svg class="q-l" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="38,0 410,0 671,315 671,720 372,1080 0,1080 496,514"/></svg>Was</span> soll in fünf bis zehn Jahren noch <span class="q-nw">gelten?<svg class="q-r" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="261,0 633,0 175,514 671,1080 299,1080 0,720 0,315"/></svg></span></h3>
         <p>Was heute passt, muss auch dann noch funktionieren, wenn Ihr Unternehmen wächst, sich verändert oder neue Anforderungen entstehen.</p>
         <button class="perspective-toggle" type="button" aria-expanded="false" aria-controls="benefit-3">Ihr Nutzen <svg viewBox="0 0 32 52" aria-hidden="true"><polygon points="0,0 19,0 32,15 32,37 19,52 0,52 24,26"/></svg></button>
-        <div class="perspective-benefit" id="benefit-3"><div><p>Sie bekommen Lösungen, die mitwachsen: sauber aufgebaut, gut dokumentiert und ohne Abhängigkeit von einer Agentur.</p></div></div>
+        <div class="perspective-benefit" id="benefit-3"><div><p class="perspective-benefit-label">Ihr Nutzen</p><p>Sie bekommen Lösungen, die mitwachsen: sauber aufgebaut, gut dokumentiert und ohne Abhängigkeit von einer Agentur.</p></div></div>
       </article>
     </div>
   </section>

@@ -270,9 +270,13 @@ Die beiden Logo-Hälften stehen am Bildschirmrand, links „Customer Experience�
 
 Touch-Geräte haben kein Hover. Damit der X-Effekt trotzdem erlebbar ist, spielen Hauptbuttons ihn einmal ab, wenn sie zum ersten Mal ganz sichtbar werden, und beim Antippen. Bei den Leistungskarten übernimmt die Karte in der Bildschirmmitte den Hover-Zustand (farbiger Chevron, Tönung). Bei reduzierter Bewegung entfällt beides.
 
+### Faktenleiste (Über mich)
+
+Drei Fakten zum Überfliegen direkt unter dem ersten Satz der Über-mich-Seite: eine Fläche im waagerechten Lavendel-Mint-Verlauf, durch 3 px breite weiße Fugen in drei Felder geteilt (wie die Lücke im Logo), außen nur 6 px Radius (bewusst knapp, nicht rundlich). Pro Feld: großer Wert (Barlow), Etikett in Lavendel-Tinte, kurze Erklärung in Grau. Keine Icons. Nur nachprüfbare Fakten, keine Reichweiten, die man nicht belegen kann.
+
 ### Perspektiven-Module
 
-Drei gleichwertige Module auf leiser Fläche (`atelier-surface`, feine Kante, 12 px Radius), ohne Icons. Oben ein graues Etikett (Perspektive), darunter die Frage als H3 in Chevron-Anführungszeichen: » in Lavendel vorne, « in Mint hinten, wie die Logo-Hälften im Hero. Das schließende Zeichen bleibt immer am letzten Wort. Unten „Ihr Nutzen ›“: klappt beim Überfahren (nur Geräte mit Hover) oder per Klick/Antippen weich auf und zeigt das Nutzenversprechen; das Modul wird dabei weiß.
+Drei gleichwertige weiße Module (feine Kante, 12 px Radius), ohne Icons. Oben ein graues Etikett (Perspektive), darunter die Frage als H3 in Chevron-Anführungszeichen: » in Lavendel vorne, « in Mint hinten, wie die Logo-Hälften im Hero. Das schließende Zeichen bleibt immer am letzten Wort. Unten „Ihr Nutzen ›“: Das Nutzenversprechen ist ein weißes Blatt mit runden oberen Ecken und weichem Schatten, das von unten über die Erklärung gleitet (gleiches Ebenen-Prinzip wie der Leistungsbereich über dem Hero). Es nimmt keinen Platz nach unten weg. Öffnen nach einer Sekunde Verweilen mit der Maus (damit Scrollen nichts auslöst) oder sofort per Klick/Antippen; Schließen durch Wegbewegen, Klick aufs Blatt oder Escape.
 
 ### Leistungskarten
 - **Ganze Karte als Link:** Der Titel ist der Link und spannt sich über die ganze Karte. Einen separaten „Mehr zu …“-Link gibt es nicht. Mit der Tastatur bekommt die ganze Karte den Fokusring.

@@ -217,14 +217,65 @@ if (mobileMenuToggle && mobileNavigation) {
     document.querySelectorAll('#focus .feature-card').forEach(function (c) { near.observe(c); });
 })();
 
-/* Perspektiven: „Ihr Nutzen“ per Klick/Antippen auf- und zuklappen.
-   Auf Geräten mit Hover klappt es zusätzlich beim Überfahren auf (CSS). */
+/* Perspektiven: „Ihr Nutzen“ ist ein Blatt, das von unten über das Modul gleitet.
+   Knopf öffnet/schließt, Klick aufs offene Blatt oder Escape schließt.
+   Auf Geräten mit Hover öffnet es zusätzlich nach einer Sekunde Verweilen (CSS). */
 (function () {
-    document.querySelectorAll('.perspective-toggle').forEach(function (btn) {
+    function setOpen(card, open) {
+        card.classList.toggle('is-open', open);
+        card.querySelector('.perspective-toggle').setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    document.querySelectorAll('.perspective').forEach(function (card) {
+        var btn = card.querySelector('.perspective-toggle');
         btn.addEventListener('click', function () {
-            var card = btn.closest('.perspective');
-            var open = card.classList.toggle('is-open');
-            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            setOpen(card, !card.classList.contains('is-open'));
         });
+        card.querySelector('.perspective-benefit').addEventListener('click', function () {
+            if (card.classList.contains('is-open')) { setOpen(card, false); btn.focus(); }
+        });
+        card.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && card.classList.contains('is-open')) { setOpen(card, false); btn.focus(); }
+        });
+    });
+})();
+
+/* Kundenstimmen: Knöpfe blättern eine Stimme weiter, der Zähler folgt dem Scrollen. */
+(function () {
+    document.querySelectorAll('.voices').forEach(function (box) {
+        var track = box.querySelector('.voices-track');
+        var slides = [].slice.call(track.querySelectorAll('.voice'));
+        var prev = box.querySelector('.voices-prev');
+        var next = box.querySelector('.voices-next');
+        var count = box.querySelector('.voices-count');
+        if (!slides.length) return;
+
+        function current() {
+            var left = track.scrollLeft, best = 0, dist = Infinity;
+            slides.forEach(function (s, i) {
+                var d = Math.abs(s.offsetLeft - track.offsetLeft - left);
+                if (d < dist) { dist = d; best = i; }
+            });
+            return best;
+        }
+
+        function update() {
+            var i = current();
+            var atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+            count.textContent = (atEnd ? slides.length : i + 1) + ' / ' + slides.length;
+            prev.disabled = track.scrollLeft <= 4;
+            next.disabled = atEnd;
+        }
+
+        function go(dir) {
+            var i = Math.max(0, Math.min(slides.length - 1, current() + dir));
+            track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft });
+        }
+
+        prev.addEventListener('click', function () { go(-1); });
+        next.addEventListener('click', function () { go(1); });
+        track.addEventListener('scroll', function () { window.requestAnimationFrame(update); }, { passive: true });
+        window.addEventListener('resize', update);
+        update();
     });
 })();

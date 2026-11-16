@@ -470,7 +470,8 @@ p {
     height: 0.75em;
     margin-right: 0.5em;
     background: var(--color-lavender);
-    clip-path: polygon(0 0, 48% 0, 100% 50%, 48% 100%, 0 100%, 52% 50%);
+    /* Logo-Chevron mit flacher Spitze (wie .fcl-chev), nicht mehr die alte spitze Form */
+    clip-path: polygon(0 0, 59.4% 0, 100% 28.8%, 100% 71.2%, 59.4% 100%, 0 100%, 75% 50%);
 }
 
 .eyebrow {
@@ -1616,12 +1617,24 @@ h1.subpage-h1,
     font-size: 0.9rem;
     font-weight: 650;
     text-decoration: none;
-    transition: color 180ms ease, gap 180ms ease;
+    transition: color 180ms ease;
 }
 
-.review-back-link:hover {
+/* Zurück-Link: der Mint-Chevron des Logos (die UX-Hälfte zeigt nach links) */
+.review-back-link .back-chev {
+    flex-shrink: 0;
+    width: 0.62em;
+    height: 1em;
+    fill: var(--color-mint);
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.review-back-link:is(:hover, :focus-visible) {
     color: var(--color-text);
-    gap: 12px;
+}
+
+.review-back-link:is(:hover, :focus-visible) .back-chev {
+    transform: translateX(-3px);
 }
 
 .review-deliverables {
@@ -1829,24 +1842,83 @@ h1.subpage-h1,
     font-weight: 800;
 }
 
+/* Über mich: Faktenleiste. Eine Fläche im waagerechten Lavendel-Mint-Verlauf (wie der
+   Leistungsbereich), durch schmale weiße Fugen in drei Fakten geteilt, wie die Lücke im
+   Logo. Knappe Ecken, keine Icons, keine Kästen pro Fakt. */
+.facts {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3px;
+    margin: 28px 0 40px;
+    padding: 0;
+    list-style: none;
+    border-radius: var(--radius-control);
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.facts-item {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 26px 26px;
+    background: linear-gradient(90deg, var(--color-lavender-soft), var(--color-mint-soft));
+    background-size: 300% 100%;
+}
+
+.facts-item:nth-child(1) { background-position: 0 0; }
+.facts-item:nth-child(2) { background-position: 50% 0; }
+.facts-item:nth-child(3) { background-position: 100% 0; }
+
+.facts-value {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 2.3vw, 2.1rem);
+    font-weight: 600;
+    line-height: 1.05;
+    color: var(--color-text);
+}
+
+.facts-key {
+    margin: 6px 0 8px;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--color-lavender-ink);
+}
+
+.facts-text {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: var(--color-muted);
+}
+
+@media (max-width: 760px) {
+    .facts { grid-template-columns: 1fr; }
+    .facts-item:nth-child(n) { background-size: 100% 100%; }
+}
+
 /* Perspektiven: drei Module. Die Frage steht in Chevron-Anführungszeichen (» Lavendel,
-   « Mint, wie die Logo-Hälften im Hero). Unten klappt „Ihr Nutzen“ auf: beim Überfahren
-   (Geräte mit Hover) oder per Klick/Antippen auf den Knopf (index.js). */
+   « Mint, wie die Logo-Hälften im Hero). „Ihr Nutzen“ ist ein weißes Blatt, das von unten
+   über die Erklärung gleitet, wie der Leistungsbereich über den Hero. Es nimmt keinen
+   Platz nach unten weg. Öffnen: eine Sekunde Verweilen (Geräte mit Hover) oder Klick/
+   Antippen auf den Knopf; Schließen: Maus weg, Klick aufs Blatt oder Escape (index.js). */
 .perspective-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
-    align-items: start;
+    align-items: stretch;
     margin-top: 8px;
 }
 
 .perspective {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     padding: 32px 30px 30px;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-medium);
-    background: var(--color-surface);
+    background: #ffffff;
     transition: background-color 250ms ease, border-color 250ms ease;
 }
 
@@ -1907,30 +1979,55 @@ h1.subpage-h1,
 }
 
 .perspective-benefit {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 450ms cubic-bezier(0.22, 1, 0.36, 1);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 22px 30px 26px;
+    border-radius: 14px 14px 0 0;
+    background: #ffffff;
+    box-shadow:
+        0 -1px 0 rgba(47, 50, 55, 0.07),
+        0 -16px 30px -18px rgba(47, 50, 55, 0.28);
+    transform: translateY(calc(100% + 30px));
+    transition: transform 700ms cubic-bezier(0.45, 0, 0.25, 1);
 }
 
-.perspective-benefit > div {
-    overflow: hidden;
+.perspective-benefit-label {
+    margin: 0 0 6px;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-lavender-ink);
 }
 
-.perspective-benefit p {
-    margin: 12px 0 0;
-    padding-top: 12px;
-    border-top: 1px solid var(--color-border);
+.perspective-benefit p:last-child {
+    margin: 0;
     color: var(--color-text);
 }
 
-.perspective.is-open .perspective-benefit { grid-template-rows: 1fr; }
+.perspective.is-open .perspective-benefit { transform: none; }
 .perspective.is-open .perspective-toggle svg { transform: rotate(90deg); }
-.perspective.is-open { background: #ffffff; }
 
+/* Erst nach einer Sekunde Verweilen. Wer nur darüber scrollt, bleibt kürzer auf dem
+   Modul; dann bricht die Transition ab und nichts passiert. */
 @media (hover: hover) {
-    .perspective:hover .perspective-benefit { grid-template-rows: 1fr; }
-    .perspective:hover .perspective-toggle svg { transform: rotate(90deg); }
-    .perspective:hover { background: #ffffff; }
+    .perspective:hover .perspective-benefit {
+        transform: none;
+        transition-delay: 1000ms;
+    }
+
+    .perspective:hover .perspective-toggle svg {
+        transform: rotate(90deg);
+        transition-delay: 1000ms;
+    }
+}
+
+/* Wer bewusst klickt, wartet nicht */
+.perspective.is-open:hover .perspective-benefit,
+.perspective.is-open:hover .perspective-toggle svg {
+    transition-delay: 0ms;
 }
 
 @media (max-width: 860px) {
@@ -1938,7 +2035,6 @@ h1.subpage-h1,
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .perspective,
     .perspective-benefit,
     .perspective-toggle svg { transition: none; }
 }
@@ -2167,34 +2263,52 @@ h1.subpage-h1,
     height: 38px;
     border-radius: 999px;
     background: rgba(183, 154, 214, 0.12);
-    transition: background 180ms ease, transform 180ms ease;
+    transition: background 180ms ease;
 }
 
+/* FAQ-Symbol aus dem Logo: geschlossen zeigt der Lavendel-Chevron nach rechts (aufklappen).
+   Geöffnet gleitet der Mint-Chevron dazu, beide treffen sich zum X des Logos, das zugleich
+   als Schließen-Zeichen lesbar ist. */
 .faq-icon::before,
 .faq-icon::after {
     content: "";
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 14px;
-    height: 2px;
-    border-radius: 999px;
-    background: var(--color-text);
-    transform: translate(-50%, -50%);
-    transition: transform 180ms ease, opacity 180ms ease;
+    width: 9px;
+    height: 15px;
+    margin: -7.5px 0 0 -4.5px;
+    transition: transform 380ms cubic-bezier(0.45, 0, 0.25, 1), opacity 260ms ease;
+}
+
+.faq-icon::before {
+    background: var(--color-lavender-deep);
+    clip-path: polygon(0 0, 59.4% 0, 100% 28.8%, 100% 71.2%, 59.4% 100%, 0 100%, 75% 50%);
 }
 
 .faq-icon::after {
-    transform: translate(-50%, -50%) rotate(90deg);
+    background: var(--color-mint-ink);
+    clip-path: polygon(100% 0, 40.6% 0, 0 28.8%, 0 71.2%, 40.6% 100%, 100% 100%, 25% 50%);
+    opacity: 0;
+    transform: translateX(10px);
 }
 
 .faq-item[open] .faq-icon {
     background: linear-gradient(135deg, rgba(183, 154, 214, 0.2), rgba(169, 200, 175, 0.2));
-    transform: rotate(180deg);
+}
+
+.faq-item[open] .faq-icon::before {
+    transform: translateX(-4.5px);
 }
 
 .faq-item[open] .faq-icon::after {
-    opacity: 0;
+    opacity: 1;
+    transform: translateX(4.5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .faq-icon::before,
+    .faq-icon::after { transition: none; }
 }
 
 .faq-answer {
@@ -3599,58 +3713,101 @@ a.contact-person:hover .contact-person-arrow {
 }
 
 /* Beleg unter den Kundenkarten: Zitat und Zahlen der Autovermietung */
-.client-proof {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-    gap: 64px;
-    align-items: start;
+/* Kundenstimmen: Zitatboxen der Unterseiten als wischbare Reihe. Die nächste Stimme
+   schaut rechts hervor. Keine Automatik, Bewegung nur durch Wischen, Scrollen oder die
+   Chevron-Knöpfe (index.js). */
+.voices {
     margin-top: 64px;
     padding-top: 52px;
     border-top: 1px solid var(--color-border);
 }
 
-.client-proof-quote {
+.voices-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.voices-head h3 {
     margin: 0;
 }
 
-.client-proof-quote blockquote {
-    margin: 0;
+.voices-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-.client-proof-quote blockquote p {
-    max-width: 62ch;
-    margin: 0;
-    color: var(--color-text);
-    font-size: 1.14rem;
-    line-height: 1.7;
+.voices-count {
+    min-width: 3.2em;
+    text-align: center;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--color-muted);
 }
 
-.client-proof-quote figcaption {
+.voices-btn {
     display: grid;
-    gap: 2px;
-    margin-top: 24px;
-}
-
-.client-proof-quote figcaption strong {
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 1.5px solid var(--color-text);
+    border-radius: var(--radius-control);
+    background: #ffffff;
     color: var(--color-text);
-    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 200ms ease, color 200ms ease, opacity 200ms ease;
 }
 
-.client-proof-quote figcaption span {
-    color: var(--color-muted);
-    font-size: 0.92rem;
+.voices-btn svg {
+    width: 10px;
+    height: 16px;
+    fill: currentColor;
 }
 
-.client-proof-numbers h3 {
-    margin: 0 0 8px;
-    font-size: 1.3rem;
-    line-height: 1.25;
+.voices-prev:hover:not(:disabled) { background: #ece3f5; }
+.voices-next:hover:not(:disabled) { background: #e1eee4; }
+
+.voices-btn:disabled {
+    opacity: 0.35;
+    cursor: default;
 }
 
-.client-proof-numbers > .results-when {
-    margin: 0 0 26px;
-    color: var(--color-muted);
-    font-size: 0.92rem;
+.voices-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+}
+
+.voices-track::-webkit-scrollbar { display: none; }
+
+.voices-track:focus-visible {
+    outline: 3px solid var(--color-lavender-deep);
+    outline-offset: 4px;
+    border-radius: var(--radius-large);
+}
+
+.voices .voice {
+    flex: 0 0 min(760px, 86%);
+    max-width: none;
+    margin: 0;
+    scroll-snap-align: start;
+    background: #ffffff;
+}
+
+.voices .voice blockquote {
+    margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .voices-track { scroll-behavior: auto; }
 }
 
 .results-when strong {
@@ -3699,12 +3856,12 @@ a.contact-person:hover .contact-person-arrow {
 }
 
 @media (max-width: 860px) {
-    .client-proof {
-        grid-template-columns: 1fr;
-        gap: 44px;
+    .voices {
         margin-top: 48px;
         padding-top: 40px;
     }
+
+    .voices .voice { flex-basis: 88%; }
 }
 
 /* Leistungsreihe in den Kundenkarten */
