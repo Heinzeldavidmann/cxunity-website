@@ -186,7 +186,7 @@
       {
         "name": "ease-logo",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Hero-Logo: Hälften erscheinen auseinander mit „Kundenerlebnis“/„Nutzererlebnis“ und schieben sich zusammen (3200 ms); danach öffnet sich das X einmal pro Schlagwort (1700 ms, 4,5 s Pause), ein Durchlauf, dann Ruhe."
+        "purpose": "Hero „Die Lücke“: Logo-Hälften am Bildschirmrand, Botschaft in der Lücke; Scroll-Fortschritt blendet Text aus und schließt die Hälften zum Logo (ease-in-out, sticky)."
       }
     ],
     "breakpoints": [

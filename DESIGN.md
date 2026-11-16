@@ -216,7 +216,7 @@ Eine fast neutrale Atelierpalette aus Papier und Graphit, in die zwei gedämpfte
 
 Ein einspaltiger Fluss mit einem zentrierten Container von 1180 px und mindestens 20 px Rand. Abschnitte haben 112 px Abstand oben und unten, auf Mobilgeräten (unter 700 px) 76 px. Kompakte Bänder wie die Kundenkarten und die FAQ nutzen 56 bis 72 px.
 
-Raster: Karten stehen in 2er- oder 3er-Grids mit 24 px Abstand. Der Hero teilt sich (1,1 : 0,9) in Text und Logo-Bühne, mit 56 px Abstand. Die Logo-Bühne hat keine Box und keinen Hintergrund. Das Leistungsband (`#focus`) ist die einzige randlose Fläche. Es nutzt die volle Breite mit dem Lavendel-Mint-Verlauf, sein Inhalt bleibt im Container.
+Raster: Karten stehen in 2er- oder 3er-Grids mit 24 px Abstand. Der Hero ist zentriert: Die Botschaft steht in der Lücke zwischen den Logo-Hälften am Bildschirmrand, ohne Box und ohne Hintergrund. Das Leistungsband (`#focus`) ist die einzige randlose Fläche. Es nutzt die volle Breite mit dem waagerechten Lavendel-Mint-Verlauf (Lavendel links, Mint rechts, wie die Logo-Hälften), sein Inhalt bleibt im Container. Es schiebt sich als echte Ebene über den Hero: obere Ecken 24 px rund, weicher Schatten nach oben. Bedeutung: Im Hero stehen CX und UX getrennt (flach, zweifarbig), im Verlauf fließen sie zusammen.
 
 Lesebreiten: Lead-Texte bis etwa 670 px, Abschnittsüberschriften bis 1100 px. FAQ und Rechtstexte sind auf 860 px zentriert, Kontaktkarte und Zitate auf 760 bis 920 px.
 
@@ -262,9 +262,17 @@ Klar und satt, ohne Effekte.
 - **Border:** 1 px Haarlinie.
 - **Internal Padding:** 30 px (Leistungskarten), 24 px (Kundenkarten), clamp 32–72 px (Zitat, Kontaktkarte).
 
-### Hero-Logo
+### Hero „Die Lücke“
 
-Die beiden Logo-Hälften erscheinen auseinander, unter der linken steht „Kundenerlebnis“ (Lavendel-Tinte), unter der rechten „Nutzererlebnis“ (Tiefgrün). Dann schieben sie sich zusammen, die Begriffe verschwinden. Danach öffnet sich das X für jedes Schlagwort einmal, immer gleich weit (64 % der Logobreite), langsam (1,7 s) und mit 4,5 s Ruhe dazwischen. Nach einem Durchlauf bleibt das Logo geschlossen; mit der Maus darüber öffnet es sich erneut. Solange die Schlagworte laufen, ist ein leiser Knopf „Bewegung anhalten“ sichtbar. Bei reduzierter Bewegung steht das Logo still und geschlossen.
+Die beiden Logo-Hälften stehen am Bildschirmrand, links „Customer Experience“ (Lavendel-Tinte), rechts „User Experience“ (Tiefgrün). Die Fachbegriffe bleiben auch auf Deutsch englisch, weil „Erlebnis“ nur die Hälfte von Experience trifft (erleben und erfahren). In der offenen Lücke steht die Botschaft, von den Chevrons gerahmt wie von Anführungszeichen: Headline, ein Satz, ein Hauptbutton und ein leiser Link. Der Hero hat seine natürliche Höhe (kein Leerraum für Scroll-Strecken) und bleibt beim Scrollen stehen; der Leistungsbereich schiebt sich darüber. Je weiter er überdeckt, desto mehr blendet der Text aus und desto weiter schließen sich die Hälften zum Logo. Nichts bewegt sich von allein. Ohne JS und bei reduzierter Bewegung bleibt der offene Zustand ohne Sticky. Auf dem Handy steht das offene Logo über dem Text.
+
+### Touch-Momente
+
+Touch-Geräte haben kein Hover. Damit der X-Effekt trotzdem erlebbar ist, spielen Hauptbuttons ihn einmal ab, wenn sie zum ersten Mal ganz sichtbar werden, und beim Antippen. Bei den Leistungskarten übernimmt die Karte in der Bildschirmmitte den Hover-Zustand (farbiger Chevron, Tönung). Bei reduzierter Bewegung entfällt beides.
+
+### Perspektiven-Module
+
+Drei gleichwertige Module auf leiser Fläche (`atelier-surface`, feine Kante, 12 px Radius), ohne Icons. Oben ein graues Etikett (Perspektive), darunter die Frage als H3 in Chevron-Anführungszeichen: » in Lavendel vorne, « in Mint hinten, wie die Logo-Hälften im Hero. Das schließende Zeichen bleibt immer am letzten Wort. Unten „Ihr Nutzen ›“: klappt beim Überfahren (nur Geräte mit Hover) oder per Klick/Antippen weich auf und zeigt das Nutzenversprechen; das Modul wird dabei weiß.
 
 ### Leistungskarten
 - **Ganze Karte als Link:** Der Titel ist der Link und spannt sich über die ganze Karte. Einen separaten „Mehr zu …“-Link gibt es nicht. Mit der Tastatur bekommt die ganze Karte den Fokusring.
@@ -313,4 +321,4 @@ Die große Bühne am Seitenende: 16 px Radius, Lavendel-Mint-Verlauf auf Weiß (
 - **Don't** Überschriften in Versalien oder kursiv setzen und keine dritte Schrift einführen.
 - **Don't** Mockup-Dunkel (#2c2c2c) als Seiten- oder Abschnittshintergrund verwenden.
 - **Don't** im Hero ein Portrait statt des Logos zeigen.
-- **Don't** die Schlagworte im Hero endlos kreisen lassen. Sie laufen einmal langsam durch, danach bleibt das Logo ruhig (Rücksicht auf Bewegungsempfindliche).
+- **Don't** im Hero etwas automatisch und endlos bewegen. Die Bewegung folgt dem Scrollen (Rücksicht auf Bewegungsempfindliche).

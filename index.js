@@ -131,61 +131,100 @@ if (mobileMenuToggle && mobileNavigation) {
     }).observe(document.body, { childList: true, subtree: true });
 })();
 
-/* Hero-Logo: Nach dem Einflug (CSS) öffnet sich das X einmal für jedes Schlagwort,
-   langsam und mit langen Pausen. Danach bleibt es ruhig; Hover öffnet es erneut.
-   Solange die Schlagworte laufen, lässt sich die Bewegung anhalten (WCAG 2.2.2). */
+/* Hero „Die Lücke“: Der Hero bleibt stehen, der Leistungsbereich schiebt sich darüber.
+   Wie weit er schon überdeckt ist, steuert alles: Zuerst blendet der Text aus, dann
+   schließen sich die Logo-Hälften, bevor die Überdeckung sie erreicht.
+   Bei reduzierter Bewegung bleibt der offene Zustand (CSS). */
 (function () {
-    var stage = document.querySelector('.hero-visual[data-words]');
-    if (!stage || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var hero = document.querySelector('.hero-gap');
+    var next = document.querySelector('.hero-stack > #focus');
+    if (!hero || !next || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    var words = stage.dataset.words.split('|');
-    var xm = stage.querySelector('.xm');
+    var header = document.querySelector('.site-header');
+    var xm = hero.querySelector('.xm');
     var halfL = xm.querySelector('.xm-l');
     var halfR = xm.querySelector('.xm-r');
-    var word = xm.querySelector('.xm-word');
-    var pauseBtn = stage.querySelector('.xm-pause');
-    var MOVE = 1700, REST = 4500, HOLD = 3200;
-    var paused = false, busy = false, index = 0;
-    var wait = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+    var inner = hero.querySelector('.hero-gap-in');
+    var ticking = false;
+    var clamp = function (v) { return Math.min(1, Math.max(0, v)); };
+    var ease = function (t) { return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2; };
 
-    function setOpen(px) {
-        halfL.style.transform = px ? 'translateX(' + (-px) + 'px)' : '';
-        halfR.style.transform = px ? 'translateX(' + px + 'px)' : '';
+    function update() {
+        ticking = false;
+        var hdr = header ? header.offsetHeight : 0;
+        hero.style.setProperty('--hdr', hdr + 'px');
+        var H = hero.offsetHeight;
+        // 0 = nichts überdeckt, 1 = Überdeckung hat die Mitte des Logos erreicht
+        var covered = (hdr + H) - next.getBoundingClientRect().top;
+        var logoMid = xm.getBoundingClientRect().top + xm.offsetHeight / 2;
+        var p = clamp(covered / Math.max(1, (hdr + H) - logoMid));
+
+        var D = Math.max(0, window.innerWidth / 2 - 28 - xm.offsetWidth / 2);
+        var close = ease(clamp((p - 0.1) / 0.75));
+        var d = (1 - close) * D;
+        halfL.style.transform = 'translateX(' + (-d) + 'px)';
+        halfR.style.transform = 'translateX(' + d + 'px)';
+
+        var fade = clamp(p / 0.35);
+        hero.style.setProperty('--in-o', 1 - fade);
+        hero.style.setProperty('--in-y', (-30 * fade) + 'px');
+        inner.classList.toggle('is-gone', fade >= 1);
+        hero.style.setProperty('--tag-o', clamp(1 - close * 1.5));
     }
 
-    async function show() {
-        busy = true;
-        var gap = Math.round(xm.offsetWidth * 0.64);   // immer gleich weit öffnen
-        word.style.maxWidth = (gap - 36) + 'px';
-        word.textContent = words[index % words.length];
-        setOpen(gap / 2);
-        await wait(MOVE * 0.75);
-        word.classList.add('is-on');
-        await wait(HOLD);
-        word.classList.remove('is-on');
-        await wait(550);
-        setOpen(0);
-        await wait(MOVE);
-        index++;
-        busy = false;
+    function request() {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
     }
 
-    pauseBtn.addEventListener('click', function () {
-        paused = !paused;
-        pauseBtn.textContent = paused ? stage.dataset.play : stage.dataset.pause;
+    window.addEventListener('scroll', request, { passive: true });
+    window.addEventListener('resize', request);
+    update();
+})();
+
+/* Touch-Geräte haben kein Hover. Damit sie die Marken-Momente trotzdem sehen:
+   - Hauptbuttons spielen den X-Effekt einmal, wenn sie zum ersten Mal ganz sichtbar
+     sind, und beim Antippen.
+   - Die Leistungskarte in der Bildschirmmitte zeigt ihren farbigen Chevron. */
+(function () {
+    if (window.matchMedia('(hover: hover)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('js-bx');
+
+    function play(btn, hold) {
+        btn.classList.add('is-x');
+        clearTimeout(btn._xTimer);
+        btn._xTimer = setTimeout(function () { btn.classList.remove('is-x'); }, hold);
+    }
+
+    var seen = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            seen.unobserve(e.target);
+            setTimeout(function () { play(e.target, 2000); }, 500);
+        });
+    }, { threshold: 1, rootMargin: '0px 0px -12% 0px' });
+    document.querySelectorAll('main .button-primary').forEach(function (b) { seen.observe(b); });
+
+    document.addEventListener('pointerdown', function (e) {
+        var btn = e.target.closest && e.target.closest('.button');
+        if (btn) play(btn, 1400);
+    }, { passive: true });
+
+    var near = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { e.target.classList.toggle('is-near', e.isIntersecting); });
+    }, { rootMargin: '-42% 0px -42% 0px' });
+    document.querySelectorAll('#focus .feature-card').forEach(function (c) { near.observe(c); });
+})();
+
+/* Perspektiven: „Ihr Nutzen“ per Klick/Antippen auf- und zuklappen.
+   Auf Geräten mit Hover klappt es zusätzlich beim Überfahren auf (CSS). */
+(function () {
+    document.querySelectorAll('.perspective-toggle').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var card = btn.closest('.perspective');
+            var open = card.classList.toggle('is-open');
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
     });
-
-    (async function () {
-        await wait(3600);                       // Einflug abwarten
-        pauseBtn.classList.remove('is-off');
-        for (var n = 0; n < words.length; n++) {
-            await wait(REST);
-            while (paused) await wait(300);
-            await show();
-        }
-        pauseBtn.classList.add('is-off');   // einmal durch, danach Ruhe
-        if (window.matchMedia('(hover: hover)').matches) {
-            xm.addEventListener('mouseenter', function () { if (!busy) show(); });
-        }
-    })();
 })();

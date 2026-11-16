@@ -456,7 +456,7 @@ p {
 
 .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: center;
     gap: 56px;
     padding-top: 56px;
@@ -669,9 +669,25 @@ h3 {
     border: 1.5px solid var(--color-text);
 }
 
-/* Touch devices have no hover: a press shows the finished state at once */
+/* Touch: kein Hover. index.js setzt .is-x, wenn ein Hauptbutton zum ersten Mal ganz
+   sichtbar wird (einmal, kurz) und beim Antippen. Ohne JS bleibt der Sofort-Zustand. */
+.button.is-x .bx-side {
+    transform: translateX(0);
+    transition-duration: var(--bx-dur);
+}
+
+.button.is-x .bx-chev {
+    opacity: 0;
+    transition: opacity 500ms ease calc(var(--bx-dur) * 0.95);
+}
+
+.button.is-x {
+    color: var(--bx-text);
+    transition: color 300ms ease calc(var(--bx-dur) * 0.4);
+}
+
 @media (hover: none) {
-    .button:active {
+    html:not(.js-bx) .button:active {
         color: var(--bx-text);
         background: linear-gradient(90deg, var(--bx-fill-l) 50%, var(--bx-fill-r) 50%);
     }
@@ -700,20 +716,49 @@ h3 {
 }
 
 
-/* Hero-Logo: Die beiden Logo-Hälften erscheinen auseinander, darunter „Kundenerlebnis“
-   und „Nutzererlebnis“. Dann schieben sie sich zusammen. Danach öffnet sich das X einmal
-   für jedes Schlagwort (index.js), anschließend bleibt es ruhig. Hover öffnet es erneut. */
-.hero-visual {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 420px;
-    --xm-w: min(300px, 60%);
+/* Hero „Die Lücke“: Die Logo-Hälften stehen am Bildschirmrand, Customer Experience
+   links, User Experience rechts. In der offenen Lücke steht die Botschaft, gerahmt wie
+   von Anführungszeichen. Der Hero hat seine normale Höhe und bleibt beim Scrollen
+   stehen; der Leistungsbereich schiebt sich darüber. Währenddessen blendet der Text aus
+   und die Hälften schließen sich zum Logo (index.js). Ohne JS und bei reduzierter
+   Bewegung bleibt der offene Zustand ohne Sticky. */
+.hero-stack {
+    position: relative;
+}
+
+.hero-gap {
+    --hdr: 84px;
+    --xm-w: min(26vw, 42vh, 400px);
+    --gap-d: max(0px, calc(50vw - 28px - var(--xm-w) / 2));
+    position: sticky;
+    top: var(--hdr);
+    z-index: 0;
+    overflow: hidden;
+    padding: clamp(40px, 7vh, 80px) 0 clamp(64px, 10vh, 104px);
+}
+
+/* Der Leistungsbereich ist eine echte Ebene, die sich über den stehenden Hero schiebt:
+   abgerundete obere Ecken und ein weicher Schatten nach oben. Hier fließen die beiden
+   Farben zusammen, oben im Hero stehen sie noch getrennt. */
+.hero-stack > #focus {
+    z-index: 1;
+    border-radius: 24px 24px 0 0;
+    box-shadow:
+        0 -1px 0 rgba(47, 50, 55, 0.06),
+        0 -18px 40px -24px rgba(47, 50, 55, 0.22);
+}
+
+.hero-gap-stage {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.hero-gap-stage > * {
+    grid-area: 1 / 1;
 }
 
 .xm {
-    --xm-move: 1700ms;
     position: relative;
     width: var(--xm-w);
     aspect-ratio: 1657 / 1080;
@@ -722,9 +767,10 @@ h3 {
 .xm-half {
     position: absolute;
     inset: 0;
-    transition: transform var(--xm-move) cubic-bezier(0.45, 0, 0.25, 1);
-    animation: 3200ms cubic-bezier(0.45, 0, 0.25, 1) 250ms backwards;
 }
+
+.hero-gap .xm-l { transform: translateX(calc(-1 * var(--gap-d))); }
+.hero-gap .xm-r { transform: translateX(var(--gap-d)); }
 
 /* Bild so platziert, dass nur das Zeichen sichtbar ist (Rand des PNG abgeschnitten) */
 .xm-half img {
@@ -740,82 +786,103 @@ h3 {
 .xm-l img { clip-path: inset(0 50.34% 0 0); }
 .xm-r img { clip-path: inset(0 0 0 49.66%); }
 
-.xm-l { animation-name: xm-intro-l; }
-.xm-r { animation-name: xm-intro-r; }
-
-@keyframes xm-intro-l {
-    0%   { opacity: 0; transform: translateX(-22%); }
-    18%  { opacity: 1; transform: translateX(-22%); }
-    58%  { opacity: 1; transform: translateX(-22%); }
-    100% { opacity: 1; transform: none; }
-}
-
-@keyframes xm-intro-r {
-    0%   { opacity: 0; transform: translateX(22%); }
-    18%  { opacity: 1; transform: translateX(22%); }
-    58%  { opacity: 1; transform: translateX(22%); }
-    100% { opacity: 1; transform: none; }
-}
-
 .xm-tag {
     position: absolute;
-    top: calc(100% + 18px);
+    top: calc(100% + 16px);
     translate: -50% 0;
     font-family: var(--font-display);
     font-size: 1.05rem;
     font-weight: 600;
     white-space: nowrap;
-    opacity: 0;
-    animation: xm-tag 3200ms ease 250ms backwards;
+    opacity: var(--tag-o, 1);
 }
 
 .xm-l .xm-tag { left: 22%; color: var(--color-lavender-ink); }
 .xm-r .xm-tag { left: 78%; color: var(--color-green-deep); }
 
-@keyframes xm-tag {
-    0%, 12% { opacity: 0; }
-    24%, 55% { opacity: 1; }
-    72%, 100% { opacity: 0; }
-}
-
-.xm-word {
-    position: absolute;
-    left: 50%;
-    top: 47.6%;
-    translate: -50% -50%;
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 600;
-    line-height: 1.12;
+.hero-gap-in {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(980px, 100%);
+    max-width: calc(2 * var(--gap-d) - 100px);
+    container-type: inline-size;
     text-align: center;
+    opacity: var(--in-o, 1);
+    transform: translateY(var(--in-y, 0px));
+}
+
+.hero-gap-in.is-gone { visibility: hidden; }
+
+.hero-gap h1 {
+    max-width: none;
+    margin-bottom: 22px;
+    /* Zweizeilig: Die Schrift wächst mit der Breite der Lücke (cqi), nicht mit dem Fenster */
+    font-size: clamp(2rem, 5.5cqi, 3.9rem);
+    line-height: 1.06;
     text-wrap: balance;
-    color: var(--color-text);
-    opacity: 0;
-    transition: opacity 500ms ease;
-    pointer-events: none;
 }
 
-.xm-word.is-on {
-    opacity: 1;
-    transition-duration: 700ms;
+.hero-gap .hero-text {
+    max-width: 660px;
+    margin-bottom: 0;
+    font-size: clamp(1.04rem, 1.3vw, 1.2rem);
 }
 
-.xm-pause {
-    margin-top: 64px;
-    padding: 4px 0;
-    border: 0;
-    background: none;
-    font: inherit;
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--color-light-text);
-    cursor: pointer;
+.hero-gap .hero-actions {
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 30px;
 }
 
-.xm-pause:hover { color: var(--color-text); }
+.hero-gap .hero-link {
+    margin-top: 0;
+    align-self: center;
+    font-size: 0.95rem;
+}
 
-/* Platz bleibt reserviert, damit das Logo nicht springt, wenn der Knopf erscheint */
-.xm-pause.is-off { visibility: hidden; }
+
+/* Handy: Die Lücke ist zu schmal für Text. Das Logo steht offen über dem Text,
+   beim Scrollen schließt es sich genauso. */
+@media (max-width: 700px) {
+    .hero-gap {
+        --xm-w: 38vw;
+        padding: 28px 0 56px;
+    }
+
+    .hero-gap-stage {
+        grid-template-rows: auto auto;
+        row-gap: 52px;
+        align-content: start;
+    }
+
+    .hero-gap h1 {
+        font-size: clamp(2rem, 9vw, 2.6rem);
+    }
+
+    .hero-gap-stage > .xm { grid-area: 1 / 1; }
+    .hero-gap-stage > .hero-gap-in { grid-area: 2 / 1; }
+
+    .hero-gap-in {
+        max-width: none;
+        padding: 0 20px;
+    }
+
+    .hero-gap .hero-actions {
+        flex-direction: column;
+        gap: 18px;
+        width: 100%;
+    }
+
+    .xm-tag { font-size: 0.9rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-gap { position: relative; top: 0; }
+}
 
 .section-heading {
     max-width: 1100px;
@@ -832,7 +899,8 @@ h3 {
     max-width: none;
     padding-left: max(20px, calc((100% - var(--max-width)) / 2));
     padding-right: max(20px, calc((100% - var(--max-width)) / 2));
-    background: linear-gradient(135deg, var(--color-lavender-soft), var(--color-mint-soft));
+    /* Waagerecht wie die Logo-Hälften: Lavendel (CX) links, Mint (UX) rechts */
+    background: linear-gradient(90deg, var(--color-lavender-soft), var(--color-mint-soft));
 }
 
 .card-grid {
@@ -1761,41 +1829,118 @@ h1.subpage-h1,
     font-weight: 800;
 }
 
-.approach-card {
-    padding: 20px 0 0;
+/* Perspektiven: drei Module. Die Frage steht in Chevron-Anführungszeichen (» Lavendel,
+   « Mint, wie die Logo-Hälften im Hero). Unten klappt „Ihr Nutzen“ auf: beim Überfahren
+   (Geräte mit Hover) oder per Klick/Antippen auf den Knopf (index.js). */
+.perspective-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+    margin-top: 8px;
+}
+
+.perspective {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 30px 30px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    background: var(--color-surface);
+    transition: background-color 250ms ease, border-color 250ms ease;
+}
+
+.perspective-tag {
+    margin: 0 0 10px;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--color-light-text);
+}
+
+.perspective h3 {
+    margin: 0 0 18px;
+    font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+    line-height: 1.12;
+}
+
+.perspective > p:not(.perspective-tag) {
+    margin: 0;
+    color: var(--color-muted);
+}
+
+.q-nw { white-space: nowrap; }
+
+.q-l,
+.q-r {
+    display: inline-block;
+    width: auto;
+    height: 0.72em;
+    vertical-align: -0.02em;
+}
+
+.q-l { margin-right: 0.22em; fill: var(--color-lavender); }
+.q-r { margin-left: 0.22em; fill: var(--color-mint); }
+
+.perspective-toggle {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 6px;
+    margin-top: 18px;
+    padding: 0;
     border: 0;
-    border-top: 2px solid var(--color-text);
-    border-radius: 0;
     background: none;
-    box-shadow: none;
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 750;
+    color: var(--color-lavender-ink);
+    cursor: pointer;
 }
 
-.approach-card:hover {
-    transform: none;
-    box-shadow: none;
+.perspective-toggle svg {
+    width: 0.6em;
+    height: 1em;
+    fill: currentColor;
+    transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.approach-card {
-    position: relative;
+.perspective-benefit {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 450ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.approach-card h3 {
-    padding-right: 52px;
+.perspective-benefit > div {
+    overflow: hidden;
 }
 
-.approach-card-icon {
-    position: absolute;
-    top: 18px;
-    right: 0;
-    width: 36px;
-    height: auto;
-    pointer-events: none;
+.perspective-benefit p {
+    margin: 12px 0 0;
+    padding-top: 12px;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text);
 }
 
-.approach-card h3,
-.approach-card p {
-    position: relative;
-    z-index: 1;
+.perspective.is-open .perspective-benefit { grid-template-rows: 1fr; }
+.perspective.is-open .perspective-toggle svg { transform: rotate(90deg); }
+.perspective.is-open { background: #ffffff; }
+
+@media (hover: hover) {
+    .perspective:hover .perspective-benefit { grid-template-rows: 1fr; }
+    .perspective:hover .perspective-toggle svg { transform: rotate(90deg); }
+    .perspective:hover { background: #ffffff; }
+}
+
+@media (max-width: 860px) {
+    .perspective-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .perspective,
+    .perspective-benefit,
+    .perspective-toggle svg { transition: none; }
 }
 
 /* Service cards: the whole card is the link. On hover the chevron watermark
@@ -1837,12 +1982,12 @@ h1.subpage-h1,
     transition: opacity 450ms ease, transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-#focus .feature-card:is(:hover, :has(.feature-card-title-link:focus-visible)) {
+#focus .feature-card:is(:hover, .is-near, :has(.feature-card-title-link:focus-visible)) {
     border-color: color-mix(in srgb, var(--chev) 55%, transparent);
     background-color: var(--card-tint);
 }
 
-#focus .feature-card:is(:hover, :has(.feature-card-title-link:focus-visible))::after {
+#focus .feature-card:is(:hover, .is-near, :has(.feature-card-title-link:focus-visible))::after {
     opacity: 0.7;
     transform: none;
 }
@@ -2251,20 +2396,12 @@ a.contact-person:hover .contact-person-arrow {
         gap: 48px;
     }
 
-    .hero-visual {
-        min-height: 340px;
-    }
-
     .three-columns {
         grid-template-columns: 1fr;
     }
 
     .two-columns {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .approach-card {
-        padding-right: 30px;
     }
 
     .contact-content {
@@ -2516,20 +2653,6 @@ a.contact-person:hover .contact-person-arrow {
         width: 100%;
     }
 
-    .hero-visual {
-        min-height: 0;
-        padding-bottom: 8px;
-        --xm-w: 200px;
-    }
-
-    .xm-word {
-        font-size: 1.08rem;
-    }
-
-    .xm-pause {
-        margin-top: 56px;
-    }
-
     .contact-content {
         grid-template-columns: 1fr;
         gap: 28px;
@@ -2634,10 +2757,7 @@ a.contact-person:hover .contact-person-arrow {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-content,
-    .xm-half,
-    .xm-tag { animation: none; }
-    .xm-half { transition: none; }
+    .hero-content { animation: none; }
 }
 
 /* =====================================================================

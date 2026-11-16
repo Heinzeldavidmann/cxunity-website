@@ -98,25 +98,21 @@
 
     <main id="top">
         <!-- Hero: headline, intro text, two CTA buttons, logo visual on the right -->
-        <section class="hero section">
-            <div class="hero-content">
-                <h1>Better digital experiences for your customers and your business.</h1>
-                <p class="hero-text">CXUnity brings together three perspectives that rarely meet: what your customers experience, what your users need and what your business wants to achieve. The result is digital solutions that are clear and effective.</p>
-                <p class="hero-text">From strategy to the finished website, you have one dedicated contact throughout.</p>
-
-                <div class="hero-actions">
-                    <a class="button button-primary" href="#contact">Free initial call</a>
-                    <a class="button button-secondary" href="#focus">View services</a>
-                </div>
-            </div>
-
-            <div class="hero-visual" data-words="Clear digital strategy|Tailored websites|Better customer experiences|Real insights from users|One dedicated contact" data-pause="Pause animation" data-play="Resume animation">
+        <div class="hero-stack">
+        <section class="hero-gap" aria-labelledby="hero-title">
+            <div class="hero-gap-stage">
               <div class="xm" aria-hidden="true">
-                <div class="xm-half xm-l"><img src="../assets/logo/CXUnity_logo_rgb.png" alt=""><span class="xm-tag">Customer experience</span></div>
-                <div class="xm-half xm-r"><img src="../assets/logo/CXUnity_logo_rgb.png" alt=""><span class="xm-tag">User experience</span></div>
-                <span class="xm-word"></span>
+                <div class="xm-half xm-l"><img src="../assets/logo/CXUnity_logo_rgb.png" alt=""><span class="xm-tag">Customer Experience</span></div>
+                <div class="xm-half xm-r"><img src="../assets/logo/CXUnity_logo_rgb.png" alt=""><span class="xm-tag">User Experience</span></div>
               </div>
-              <button class="xm-pause is-off" type="button">Pause animation</button>
+              <div class="hero-gap-in">
+                <h1 id="hero-title">Better digital experiences for your customers and your business.</h1>
+                <p class="hero-text">Experience audits, user research and design for digital products and services in mid-sized companies. Grounded in research, delivered from a single source.</p>
+                <div class="hero-actions">
+                  <a class="button button-primary" href="#contact">Free initial call</a>
+                  <a class="feature-card-link hero-link" href="#clients">View projects <svg class="fcl-chev" viewBox="0 0 32 52" aria-hidden="true"><polygon points="0,0 19,0 32,15 32,37 19,52 0,52 24,26" fill="currentColor"/></svg></a>
+                </div>
+              </div>
             </div>
         </section>
 
@@ -167,6 +163,7 @@
                 </article>
             </div>
         </section>
+        </div>
 
         <!-- "Use cases": target audiences, icon left and text always visible -->
         <section id="use-cases" class="section">
@@ -279,41 +276,35 @@
 
         <!-- "Approach": 3 cards explaining the Experience/Business/Implementation perspectives -->
         <section id="approach" class="section">
-            <div class="section-heading reveal">
-                <h2>Good digital solutions rarely come from a single perspective.</h2>
-                <p>
-                    Three questions come first: What do people experience? What does the business need? What should still hold true in two years?
-                </p>
-            </div>
+          <div class="section-heading reveal">
+            <h2>Good digital solutions rarely come from a single perspective.</h2>
+          </div>
 
-            <div class="card-grid three-columns">
-                <article class="card approach-card approach-card-experience reveal reveal-delay-1">
-        <img loading="lazy" decoding="async" class="approach-card-icon" src="../assets/icons/Experience.png" alt="" aria-hidden="true">
-                    <h3>Experience perspective</h3>
-                    <p>
-                        The experience someone has with a digital product determines whether they come back,
-                        recommend it, or leave. CXUnity makes sure that experience is right from the start.
-                    </p>
-                </article>
+          <div class="perspective-grid">
+            <article class="perspective reveal reveal-delay-1">
+              <p class="perspective-tag">Experience perspective</p>
+              <h3><span class="q-nw"><svg class="q-l" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="38,0 410,0 671,315 671,720 372,1080 0,1080 496,514"/></svg>What</span> do people <span class="q-nw">experience?<svg class="q-r" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="261,0 633,0 175,514 671,1080 299,1080 0,720 0,315"/></svg></span></h3>
+              <p>Whether someone comes back, recommends you or leaves is decided by their experience with your digital product. It has to be right from the start.</p>
+              <button class="perspective-toggle" type="button" aria-expanded="false" aria-controls="benefit-1">Your benefit <svg viewBox="0 0 32 52" aria-hidden="true"><polygon points="0,0 19,0 32,15 32,37 19,52 0,52 24,26"/></svg></button>
+              <div class="perspective-benefit" id="benefit-1"><div><p>CXUnity reveals what your customers really experience, through audits, interviews and tests. You get clear priorities instead of gut feeling.</p></div></div>
+            </article>
 
-                <article class="card approach-card approach-card-business reveal reveal-delay-2">
-        <img loading="lazy" decoding="async" class="approach-card-icon" src="../assets/icons/Zielscheibe.png" alt="" aria-hidden="true">
-                    <h3>Business perspective</h3>
-                    <p>
-                        A great user experience and strong business goals are not mutually exclusive. More clarity
-                        for the user often means more trust, better enquiries and more efficient processes for the business.
-                    </p>
-                </article>
+            <article class="perspective reveal reveal-delay-2">
+              <p class="perspective-tag">Business perspective</p>
+              <h3><span class="q-nw"><svg class="q-l" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="38,0 410,0 671,315 671,720 372,1080 0,1080 496,514"/></svg>What</span> does the business <span class="q-nw">need?<svg class="q-r" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="261,0 633,0 175,514 671,1080 299,1080 0,720 0,315"/></svg></span></h3>
+              <p>A great user experience and business goals are not mutually exclusive. More clarity brings more trust, better enquiries and leaner processes.</p>
+              <button class="perspective-toggle" type="button" aria-expanded="false" aria-controls="benefit-2">Your benefit <svg viewBox="0 0 32 52" aria-hidden="true"><polygon points="0,0 19,0 32,15 32,37 19,52 0,52 24,26"/></svg></button>
+              <div class="perspective-benefit" id="benefit-2"><div><p>Every decision is measured against your goals. You invest where it brings enquiries, revenue or time.</p></div></div>
+            </article>
 
-                <article class="card approach-card approach-card-implementation reveal reveal-delay-3">
-        <img loading="lazy" decoding="async" class="approach-card-icon" src="../assets/icons/Touch.png" alt="" aria-hidden="true">
-                    <h3>Future perspective</h3>
-                    <p>
-                        Digital solutions should not only be built for today. What works now must still work
-                        tomorrow, as the business grows, changes or faces new demands.
-                    </p>
-                </article>
-            </div>
+            <article class="perspective reveal reveal-delay-3">
+              <p class="perspective-tag">Future perspective</p>
+              <h3><span class="q-nw"><svg class="q-l" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="38,0 410,0 671,315 671,720 372,1080 0,1080 496,514"/></svg>What</span> should still hold true in five to ten <span class="q-nw">years?<svg class="q-r" viewBox="0 0 671 1080" aria-hidden="true"><polygon points="261,0 633,0 175,514 671,1080 299,1080 0,720 0,315"/></svg></span></h3>
+              <p>What works today must still work when your business grows, changes or faces new demands.</p>
+              <button class="perspective-toggle" type="button" aria-expanded="false" aria-controls="benefit-3">Your benefit <svg viewBox="0 0 32 52" aria-hidden="true"><polygon points="0,0 19,0 32,15 32,37 19,52 0,52 24,26"/></svg></button>
+              <div class="perspective-benefit" id="benefit-3"><div><p>You get solutions that grow with you: cleanly built, well documented and without depending on an agency.</p></div></div>
+            </article>
+          </div>
         </section>
 
         <!-- "Why CXUnity": comparison table vs. website builders/agencies/freelancers -->
