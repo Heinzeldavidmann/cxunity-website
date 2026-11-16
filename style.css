@@ -846,39 +846,78 @@ h3 {
 }
 
 
-/* Handy: Die Lücke ist zu schmal für Text. Das Logo steht offen über dem Text,
-   beim Scrollen schließt es sich genauso. */
-@media (max-width: 700px) {
+/* Schmale Bildschirme: dieselbe Idee wie am Desktop. Die Hälften stehen klein an den
+   Rändern und rahmen den Text wie Anführungszeichen; die Botschaft steht in der Lücke.
+   Dafür wird alles kompakter: kleinere Hälften, kleinere Schrift, Beschriftungen ab
+   700 px ausgeblendet. index.js rechnet mit demselben Randabstand (12 px). */
+@media (max-width: 900px) {
     .hero-gap {
-        --xm-w: 38vw;
-        padding: 28px 0 56px;
+        --xm-w: clamp(92px, 24vw, 190px);
+        --gap-d: max(0px, calc(50vw - 12px - var(--xm-w) / 2));
+        padding: 32px 0 48px;
     }
 
-    .hero-gap-stage {
-        grid-template-rows: auto auto;
-        row-gap: 52px;
-        align-content: start;
+    .hero-gap-in {
+        max-width: calc(2 * var(--gap-d) - 28px);
     }
 
     .hero-gap h1 {
-        font-size: clamp(2rem, 9vw, 2.6rem);
+        margin-bottom: 14px;
+        font-size: clamp(1.35rem, 9.4cqi, 2.4rem);
     }
 
-    .hero-gap-stage > .xm { grid-area: 1 / 1; }
-    .hero-gap-stage > .hero-gap-in { grid-area: 2 / 1; }
+    .hero-gap .button-primary {
+        padding: 0 14px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
 
-    .hero-gap-in {
-        max-width: none;
-        padding: 0 20px;
+    .hero-gap .hero-text {
+        font-size: 0.95rem;
+        line-height: 1.55;
     }
 
     .hero-gap .hero-actions {
         flex-direction: column;
-        gap: 18px;
-        width: 100%;
+        gap: 14px;
+        margin-top: 22px;
     }
 
-    .xm-tag { font-size: 0.9rem; }
+    .xm-tag {
+        top: calc(100% + 10px);
+        font-size: 0.8rem;
+    }
+}
+
+/* Handy: Die Hälften stehen groß und blass hinter dem Text, die Lücke liegt genau unter
+   der Botschaft, der Text hat die volle Breite. Beim Scrollen schließen sie sich und werden
+   kräftig (Deckkraft folgt dem Ausblenden des Textes, --in-o aus index.js). */
+@media (max-width: 700px) {
+    .hero-gap {
+        --xm-w: 88vw;
+        --gap-d: 24vw;
+        padding: 40px 0 56px;
+    }
+
+    .hero-gap .xm {
+        opacity: calc(0.2 + 0.8 * (1 - var(--in-o, 1)));
+    }
+
+    .hero-gap-in {
+        width: 100%;
+        max-width: none;
+        padding: 0 22px;
+    }
+
+    .hero-gap h1 {
+        font-size: clamp(1.8rem, 7.4vw, 2.4rem);
+    }
+
+    .hero-gap .hero-text {
+        font-size: 1rem;
+    }
+
+    .xm-tag { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2469,9 +2508,11 @@ a.contact-person:hover .contact-person-arrow {
 
 .footer-links {
     display: inline-flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 6px 10px;
+    max-width: 100%;
     margin-top: 14px;
     color: var(--color-light-text);
     font-size: 0.88rem;
@@ -2535,7 +2576,7 @@ a.contact-person:hover .contact-person-arrow {
 
 @media (max-width: 700px) {
     :root {
-        --section-spacing: 76px;
+        --section-spacing: 56px;
     }
 
     .two-columns {
@@ -2743,12 +2784,16 @@ a.contact-person:hover .contact-person-arrow {
         line-height: 1.62;
     }
 
-    h1 {
-        font-size: clamp(2.35rem, 11vw, 3.45rem);
+    /* Auf dem Handy waren alle H1 zu groß (bis zu 11vw). Jetzt rund 30 px bei 390 px Breite. */
+    h1,
+    .subpage-intro h1 {
+        font-size: clamp(1.85rem, 7.6vw, 2.4rem);
     }
 
+    /* H2 waren auf dem Handy bis 46 px groß. Jetzt etwa 26 px bei 390 px Breite. */
     h2 {
-        font-size: clamp(1.9rem, 9vw, 2.9rem);
+        font-size: clamp(1.6rem, 6.6vw, 2.1rem);
+        line-height: 1.12;
     }
 
     .hero-text {
@@ -2846,14 +2891,56 @@ a.contact-person:hover .contact-person-arrow {
         scrollbar-width: thin;
     }
 
+    /* Handy: CXUnity-Spalte direkt neben dem Kriterium (statt ganz rechts außerhalb des
+       Bildes), das Kriterium bleibt beim Wischen stehen. Zeilen werden dafür zu Grids. */
     .comparison-table {
-        min-width: 760px;
-        font-size: 0.88rem;
+        display: block;
+        width: max-content;
+        min-width: 0;
+        font-size: 0.86rem;
+    }
+
+    .comparison-table thead,
+    .comparison-table tbody {
+        display: block;
+    }
+
+    .comparison-table tr {
+        display: grid;
+        grid-template-columns: 148px 112px 104px 112px 100px;
     }
 
     .comparison-table th,
     .comparison-table td {
-        padding: 15px 14px;
+        display: flex;
+        align-items: center;
+        padding: 14px 12px;
+    }
+
+    .comparison-table th:not(:first-child),
+    .comparison-table td:not(:first-child) {
+        justify-content: center;
+    }
+
+    .comparison-table tbody th {
+        width: auto;
+    }
+
+    .comparison-table tr > :first-child {
+        order: -2;
+        position: sticky;
+        left: 0;
+        z-index: 1;
+        background: #ffffff;
+        box-shadow: 1px 0 0 rgba(47, 50, 55, 0.08);
+    }
+
+    .comparison-table thead tr > :first-child {
+        background: #f7f3fb;
+    }
+
+    .comparison-table tr > :last-child {
+        order: -1;
     }
 }
 
@@ -3926,4 +4013,12 @@ a.contact-person:hover .contact-person-arrow {
     .projects-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Einheitliche Pfeilsprache: überall der Logo-Chevron (gefüllt, flache Spitze).
+   Externe Links bekommen denselben Chevron, um 45° nach oben gedreht. */
+svg.chev {
+    flex-shrink: 0;
+    fill: currentColor;
+    vertical-align: -0.1em;
 }

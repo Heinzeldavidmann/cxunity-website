@@ -159,7 +159,14 @@ if (mobileMenuToggle && mobileNavigation) {
         var logoMid = xm.getBoundingClientRect().top + xm.offsetHeight / 2;
         var p = clamp(covered / Math.max(1, (hdr + H) - logoMid));
 
-        var D = Math.max(0, window.innerWidth / 2 - 28 - xm.offsetWidth / 2);
+        // Hälften am Bildschirmrand; Tablet näher am Rand; Handy hinter dem Text (wie im CSS).
+        var D;
+        if (window.matchMedia('(max-width: 700px)').matches) {
+            D = window.innerWidth * 0.24;            // Handy: Hälften blass hinter dem Text (wie im CSS)
+        } else {
+            var edge = window.matchMedia('(max-width: 900px)').matches ? 12 : 28;
+            D = Math.max(0, window.innerWidth / 2 - edge - xm.offsetWidth / 2);
+        }
         var close = ease(clamp((p - 0.1) / 0.75));
         var d = (1 - close) * D;
         halfL.style.transform = 'translateX(' + (-d) + 'px)';

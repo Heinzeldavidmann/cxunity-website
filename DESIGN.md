@@ -163,7 +163,7 @@ Eine fast neutrale Atelierpalette aus Papier und Graphit, in die zwei gedämpfte
 ### Primary
 - **CX-Lavendel** (`cx-lavender`): Die Farbe der Customer Experience, also der Tiefe und der Kundensicht. Sie erscheint in Linien, Markierungen, Wasserzeichen und der Navigations-Unterstreichung. Text setzt sie nie in der Grundstufe, sondern immer in einer der dunkleren Stufen.
 - **Tiefer CX-Lavendel** (`cx-lavender-deep`): Eyebrows und Textlinks in Karten („Zum Projekt“).
-- **CX-Lavendel für Text** (`cx-lavender-ink`): Fokusring, Pfeil-Icons und kleiner Lavendel-Text. Er erreicht mindestens 5:1 auf Weiß und auf Lavendel-Tönungen.
+- **CX-Lavendel für Text** (`cx-lavender-ink`): Fokusring, Chevron-Icons und kleiner Lavendel-Text. Er erreicht mindestens 5:1 auf Weiß und auf Lavendel-Tönungen.
 - **Lavendel-Hauch** (`cx-lavender-soft`): Hover-Fläche im Untermenü und erstes Ende des Atelier-Verlaufs.
 - **Lavendel auf Dunkel** (`cx-lavender-on-dark`): Nur für Text auf den dunklen Mockup-Flächen.
 
@@ -238,7 +238,7 @@ Das System ist flach. Tiefe entsteht durch Haarlinien, Papier auf Atelierfläche
 
 ## Shapes
 
-Weich, aber nicht rund. Es gibt eine Radius-Treppe: 6 px für Bedienelemente (Buttons, Sprachumschalter, Nummern-Kacheln), 8 px für kleine Flächen (Menüeinträge, Logo-Felder, Tooltips), 12 px für Karten und FAQ, 16 px für große Bühnen (Kontaktkarte, Zitat). Vollrund (999 px) ist nur für Punkte, Linien-Enden und das runde FAQ-Plus erlaubt.
+Weich, aber nicht rund. Es gibt eine Radius-Treppe: 6 px für Bedienelemente (Buttons, Sprachumschalter, Nummern-Kacheln), 8 px für kleine Flächen (Menüeinträge, Logo-Felder, Tooltips), 12 px für Karten und FAQ, 16 px für große Bühnen (Kontaktkarte, Zitat). Zwei bewusste Ausnahmen für Ebenen, die sich über etwas schieben: 24 px an den oberen Ecken des Leistungsbereichs, 14 px am Nutzen-Blatt der Perspektiven. Vollrund (999 px) ist nur für Punkte, Linien-Enden und den runden FAQ-Knopf erlaubt.
 
 Rahmen sind immer 1 px Haarlinie. Die Ausnahme sind die Vorgehen-Karten: Sie haben gar keinen Rahmen, nur eine 2 px Graphit-Linie oben, wie ein Registerreiter.
 
@@ -254,6 +254,7 @@ Klar und satt, ohne Effekte.
 - **Secondary:** Im Ruhezustand weiß mit 1,5 px Graphit-Rahmen und Graphit-Schrift. Beim Hover links helle Lavendel-, rechts helle Mint-Tönung, die Schrift bleibt Graphit.
 - **Focus:** 2 px Ring in CX-Lavendel für Text mit 3 px Abstand. Das gilt einheitlich für alle bedienbaren Elemente.
 - **Textlinks:** CX-Lavendel für Text, 750. Statt eines Pfeils steht die linke Hälfte des Logo-X als kleiner gefüllter Chevron (0,68 × 1,1 em). Beim Hover wird die Schrift Graphit und der Chevron rückt 3 px nach rechts. Mehr nicht.
+- **Pfeilsprache:** Es gibt nur ein Pfeilzeichen, den gefüllten Logo-Chevron (`svg.chev`). Er steht in Textlinks, Buttons, Untermenü, Kontaktkarte und Hinweisen. Externe Links bekommen denselben Chevron um 45° nach oben gedreht. Keine Strich-Pfeile, keine Unicode-Pfeile (→, ↗).
 
 ### Cards / Containers
 - **Corner Style:** 12 px, große Bühnen 16 px.
@@ -264,7 +265,7 @@ Klar und satt, ohne Effekte.
 
 ### Hero „Die Lücke“
 
-Die beiden Logo-Hälften stehen am Bildschirmrand, links „Customer Experience“ (Lavendel-Tinte), rechts „User Experience“ (Tiefgrün). Die Fachbegriffe bleiben auch auf Deutsch englisch, weil „Erlebnis“ nur die Hälfte von Experience trifft (erleben und erfahren). In der offenen Lücke steht die Botschaft, von den Chevrons gerahmt wie von Anführungszeichen: Headline, ein Satz, ein Hauptbutton und ein leiser Link. Der Hero hat seine natürliche Höhe (kein Leerraum für Scroll-Strecken) und bleibt beim Scrollen stehen; der Leistungsbereich schiebt sich darüber. Je weiter er überdeckt, desto mehr blendet der Text aus und desto weiter schließen sich die Hälften zum Logo. Nichts bewegt sich von allein. Ohne JS und bei reduzierter Bewegung bleibt der offene Zustand ohne Sticky. Auf dem Handy steht das offene Logo über dem Text.
+Die beiden Logo-Hälften stehen am Bildschirmrand, links „Customer Experience“ (Lavendel-Tinte), rechts „User Experience“ (Tiefgrün). Die Fachbegriffe bleiben auch auf Deutsch englisch, weil „Erlebnis“ nur die Hälfte von Experience trifft (erleben und erfahren). In der offenen Lücke steht die Botschaft, von den Chevrons gerahmt wie von Anführungszeichen: Headline, ein Satz, ein Hauptbutton und ein leiser Link. Der Hero hat seine natürliche Höhe (kein Leerraum für Scroll-Strecken) und bleibt beim Scrollen stehen; der Leistungsbereich schiebt sich darüber. Je weiter er überdeckt, desto mehr blendet der Text aus und desto weiter schließen sich die Hälften zum Logo. Nichts bewegt sich von allein. Ohne JS und bei reduzierter Bewegung bleibt der offene Zustand ohne Sticky. Auf dem Handy (bis 700 px) stehen die Hälften groß und blass hinter dem Text, die Lücke liegt unter der Botschaft; beim Scrollen schließen sie sich und werden kräftig. Die Beschriftungen entfallen dort. Auf dem Tablet stehen die Hälften näher am Rand.
 
 ### Touch-Momente
 
@@ -291,7 +292,7 @@ Drei gleichwertige weiße Module (feine Kante, 12 px Radius), ohne Icons. Oben e
 
 ### FAQ
 - Weiße Karte mit 12 px Radius, mindestens 76 px hoch, Frage in Graphit mit 850.
-- Rechts sitzt ein rundes Plus (38 px) auf Lavendel-Tönung. Geöffnet dreht es sich, wird zum Minus und bekommt den Lavendel-Mint-Verlauf.
+- Rechts sitzt ein runder Knopf (38 px) auf Lavendel-Tönung mit dem Lavendel-Chevron, der nach rechts zeigt. Geöffnet gleitet der Mint-Chevron dazu, beide treffen sich zum X des Logos (zugleich Schließen-Zeichen), der Knopf bekommt den Lavendel-Mint-Verlauf.
 
 ### Comparison Table
 - Haarfeiner Container mit 12 px Radius. Der Kopf hat einen Lavendel-Hauch und Versalien-Labels.
